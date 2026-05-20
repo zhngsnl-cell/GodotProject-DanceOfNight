@@ -34,3 +34,4 @@ func _process(delta: float) -> void:
 			i.global_position += loop_speed * normalized_move_direction * delta
 			if i.global_position.x <= distance_x:
 				i.global_position -= normalized_move_direction * loop_speed * loop_time
+				#reset_physics_interpolation()

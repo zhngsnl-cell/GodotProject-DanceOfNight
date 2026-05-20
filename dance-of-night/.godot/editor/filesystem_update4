@@ -1,1 +1,15 @@
 res://Scene/UI/UIEntrance.tscn
+res://Script/UI/UIEntrance.gd
+res://Script/Background/Background.gd
+res://Scene/Level/Background.tscn
+res://Scene/Level/Main.tscn
+res://Scene/Character/Animation.tscn
+res://Scene/Character/Character.tscn
+res://Scene/Character/Knife.tscn
+res://Script/Character/Character.gd
+res://Scene/Character/Knife.gd
+res://Scene/Level/LoopLine.tscn
+res://Script/Global/LoopLine.gd
+res://Script/Global/LoopLineReverse.gd
+res://Script/Level/Main.gd
+res://Script/Character/Knife.gd

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://gnj53r0gboqg"]
 
 [ext_resource type="Texture2D" uid="uid://b4ipknairo2s5" path="res://Asset/Image/Character/Knife.png" id="1_m6oyp"]
+[ext_resource type="Script" uid="uid://bfo84i7jwh65l" path="res://Script/Character/Knife.gd" id="1_n2hwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2hwh"]
 size = Vector2(15, 9)
 
 [node name="Knife" type="Area2D" unique_id=875111787]
+script = ExtResource("1_n2hwh")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1661879113]
 texture = ExtResource("1_m6oyp")

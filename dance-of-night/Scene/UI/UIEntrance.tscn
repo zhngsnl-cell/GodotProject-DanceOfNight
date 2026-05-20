@@ -32,14 +32,16 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1717640567]
+[node name="ButtonStart" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1717640567]
 layout_mode = 2
 text = "START"
 
-[node name="Button2" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=541525297]
+[node name="ButtonOption" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=541525297]
 layout_mode = 2
 text = "OPTIONS"
 
-[node name="Button3" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=554718090]
+[node name="ButtonQuit" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=554718090]
 layout_mode = 2
 text = "QUIT"
+
+[connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]

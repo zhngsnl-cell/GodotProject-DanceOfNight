@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bj5fgyi578beh"]
 
-[ext_resource type="Script" uid="uid://bkpspvsicsv8a" path="res://Script/Background/Background.gd" id="1_8i8my"]
 [ext_resource type="Texture2D" uid="uid://dq57ccqvk31gg" path="res://Asset/Image/Background/Background.png" id="2_88n10"]
 [ext_resource type="PackedScene" uid="uid://dmuhjdhkui5e0" path="res://Scene/Level/LoopLine.tscn" id="3_88n10"]
 [ext_resource type="PackedScene" uid="uid://dxwpbqkrciq2b" path="res://Scene/Level/LoopLineReverse.tscn" id="4_aerlm"]
 
 [node name="Background" type="Node2D" unique_id=2110206342]
-script = ExtResource("1_8i8my")
 
 [node name="Base" type="Sprite2D" parent="." unique_id=167270620]
 position = Vector2(240, 135)

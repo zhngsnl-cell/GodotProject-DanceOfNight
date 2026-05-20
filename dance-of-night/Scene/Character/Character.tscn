@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bvdnegwcebkly"]
 
-[ext_resource type="Texture2D" uid="uid://cuyo8f4ltfgxl" path="res://Asset/Image/Character/DanceOfNights.png" id="1_58y2i"]
+[ext_resource type="Texture2D" uid="uid://cuyo8f4ltfgxl" path="res://Asset/Image/Character/DanceOfNights.png" id="1_g5gb5"]
+[ext_resource type="Script" uid="uid://c21w7ff2cjvp0" path="res://Script/Character/Character.gd" id="2_64ur6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kctk"]
-atlas = ExtResource("1_58y2i")
+atlas = ExtResource("1_g5gb5")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j803l"]
-atlas = ExtResource("1_58y2i")
+atlas = ExtResource("1_g5gb5")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l48g2"]
@@ -24,7 +25,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Animation" type="AnimatedSprite2D" unique_id=1093300610]
+[node name="Character" type="AnimatedSprite2D" unique_id=1093300610]
 sprite_frames = SubResource("SpriteFrames_l48g2")
 animation = &"Dance"
-frame_progress = 0.1507421
+frame_progress = 0.25319314
+script = ExtResource("2_64ur6")
