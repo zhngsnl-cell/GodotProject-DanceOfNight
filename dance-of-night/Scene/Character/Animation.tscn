@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bvdnegwcebkly"]
+
+[ext_resource type="Texture2D" uid="uid://cuyo8f4ltfgxl" path="res://Asset/Image/Character/DanceOfNights.png" id="1_58y2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kctk"]
+atlas = ExtResource("1_58y2i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j803l"]
+atlas = ExtResource("1_58y2i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l48g2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kctk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j803l")
+}],
+"loop": true,
+"name": &"Dance",
+"speed": 8.0
+}]
+
+[node name="Animation" type="AnimatedSprite2D" unique_id=1093300610]
+sprite_frames = SubResource("SpriteFrames_l48g2")
+animation = &"Dance"
+frame_progress = 0.1507421

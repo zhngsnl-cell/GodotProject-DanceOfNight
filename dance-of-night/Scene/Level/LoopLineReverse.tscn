@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dxwpbqkrciq2b"]
+
+[ext_resource type="Script" uid="uid://t31sf0ssv7lf" path="res://Script/Global/LoopLineReverse.gd" id="1_2h1xm"]
+[ext_resource type="Texture2D" uid="uid://dlr6mn6n3o333" path="res://Asset/Image/Background/BackgroundComponent1.png" id="2_0ferl"]
+
+[node name="LoopLineReverse" type="Node2D" unique_id=2090003720]
+script = ExtResource("1_2h1xm")
+acting = true
+amount = 4
+loop_speed = 50.0
+loop_time = 10.0
+move_direction = Vector2(-1, -1)
+spawn_position = Vector2(60, 135)
+texture = ExtResource("2_0ferl")
+metadata/_custom_type_script = "uid://t31sf0ssv7lf"

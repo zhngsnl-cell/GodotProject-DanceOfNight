@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dmuhjdhkui5e0"]
+
+[ext_resource type="Script" uid="uid://dg14wbotedobt" path="res://Script/Global/LoopLine.gd" id="1_3vtn8"]
+[ext_resource type="Texture2D" uid="uid://dlr6mn6n3o333" path="res://Asset/Image/Background/BackgroundComponent1.png" id="2_tcfyf"]
+
+[node name="LoopLine" type="Node2D" unique_id=70596041]
+script = ExtResource("1_3vtn8")
+acting = true
+amount = 4
+loop_speed = 50.0
+loop_time = 10.0
+move_direction = Vector2(1, 1)
+spawn_position = Vector2(240, 135)
+texture = ExtResource("2_tcfyf")
+metadata/_custom_type_script = "uid://dg14wbotedobt"

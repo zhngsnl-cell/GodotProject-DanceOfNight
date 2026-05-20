@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ypnv8lpdrhxt"]
+
+[ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="1_dwno0"]
+[ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="2_dn0tq"]
+
+[node name="UIEntrance" type="CanvasLayer" unique_id=595462003]
+
+[node name="Background" parent="." unique_id=2110206342 instance=ExtResource("1_dwno0")]
+
+[node name="Control" type="Control" parent="." unique_id=1107027465]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_dn0tq")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=774290028]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 175
+theme_override_constants/margin_top = 125
+theme_override_constants/margin_right = 175
+theme_override_constants/margin_bottom = 75
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1751194309]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer" unique_id=185395051]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1717640567]
+layout_mode = 2
+text = "START"
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=541525297]
+layout_mode = 2
+text = "OPTIONS"
+
+[node name="Button3" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=554718090]
+layout_mode = 2
+text = "QUIT"
