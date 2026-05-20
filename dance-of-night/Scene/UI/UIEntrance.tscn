@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://ypnv8lpdrhxt"]
 
+[ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_1143m"]
 [ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="1_dwno0"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="2_dn0tq"]
 
 [node name="UIEntrance" type="CanvasLayer" unique_id=595462003]
+script = ExtResource("1_1143m")
 
 [node name="Background" parent="." unique_id=2110206342 instance=ExtResource("1_dwno0")]
 

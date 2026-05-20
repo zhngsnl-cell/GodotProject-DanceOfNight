@@ -33,6 +33,10 @@ window/size/viewport_height=270
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="DanceOfNight"
+
 [gui]
 
 theme/custom_font="uid://dw5i5uq8422of"
