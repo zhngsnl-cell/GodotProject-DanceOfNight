@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cmcf7626ljwiv"]
+
+[ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="1_is20k"]
+[ext_resource type="Script" uid="uid://dgye2f0f3g1dq" path="res://Script/Level/RhythmTexture.gd" id="2_jby6u"]
+
+[node name="RhythmTexture" type="Sprite2D" unique_id=738244875]
+texture = ExtResource("1_is20k")
+script = ExtResource("2_jby6u")
