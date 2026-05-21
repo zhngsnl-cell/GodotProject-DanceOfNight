@@ -1,3 +1,4 @@
 res://Scene/Level/DetectorExample.tscn
 res://Asset/Resource/TimeLineExample.tres
 res://Script/Global/Detector/Detector.gd
+res://Asset/Text/ThePitchToScale.txt

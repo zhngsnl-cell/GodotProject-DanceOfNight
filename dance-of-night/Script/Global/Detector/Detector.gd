@@ -1,5 +1,15 @@
 class_name Detector extends Node
 
+const pitch_scale:Array[float] = [
+	1.0,
+	1.122,
+	1.259,
+	1.414,
+	1.587,
+	1.781,
+	2.0,
+	2.244
+]
 const pitch_position:Array[Vector2] = [
 	Vector2(135.0,180.0),
 	Vector2(165.0,180.0),
@@ -36,51 +46,70 @@ var delay:float = 0.2
 @export var sound_player:AudioStreamPlayer
 @export var music_score:TimeLine
 
+func calculate_pitch()->void:
+	for i:int in range(8):
+		print(pow(2.0,float(i)/6.0))
+
 func change_pitch_state()->void:
 	if Input.is_action_just_pressed("key_a"):
 		pitch_state[0] = true
+		current_pitch = 0
 	elif Input.is_action_just_released("key_a"):
 		pitch_state[0] = false
 	if Input.is_action_just_pressed("key_s"):
 		pitch_state[1] = true
+		current_pitch = 1
 	elif Input.is_action_just_released("key_s"):
 		pitch_state[1] = false
 	if Input.is_action_just_pressed("key_d"):
 		pitch_state[2] = true
+		current_pitch = 2
 	elif Input.is_action_just_released("key_d"):
 		pitch_state[2] = false
 	if Input.is_action_just_pressed("key_f"):
 		pitch_state[3] = true
+		current_pitch = 3
 	elif Input.is_action_just_released("key_f"):
 		pitch_state[3] = false
 	if Input.is_action_just_pressed("key_j"):
 		pitch_state[4] = true
+		current_pitch = 4
 	elif Input.is_action_just_released("key_j"):
 		pitch_state[4] = false
 	if Input.is_action_just_pressed("key_k"):
 		pitch_state[5] = true
+		current_pitch = 5
 	elif Input.is_action_just_released("key_k"):
 		pitch_state[5] = false
 	if Input.is_action_just_pressed("key_l"):
 		pitch_state[6] = true
+		current_pitch = 6
 	elif Input.is_action_just_released("key_l"):
 		pitch_state[6] = false
 	if Input.is_action_just_pressed("key_semi"):
 		pitch_state[7] = true
+		current_pitch = 7
 	elif Input.is_action_just_released("key_semi"):
 		pitch_state[7] = false
 
+func pressing()->bool:
+	for i:bool in pitch_state:
+		if i == true:
+			return true
+	return false
+
 func play_sound()->void:
-	if Input.is_action_just_pressed("key_a"):
-		sound_player.pitch_scale = 1.0
-		sound_player.play()
-	elif Input.is_action_just_released("key_a"):
+	if pressing():
+		if pitch_state[current_pitch] == true:
+			sound_player.pitch_scale = current_pitch
+		else:
+			#创建动态数组，每次按下一个键就把那个键提到数组最前方，如果松开了键，就按数组从前向后遍历决定谁演奏
+			sound_player.pitch_scale = last_pitch
+		if sound_player.playing == false:
+			sound_player.play()
+	else:
 		sound_player.stop()
-	if Input.is_action_just_pressed("key_s"):
-		sound_player.pitch_scale = 1.5
-		sound_player.play()
-	elif Input.is_action_just_released("key_s"):
-		sound_player.stop()
+	
 
 #放置节拍
 func set_area(pitch:int)->void:
@@ -98,7 +127,7 @@ func load_music_score()->void:
 		length_container.append(i.length)
 
 func _ready() -> void:
-	
+	#calculate_pitch()
 	load_music_score()
 	#播放音乐
 	music_player.play()
