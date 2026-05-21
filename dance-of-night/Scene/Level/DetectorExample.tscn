@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bltdowi76j8ix"]
+
+[ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
+[ext_resource type="AudioStream" uid="uid://b2vw4nqk3agpk" path="res://Asset/Sound/Music/Piano Instrumental 1.mp3" id="2_j38rl"]
+[ext_resource type="Resource" uid="uid://ig7adxxgiq0u" path="res://Asset/Resource/TimeLineExample.tres" id="2_oworl"]
+[ext_resource type="AudioStream" uid="uid://b3nfuddxtobt2" path="res://Asset/Sound/Sample/Flute4.mp3" id="4_j0kt8"]
+
+[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("music_player", "sound_player")]
+script = ExtResource("1_16iqs")
+music_player = NodePath("MusicPlayer")
+sound_player = NodePath("SoundPlayer")
+music_score = ExtResource("2_oworl")
+metadata/_custom_type_script = "uid://bdwf4djn1yve5"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=426975006]
+stream = ExtResource("2_j38rl")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=798902434]
+stream = ExtResource("4_j0kt8")
+max_polyphony = 8
+parameters/looping = true

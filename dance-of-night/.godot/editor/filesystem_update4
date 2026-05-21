@@ -1,9 +1,3 @@
-res://Scene/Level/Main.tscn
-res://Script/Global/Lyric.gd
-res://Script/Global/TimeLine.gd
-res://Scene/Character/Knife.tscn
-res://Script/Global/Detector/Detector.gd
-res://Script/Global/Detector/Rhythm.gd
-res://Scene/Level/RhythmTexture.tscn
+res://Scene/Level/DetectorExample.tscn
 res://Asset/Resource/TimeLineExample.tres
-res://Script/Level/RhythmTexture.gd
+res://Script/Global/Detector/Detector.gd

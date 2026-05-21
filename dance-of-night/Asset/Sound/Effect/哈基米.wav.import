@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cl6rjuwov5jl8"
-path="res://.godot/imported/哈基米.wav-65158e3c5e7d1349d5549c5eb46a886e.sample"
+path="res://.godot/imported/哈基米.wav-d775cc96136827e555363d383d2cb8a7.sample"
 
 [deps]
 
-source_file="res://Asset/Sound/哈基米.wav"
-dest_files=["res://.godot/imported/哈基米.wav-65158e3c5e7d1349d5549c5eb46a886e.sample"]
+source_file="res://Asset/Sound/Effect/哈基米.wav"
+dest_files=["res://.godot/imported/哈基米.wav-d775cc96136827e555363d383d2cb8a7.sample"]
 
 [params]
 

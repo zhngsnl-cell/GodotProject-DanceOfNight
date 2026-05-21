@@ -1,5 +1,8 @@
+SynthPlayer
+AudioSynthPlayer
+AudioStreamPlayer
+Detector
 Sprite2D
 Marker2D
 TimeLine
-SynthPlayer
 Node2D
