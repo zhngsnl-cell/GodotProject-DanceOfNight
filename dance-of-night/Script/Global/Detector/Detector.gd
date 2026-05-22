@@ -22,12 +22,15 @@ const pitch_position:Array[Vector2] = [
 	Vector2(345.0,200.0),
 ]
 
+var rhythm_entering:bool = false
+
 var playing_pitch:int
 var current_pitch:int = 0
 var last_pitch:int = 0
-
-var beat_index:int = 0
-var beat_amount:int = 0
+var music_score_pitch:int
+var rhythm_line_index:int = 0
+var rhythm_line_amount:int = 0
+var line_texture_index:int = 0
 var pitch_state:Array[bool] = [
 	false,
 	false,
@@ -52,12 +55,15 @@ var time_container:Array[float]
 var pitch_container:Array[int]
 var length_container:Array[float]
 
-var delay:float = 0.2
+var delay:float = 2.0
 
+@export var rhythm_container:Node2D
+@export var timer:Timer
 @export var music_player:AudioStreamPlayer
 @export var sound_player:AudioStreamPlayer
-@export var LineWhole:Sprite2D
-@export var Outline:Sprite2D
+@export var line_whole:Sprite2D
+@export var outline:Sprite2D
+@export var wave_effect:Sprite2D
 @export var music_score:TimeLine
 
 func push_to_front(the_pitch:int,the_pitch_rank:Array[int])->void:
@@ -124,6 +130,16 @@ func pressing()->bool:
 			return true
 	return false
 
+#检测音高是否正确
+func in_beat()->bool:
+	if pressing():
+		if playing_pitch == music_score_pitch and rhythm_entering:
+			return true
+		else:
+			return false
+	else:
+		return false
+
 func play_sound()->void:
 	if pressing():
 		if pitch_state[current_pitch] == true:
@@ -140,31 +156,50 @@ func play_sound()->void:
 			sound_player.play()
 	else:
 		sound_player.stop()
-	
 
 func play_animation()->void:
 	if pressing():
-		Outline.visible = true
-		Outline.global_position = pitch_position[playing_pitch]
+		outline.visible = true
+		outline.global_position = pitch_position[playing_pitch]
 	else:
-		Outline.visible = false
+		outline.visible = false
+
+func play_animation_wave()->void:
+	if in_beat():
+		wave_effect.visible = true
+		wave_effect.global_position.x = pitch_position[playing_pitch].x
+	else:
+		wave_effect.visible = false
+
+#更新当前音高
+func read_music_score()->void:
+	var current_time:float = music_player.get_playback_position()
+	if rhythm_line_index < rhythm_line_amount:
+		if current_time >= time_container.get(rhythm_line_index) and rhythm_entering == false:
+			music_score_pitch = pitch_container.get(rhythm_line_index)
+			rhythm_entering = true
+			timer.wait_time = length_container[rhythm_line_index]/100.0
+			rhythm_line_index += 1
+			print(rhythm_line_index)
+			timer.start()
 
 func set_line(pitch:int,length:float)->void:
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
 	var line:Sprite2D = line_scene.instantiate() as Sprite2D
-	add_child(line)
+	rhythm_container.add_child(line)
 	line.scale.y = length
 	line.global_position.x = pitch_position[pitch].x
 	line.global_position.y = -length/2.0
 
 func load_music_score()->void:
-	beat_amount = music_score.timeline.size()
+	rhythm_line_amount = music_score.timeline.size()
 	for i:Rhythm in music_score.timeline:
 		time_container.append(i.time)
 		pitch_container.append(i.pitch)
 		length_container.append(i.length)
 
 func _ready() -> void:
+	timer.timeout.connect(_on_time_out)
 	#calculate_pitch()
 	load_music_score()
 	music_player.play()
@@ -173,12 +208,18 @@ func _process(_delta: float) -> void:
 	change_pitch_state()
 	play_sound()
 	play_animation()
+	
+	read_music_score()
+	play_animation_wave()
+	
 	if Input.is_action_just_pressed("esc"):
 		get_tree().quit()
-	if Input.is_action_just_pressed("debug"):
-		print(pitch_state[0])
-	if beat_index < beat_amount:
+	
+	if line_texture_index < rhythm_line_amount:
 		var current_time:float = music_player.get_playback_position()
-		if current_time >= time_container.get(beat_index) - delay:
-			set_line(pitch_container.get(beat_index),length_container.get(beat_index))
-			beat_index += 1
+		if current_time >= time_container.get(line_texture_index) - delay:
+			set_line(pitch_container.get(line_texture_index),length_container.get(line_texture_index))
+			line_texture_index += 1
+
+func _on_time_out()->void:
+	rhythm_entering = false

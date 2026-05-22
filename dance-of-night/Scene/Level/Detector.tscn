@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bltdowi76j8ix"]
+
+[ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
+[ext_resource type="AudioStream" uid="uid://b2vw4nqk3agpk" path="res://Asset/Sound/Music/Piano Instrumental 1.mp3" id="2_j38rl"]
+[ext_resource type="Resource" uid="uid://ig7adxxgiq0u" path="res://Asset/Resource/TimeLineExample.tres" id="2_oworl"]
+[ext_resource type="AudioStream" uid="uid://6cjx0kw1a4rg" path="res://Asset/Sound/Sample/FluteOne.mp3" id="4_j0kt8"]
+[ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
+[ext_resource type="Texture2D" uid="uid://bbifngwikxk7i" path="res://Asset/Image/RhythmTexture/LineOutline.png" id="6_4yd3u"]
+[ext_resource type="Shader" uid="uid://7je44ues116b" path="res://Script/Shader/Wave.gdshader" id="7_db77h"]
+[ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_db77h"]
+shader = ExtResource("7_db77h")
+shader_parameter/top_color = Vector4(0, 0.6, 0.9, 1)
+shader_parameter/bottom_color = Vector4(0, 0.15, 0.4, 0)
+shader_parameter/wave_amplitude = 0.12
+shader_parameter/wave_frequency = 4.0
+shader_parameter/wave_speed = 1.2
+shader_parameter/wave2_amplitude = 0.04
+shader_parameter/wave2_frequency = 8.7
+shader_parameter/wave2_speed = -1.8
+
+[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect")]
+script = ExtResource("1_16iqs")
+rhythm_container = NodePath("RhythmContainer")
+timer = NodePath("Timer")
+music_player = NodePath("MusicPlayer")
+sound_player = NodePath("SoundPlayer")
+line_whole = NodePath("LineWhole")
+outline = NodePath("Outline")
+wave_effect = NodePath("WaveEffect")
+music_score = ExtResource("2_oworl")
+metadata/_custom_type_script = "uid://bdwf4djn1yve5"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=426975006]
+stream = ExtResource("2_j38rl")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=798902434]
+stream = ExtResource("4_j0kt8")
+parameters/looping = true
+
+[node name="LineWhole" type="Sprite2D" parent="." unique_id=1723072701]
+position = Vector2(240, 200)
+texture = ExtResource("5_njpq8")
+
+[node name="RhythmContainer" type="Node2D" parent="." unique_id=566370764]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=120048461]
+clip_contents = true
+offset_left = 120.0
+offset_top = 201.0
+offset_right = 360.0
+offset_bottom = 281.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=742955000]
+size = Vector2i(240, 80)
+
+[node name="WaveEffect" type="Sprite2D" parent="." unique_id=1849616945]
+material = SubResource("ShaderMaterial_db77h")
+position = Vector2(135, 216)
+texture = ExtResource("7_ye5oa")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=49713976]
+position = Vector2(135, 200)
+texture = ExtResource("6_4yd3u")
+
+[node name="Timer" type="Timer" parent="." unique_id=1265792322]
+one_shot = true

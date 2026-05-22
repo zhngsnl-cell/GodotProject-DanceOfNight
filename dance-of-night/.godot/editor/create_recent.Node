@@ -1,6 +1,9 @@
-Camera2D
-Sprite2D
 Node2D
+SubViewport
+SubViewportContainer
+Timer
+Sprite2D
+Camera2D
 SynthPlayer
 AudioSynthPlayer
 AudioStreamPlayer
