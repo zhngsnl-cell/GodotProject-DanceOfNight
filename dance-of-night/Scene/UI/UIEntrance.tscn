@@ -44,4 +44,5 @@ text = "OPTIONS"
 layout_mode = 2
 text = "QUIT"
 
+[connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
 [connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+func go_to_main_scene()->void:
+	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,3 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_button_quit_button_up() -> void:
 	get_tree().quit()
+
+
+func _on_button_start_button_up() -> void:
+	call_deferred("go_to_main_scene")
