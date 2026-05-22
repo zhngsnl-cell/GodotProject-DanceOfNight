@@ -1,3 +1,6 @@
 res://Scene/Level/DetectorExample.tscn
 res://Asset/Resource/TimeLineExample.tres
 res://Script/Global/Detector/Detector.gd
+res://Scene/Character/Knife.tscn
+res://Scene/Level/LineFallen.tscn
+res://Script/Level/LineFallen.gd

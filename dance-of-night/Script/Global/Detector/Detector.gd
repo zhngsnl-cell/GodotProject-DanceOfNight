@@ -1,5 +1,6 @@
 class_name Detector extends Node
 
+const line_position:Vector2 = Vector2(240.0,200.0)
 const pitch_scale:Array[float] = [
 	1.0,
 	1.122,
@@ -148,11 +149,13 @@ func play_animation()->void:
 	else:
 		Outline.visible = false
 
-func set_area(pitch:int)->void:
-	var rhythm_texture_scene:PackedScene = preload("res://Scene/Level/RhythmTexture.tscn")
-	var rhythm_texture:Sprite2D = rhythm_texture_scene.instantiate() as Sprite2D
-	add_child(rhythm_texture)
-	rhythm_texture.global_position = pitch_position[pitch]
+func set_line(pitch:int,length:float)->void:
+	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
+	var line:Sprite2D = line_scene.instantiate() as Sprite2D
+	add_child(line)
+	line.scale.y = length
+	line.global_position.x = pitch_position[pitch].x
+	line.global_position.y = -length/2.0
 
 func load_music_score()->void:
 	beat_amount = music_score.timeline.size()
@@ -177,5 +180,5 @@ func _process(_delta: float) -> void:
 	if beat_index < beat_amount:
 		var current_time:float = music_player.get_playback_position()
 		if current_time >= time_container.get(beat_index) - delay:
-			set_area(pitch_container.get(beat_index))
+			set_line(pitch_container.get(beat_index),length_container.get(beat_index))
 			beat_index += 1

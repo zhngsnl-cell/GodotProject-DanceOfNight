@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxdn6lfqqckh3"]
+
+[ext_resource type="Texture2D" uid="uid://bn7wfs3c4u2t7" path="res://Asset/Image/RhythmTexture/LineFallen.png" id="1_a8h5j"]
+[ext_resource type="Script" uid="uid://bqnepdgvw0bot" path="res://Script/Level/LineFallen.gd" id="2_sw4lg"]
+
+[node name="LineFallen" type="Sprite2D" unique_id=1811735102]
+texture = ExtResource("1_a8h5j")
+script = ExtResource("2_sw4lg")

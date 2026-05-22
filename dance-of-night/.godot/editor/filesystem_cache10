@@ -48,8 +48,9 @@ ButtonPress.png::CompressedTexture2D::6636923423791089739::1779274560::177927479
 DanceOfNights.png::CompressedTexture2D::6227072583283339561::1779274560::1779274795::1::::<><><>0<>0<>f32ebe21b43db6bfcff39c95e0e15e6d<>res://.godot/imported/DanceOfNights.png-96fe5ed2d381bfaae9ff2b737630eb36.ctex::
 Icon.png::CompressedTexture2D::6802469255875133756::1779274560::1779274795::1::::<><><>0<>0<>d35e17e2a02b84dc79ff8fb2bdc35913<>res://.godot/imported/Icon.png-65c662a997314bce9166685732439b35.ctex::
 Knife.png::CompressedTexture2D::4439341467249399406::1779274560::1779274795::1::::<><><>0<>0<>7be5047a791f115d7e4c767607a14b5f<>res://.godot/imported/Knife.png-94383bad22205ea748094b7d1db4e216.ctex::
-::res://Asset/Image/RhythmTexture/::1779418892
+::res://Asset/Image/RhythmTexture/::1779420936
 Line.png::CompressedTexture2D::3763757823937294245::1779418892::1779418893::1::::<><><>0<>0<>c27b4028d1b65d215adf30eb72efb0e2<>res://.godot/imported/Line.png-313bf2c40374aa66f974b262eb64e076.ctex::
+LineFallen.png::CompressedTexture2D::3366281430733090370::1779420936::1779420937::1::::<><><>0<>0<>783f95e678e3ac3fd64d3fd31e2323e5<>res://.godot/imported/LineFallen.png-0d829669d3b715a76647f75a465fc11d.ctex::
 LineOutline.png::CompressedTexture2D::2473451699151769032::1779418892::1779418893::1::::<><><>0<>0<>23f1603fd43d0c603e0213a26ff8fd5f<>res://.godot/imported/LineOutline.png-bbdd40a8096c14f74441826f307101c1.ctex::
 LineWhole.png::CompressedTexture2D::5015568262641784001::1779418892::1779418893::1::::<><><>0<>0<>71c9b647e2fe2a275c50e0f7fa33f056<>res://.godot/imported/LineWhole.png-c8448f34d0be35577bf871264ce0b033.ctex::
 RhythmTexture.png::CompressedTexture2D::1615516109557823946::1779345428::1779345429::1::::<><><>0<>0<>a59bcd5acbb8a543ba040132583ed2f8<>res://.godot/imported/RhythmTexture.png-9bacdbc359df666feb3e5dbf69e898a7.ctex::
@@ -72,16 +73,15 @@ m5x7.ttf::FontFile::8765888330220176661::1779274560::1779274795::1::::<><><>0<>0
 PanelStyle.tres::StyleBoxFlat::7806896030229440237::1779274560::0::1::::<><><>0<>0<><>::
 Theme.tres::Theme::8620110573028935083::1779274560::0::1::::<><><>0<>0<><>::uid://b1ed7x2gkresu::::res://Asset/Theme/ButtonStyleHover.tres<>uid://cnu7bpk0501ya::::res://Asset/Theme/ButtonStyleDefault.tres<>uid://yqvxmfajsdfh::::res://Asset/Theme/ButtonStylePress.tres<>uid://djhyo4gqlshxd::::res://Asset/Theme/PanelStyle.tres
 ::res://Scene/::1779274560
-::res://Scene/Character/::1779345017
+::res://Scene/Character/::1779420156
 Character.tscn::PackedScene::3867376346657609534::1779276148::0::1::::<><><>0<>0<><>::uid://cuyo8f4ltfgxl::::res://Asset/Image/Character/DanceOfNights.png<>uid://c21w7ff2cjvp0::::res://Script/Character/Character.gd
-Knife.tscn::PackedScene::448571497442455206::1779345017::0::1::::<><><>0<>0<><>::uid://b4ipknairo2s5::::res://Asset/Image/Character/Knife.png<>uid://bfo84i7jwh65l::::res://Script/Character/Knife.gd
-::res://Scene/Level/::1779418249
+Knife.tscn::PackedScene::448571497442455206::1779420156::0::1::::<><><>0<>0<><>::uid://b4ipknairo2s5::::res://Asset/Image/Character/Knife.png<>uid://bfo84i7jwh65l::::res://Script/Character/Knife.gd
+::res://Scene/Level/::1779420212
 Background.tscn::PackedScene::3080367183110410075::1779275156::0::1::::<><><>0<>0<><>::uid://dq57ccqvk31gg::::res://Asset/Image/Background/Background.png<>uid://dmuhjdhkui5e0::::res://Scene/Level/LoopLine.tscn<>uid://dxwpbqkrciq2b::::res://Scene/Level/LoopLineReverse.tscn
-DetectorExample.tscn::PackedScene::3197929462499451619::1779418249::0::1::::<><><>0<>0<><>::uid://bdwf4djn1yve5::::res://Script/Global/Detector/Detector.gd<>uid://b2vw4nqk3agpk::::res://Asset/Sound/Music/Piano Instrumental 1.mp3<>uid://ig7adxxgiq0u::::res://Asset/Resource/TimeLineExample.tres<>uid://6cjx0kw1a4rg::::res://Asset/Sound/Sample/FluteOne.mp3
+DetectorExample.tscn::PackedScene::3197929462499451619::1779419930::0::1::::<><><>0<>0<><>::uid://bdwf4djn1yve5::::res://Script/Global/Detector/Detector.gd<>uid://b2vw4nqk3agpk::::res://Asset/Sound/Music/Piano Instrumental 1.mp3<>uid://ig7adxxgiq0u::::res://Asset/Resource/TimeLineExample.tres<>uid://6cjx0kw1a4rg::::res://Asset/Sound/Sample/FluteOne.mp3<>uid://cdptxabh87daf::::res://Asset/Image/RhythmTexture/LineWhole.png<>uid://bbifngwikxk7i::::res://Asset/Image/RhythmTexture/LineOutline.png
 LoopLine.tscn::PackedScene::8043256989776508185::1779276122::0::1::::<><><>0<>0<><>::uid://dg14wbotedobt::::res://Script/Global/LoopLine.gd<>uid://dlr6mn6n3o333::::res://Asset/Image/Background/BackgroundComponent1.png
 LoopLineReverse.tscn::PackedScene::8819935162625820119::1779274560::0::1::::<><><>0<>0<><>::uid://t31sf0ssv7lf::::res://Script/Global/LoopLineReverse.gd<>uid://dlr6mn6n3o333::::res://Asset/Image/Background/BackgroundComponent1.png
 Main.tscn::PackedScene::6178621976812773570::1779343035::0::1::::<><><>0<>0<><>::uid://co0vrcigibvw7::::res://Script/Level/Main.gd<>uid://bvdnegwcebkly::::res://Scene/Character/Character.tscn
-RhythmTexture.tscn::PackedScene::5619598648276650261::1779347862::0::1::::<><><>0<>0<><>::uid://xatkxlbet715::::res://Asset/Image/RhythmTexture/RhythmTexture.png<>uid://dgye2f0f3g1dq::::res://Script/Level/RhythmTexture.gd
 ::res://Scene/UI/::1779275184
 UIEntrance.tscn::PackedScene::1716326487151261461::1779275184::0::1::::<><><>0<>0<><>::uid://borighfvkufet::::res://Script/UI/UIEntrance.gd<>uid://bj5fgyi578beh::::res://Scene/Level/Background.tscn<>uid://du2v7x0uh21b0::::res://Asset/Theme/Theme.tres
 ::res://Script/::1779275791
@@ -92,14 +92,13 @@ Knife.gd::GDScript::2768322109283807803::1779276715::0::1::::<>Area2D<><>0<>0<><
 ::res://Script/Global/::1779343287
 LoopLine.gd::GDScript::7635869089788551333::1779276571::0::1::::LoopLine<>Node2D<><>0<>0<><>::
 LoopLineReverse.gd::GDScript::1393001694418120771::1779276571::0::1::::LoopLineReverse<>Node2D<><>0<>0<><>::
-::res://Script/Global/Detector/::1779418249
-Detector.gd::GDScript::2642759070283250746::1779418249::0::1::::Detector<>Node<><>0<>0<><>::
+::res://Script/Global/Detector/::1779420156
+Detector.gd::GDScript::2642759070283250746::1779420156::0::1::::Detector<>Node<><>0<>0<><>::
 Rhythm.gd::GDScript::543249583920057389::1779345017::0::1::::Rhythm<>Resource<><>0<>0<><>::
 TimeLine.gd::GDScript::8099261683876950099::1779343099::0::1::::TimeLine<>Resource<><>0<>0<><>::
 ::res://Script/Level/::1779348074
 ExampleScene.gd::GDScript::1842579846314338507::1779274560::0::1::::<>Node2D<><>0<>0<><>::
 Main.gd::GDScript::5808400155203132072::1779276697::0::1::::<>Node2D<><>0<>0<><>::
 RhythmTexture.gd::GDScript::7630231564913151790::1779348074::0::1::::<>Sprite2D<><>0<>0<><>::
-::res://Script/UI/::1779342415
+::res://Script/UI/::1779420685
 UIEntrance.gd::GDScript::3404655743505904079::1779275100::0::1::::<>CanvasLayer<><>0<>0<><>::
-哈基米.wav::AudioStreamWAV::4489493046015835396::1779342414::1779342415::1::::<><><>0<>0<>7380f35fb8cf100b1b17910e5a0d6ad5<>res://.godot/imported/哈基米.wav-77e5af85ff737e3fcef0026131810a73.sample::
