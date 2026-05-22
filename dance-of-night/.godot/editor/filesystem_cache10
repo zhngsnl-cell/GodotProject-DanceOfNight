@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1779360517
+::res://::1779415138
 ::res://addons/::1779342302
 ::res://addons/godot_synth/::1779342302
 godot_synth.gdextension::GDExtension::4874563020387380161::1779342302::0::1::::<><><>0<>0<><>::
@@ -8,7 +8,7 @@ README.md::TextFile::-1::1779342302::0::1::::<><><>0<>0<><>::
 synth_plugin.gd::GDScript::3539901264638193138::1779342302::0::1::::<>EditorPlugin<><>0<>1<><>::
 ::res://addons/godot_synth/assets/::1779342303
 icon.png::CompressedTexture2D::3553261287890564359::1779342302::1779342303::1::::<><><>0<>0<>902e4223f84dedb0cf2d70cf5f66d850<>res://.godot/imported/icon.png-25a71a38409b3a3dd784296f281db702.ctex::
-::res://addons/godot_synth/bin/::1779360509
+::res://addons/godot_synth/bin/::1779415131
 ::res://addons/godot_synth/bin/ios.framework/::1779342302
 ::res://addons/godot_synth/bin/macos.framework/::1779342302
 ::res://addons/godot_synth/inspectors/::1779342302
@@ -35,7 +35,7 @@ music_rhythms.gd::GDScript::1179676279033576680::1779342302::0::1::::MusicRhythm
 music_scales.gd::GDScript::5620243997726539421::1779342302::0::1::::MusicScales<>RefCounted<><>0<>0<><>::
 music_theme.gd::GDScript::6860635559333543245::1779342302::0::1::::MusicTheme<>RefCounted<><>0<>0<><>::
 sequencer.gd::GDScript::8670427163823787870::1779342302::0::1::::<>Node<><>0<>0<><>::
-::res://Asset/::1779346450
+::res://Asset/::1779361202
 ::res://Asset/Image/::1779345421
 ::res://Asset/Image/Background/::1779274795
 Background.png::CompressedTexture2D::8346161527998160218::1779274560::1779274795::1::::<><><>0<>0<>254efca85d8fc5c0e9a0f771e8ccff6c<>res://.godot/imported/Background.png-abe0e91a2ba48af3c88e3196d524028f.ctex::
@@ -50,17 +50,17 @@ Icon.png::CompressedTexture2D::6802469255875133756::1779274560::1779274795::1:::
 Knife.png::CompressedTexture2D::4439341467249399406::1779274560::1779274795::1::::<><><>0<>0<>7be5047a791f115d7e4c767607a14b5f<>res://.godot/imported/Knife.png-94383bad22205ea748094b7d1db4e216.ctex::
 ::res://Asset/Image/RhythmTexture/::1779345429
 RhythmTexture.png::CompressedTexture2D::1615516109557823946::1779345428::1779345429::1::::<><><>0<>0<>a59bcd5acbb8a543ba040132583ed2f8<>res://.godot/imported/RhythmTexture.png-9bacdbc359df666feb3e5dbf69e898a7.ctex::
-::res://Asset/Resource/::1779358896
-TimeLineExample.tres::Resource/TimeLine::575840153551063142::1779358896::0::1::::<><><>0<>0<><>::uid://dnnlwlbwjvtj4::::res://Script/Global/Detector/TimeLine.gd<>uid://h0fig6fxh82l::::res://Script/Global/Detector/Rhythm.gd
+::res://Asset/Resource/::1779360609
+TimeLineExample.tres::Resource/TimeLine::575840153551063142::1779360609::0::1::::<><><>0<>0<><>::uid://dnnlwlbwjvtj4::::res://Script/Global/Detector/TimeLine.gd<>uid://h0fig6fxh82l::::res://Script/Global/Detector/Rhythm.gd
 ::res://Asset/Sound/::1779350848
 ::res://Asset/Sound/Effect/::1779348474
 哈基米.wav::AudioStreamWAV::5609963703920634299::1779342437::1779348474::1::::<><><>0<>0<>3bde297669455143742170311b9464b4<>res://.godot/imported/哈基米.wav-d775cc96136827e555363d383d2cb8a7.sample::
 ::res://Asset/Sound/Music/::1779348479
 Piano Instrumental 1.mp3::AudioStreamMP3::4326259664631536544::1779348450::1779348479::1::::<><><>0<>0<>61f7e43e3528072b4cb651c50b393e9f<>res://.godot/imported/Piano Instrumental 1.mp3-fde0d28022e480c93434c5a3d49b5e41.mp3str::
-::res://Asset/Sound/Sample/::1779360587
-Flute4.mp3::AudioStreamMP3::4378884680478136037::1779354919::1779354920::1::::<><><>0<>0<>624fe36c8b5b6fc4cf57326901a46b5c<>res://.godot/imported/Flute4.mp3-5d22a0404433d435e461375fcc56f395.mp3str::
-Flute5.mp3::AudioStreamMP3::8976193630691464278::1779358888::1779358888::1::::<><><>0<>0<>4b3b07bf5487f6d105b9bc6561d93111<>res://.godot/imported/Flute5.mp3-cba16933a4911074bcc6becc8a911f4a.mp3str::
+::res://Asset/Sound/Sample/::1779360596
 FluteOne.mp3::AudioStreamMP3::2180571764047990172::1779360587::1779360588::1::::<><><>0<>0<>11cabdc43b801620c73eb22cd55c39c5<>res://.godot/imported/FluteOne.mp3-0710effb8ffb404781ce60bfe3563436.mp3str::
+::res://Asset/Text/::1779361214
+ThePitchToScale.txt::TextFile::-1::1779361214::0::1::::<><><>0<>0<><>::
 ::res://Asset/Theme/::1779274795
 ButtonStyleDefault.tres::StyleBoxTexture::5728529423799535840::1779274560::0::1::::<><><>0<>0<><>::uid://buxk2vwmmrxb8::::res://Asset/Image/Background/ButtonDefault.png
 ButtonStyleHover.tres::StyleBoxTexture::4219828675714860080::1779274560::0::1::::<><><>0<>0<><>::uid://b0tjt0ss1dadu::::res://Asset/Image/Background/ButtonHover.png
@@ -72,9 +72,9 @@ Theme.tres::Theme::8620110573028935083::1779274560::0::1::::<><><>0<>0<><>::uid:
 ::res://Scene/Character/::1779345017
 Character.tscn::PackedScene::3867376346657609534::1779276148::0::1::::<><><>0<>0<><>::uid://cuyo8f4ltfgxl::::res://Asset/Image/Character/DanceOfNights.png<>uid://c21w7ff2cjvp0::::res://Script/Character/Character.gd
 Knife.tscn::PackedScene::448571497442455206::1779345017::0::1::::<><><>0<>0<><>::uid://b4ipknairo2s5::::res://Asset/Image/Character/Knife.png<>uid://bfo84i7jwh65l::::res://Script/Character/Knife.gd
-::res://Scene/Level/::1779358922
+::res://Scene/Level/::1779363679
 Background.tscn::PackedScene::3080367183110410075::1779275156::0::1::::<><><>0<>0<><>::uid://dq57ccqvk31gg::::res://Asset/Image/Background/Background.png<>uid://dmuhjdhkui5e0::::res://Scene/Level/LoopLine.tscn<>uid://dxwpbqkrciq2b::::res://Scene/Level/LoopLineReverse.tscn
-DetectorExample.tscn::PackedScene::3197929462499451619::1779358922::0::1::::<><><>0<>0<><>::uid://bdwf4djn1yve5::::res://Script/Global/Detector/Detector.gd<>uid://b2vw4nqk3agpk::::res://Asset/Sound/Music/Piano Instrumental 1.mp3<>uid://ig7adxxgiq0u::::res://Asset/Resource/TimeLineExample.tres<>uid://d05euk5nqsjww::::res://Asset/Sound/Sample/Flute5.mp3
+DetectorExample.tscn::PackedScene::3197929462499451619::1779363679::0::1::::<><><>0<>0<><>::uid://bdwf4djn1yve5::::res://Script/Global/Detector/Detector.gd<>uid://b2vw4nqk3agpk::::res://Asset/Sound/Music/Piano Instrumental 1.mp3<>uid://ig7adxxgiq0u::::res://Asset/Resource/TimeLineExample.tres<>uid://6cjx0kw1a4rg::::res://Asset/Sound/Sample/FluteOne.mp3
 LoopLine.tscn::PackedScene::8043256989776508185::1779276122::0::1::::<><><>0<>0<><>::uid://dg14wbotedobt::::res://Script/Global/LoopLine.gd<>uid://dlr6mn6n3o333::::res://Asset/Image/Background/BackgroundComponent1.png
 LoopLineReverse.tscn::PackedScene::8819935162625820119::1779274560::0::1::::<><><>0<>0<><>::uid://t31sf0ssv7lf::::res://Script/Global/LoopLineReverse.gd<>uid://dlr6mn6n3o333::::res://Asset/Image/Background/BackgroundComponent1.png
 Main.tscn::PackedScene::6178621976812773570::1779343035::0::1::::<><><>0<>0<><>::uid://co0vrcigibvw7::::res://Script/Level/Main.gd<>uid://bvdnegwcebkly::::res://Scene/Character/Character.tscn
@@ -89,8 +89,8 @@ Knife.gd::GDScript::2768322109283807803::1779276715::0::1::::<>Area2D<><>0<>0<><
 ::res://Script/Global/::1779343287
 LoopLine.gd::GDScript::7635869089788551333::1779276571::0::1::::LoopLine<>Node2D<><>0<>0<><>::
 LoopLineReverse.gd::GDScript::1393001694418120771::1779276571::0::1::::LoopLineReverse<>Node2D<><>0<>0<><>::
-::res://Script/Global/Detector/::1779355176
-Detector.gd::GDScript::2642759070283250746::1779355176::0::1::::Detector<>Node<><>0<>0<><>::
+::res://Script/Global/Detector/::1779363679
+Detector.gd::GDScript::2642759070283250746::1779363679::0::1::::Detector<>Node<><>0<>0<><>::
 Rhythm.gd::GDScript::543249583920057389::1779345017::0::1::::Rhythm<>Resource<><>0<>0<><>::
 TimeLine.gd::GDScript::8099261683876950099::1779343099::0::1::::TimeLine<>Resource<><>0<>0<><>::
 ::res://Script/Level/::1779348074
