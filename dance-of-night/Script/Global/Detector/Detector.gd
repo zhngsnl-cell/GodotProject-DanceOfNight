@@ -178,9 +178,8 @@ func read_music_score()->void:
 		if current_time >= time_container.get(rhythm_line_index) and rhythm_entering == false:
 			music_score_pitch = pitch_container.get(rhythm_line_index)
 			rhythm_entering = true
-			timer.wait_time = length_container[rhythm_line_index]/100.0
+			timer.wait_time = length_container[rhythm_line_index]
 			rhythm_line_index += 1
-			print(rhythm_line_index)
 			timer.start()
 
 func set_line(pitch:int,length:float)->void:
@@ -198,10 +197,16 @@ func load_music_score()->void:
 		pitch_container.append(i.pitch)
 		length_container.append(i.length)
 
+func load_music_score_debug()->void:
+	for i:int in range(rhythm_line_amount - 1):
+		if (time_container.get(i) + length_container.get(i)) >= time_container.get(i + 1):
+			get_tree().quit(1)
+
 func _ready() -> void:
 	timer.timeout.connect(_on_time_out)
 	#calculate_pitch()
 	load_music_score()
+	load_music_score_debug()
 	music_player.play()
 
 func _process(_delta: float) -> void:
@@ -218,7 +223,7 @@ func _process(_delta: float) -> void:
 	if line_texture_index < rhythm_line_amount:
 		var current_time:float = music_player.get_playback_position()
 		if current_time >= time_container.get(line_texture_index) - delay:
-			set_line(pitch_container.get(line_texture_index),length_container.get(line_texture_index))
+			set_line(pitch_container.get(line_texture_index),length_container.get(line_texture_index) * 100.0)
 			line_texture_index += 1
 
 func _on_time_out()->void:

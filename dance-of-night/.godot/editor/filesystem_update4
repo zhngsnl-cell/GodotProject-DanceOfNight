@@ -6,3 +6,5 @@ res://Script/Shader/Wave.gdshader
 res://Scene/Level/LineFallen.tscn
 res://Scene/Level/Main.tscn
 res://Scene/Level/Detector.tscn
+res://Scene/Level/LineFallenDisappear.gdshader
+res://Script/Level/LineFallen.gd

@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://dxdn6lfqqckh3"]
 
 [ext_resource type="Texture2D" uid="uid://bn7wfs3c4u2t7" path="res://Asset/Image/RhythmTexture/LineFallen.png" id="1_a8h5j"]
+[ext_resource type="Shader" uid="uid://b0opfykqepon8" path="res://Script/Shader/LineFallenDisappear.gdshader" id="1_idwg7"]
 [ext_resource type="Script" uid="uid://bqnepdgvw0bot" path="res://Script/Level/LineFallen.gd" id="2_sw4lg"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jb5x7"]
+shader = ExtResource("1_idwg7")
+shader_parameter/judgment_global_y = 0.0
+
 [node name="LineFallen" type="Sprite2D" unique_id=1811735102]
+material = SubResource("ShaderMaterial_jb5x7")
 texture = ExtResource("1_a8h5j")
 script = ExtResource("2_sw4lg")

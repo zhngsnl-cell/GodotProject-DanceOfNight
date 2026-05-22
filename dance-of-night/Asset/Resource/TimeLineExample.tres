@@ -6,14 +6,14 @@
 [sub_resource type="Resource" id="Resource_ir2kk"]
 script = ExtResource("2_3pxd1")
 time = 2.0
-length = 50.0
+length = 1.0
 metadata/_custom_type_script = "uid://h0fig6fxh82l"
 
 [sub_resource type="Resource" id="Resource_3pxd1"]
 script = ExtResource("2_3pxd1")
 pitch = 1
 time = 4.0
-length = 30.0
+length = 3.0
 metadata/_custom_type_script = "uid://h0fig6fxh82l"
 
 [resource]
