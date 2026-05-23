@@ -10,3 +10,9 @@ script = ExtResource("1_eavsl")
 [node name="Detector" parent="." unique_id=1903170277 instance=ExtResource("3_khcfw")]
 
 [node name="UIPause" parent="." unique_id=1827443169 instance=ExtResource("4_k8pkv")]
+
+[node name="Settlement" type="Control" parent="." unique_id=684868299]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

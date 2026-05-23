@@ -1,10 +1,10 @@
-Label
+Control
 Button
+Label
 VBoxContainer
 PanelContainer
 MarginContainer
 TextureRect
-Control
 CanvasLayer
 Sprite2D
 Node2D

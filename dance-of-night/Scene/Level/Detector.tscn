@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bbifngwikxk7i" path="res://Asset/Image/RhythmTexture/LineOutline.png" id="6_4yd3u"]
 [ext_resource type="Shader" uid="uid://7je44ues116b" path="res://Script/Shader/Wave.gdshader" id="7_db77h"]
 [ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
+[ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="9_jnfry"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_db77h"]
 shader = ExtResource("7_db77h")
@@ -20,7 +21,7 @@ shader_parameter/wave2_amplitude = 0.04
 shader_parameter/wave2_frequency = 8.7
 shader_parameter/wave2_speed = -1.8
 
-[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect", "progress_label")]
+[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect", "progress_label", "button_finish")]
 script = ExtResource("1_16iqs")
 rhythm_container = NodePath("RhythmContainer")
 timer = NodePath("Timer")
@@ -30,6 +31,7 @@ line_whole = NodePath("LineWhole")
 outline = NodePath("Outline")
 wave_effect = NodePath("WaveEffect")
 progress_label = NodePath("ProgressLabel")
+button_finish = NodePath("ButtonFinish")
 music_score = ExtResource("2_oworl")
 metadata/_custom_type_script = "uid://bdwf4djn1yve5"
 
@@ -63,4 +65,22 @@ one_shot = true
 offset_right = 40.0
 offset_bottom = 13.0
 theme_override_font_sizes/font_size = 48
+text = "0%"
 horizontal_alignment = 1
+
+[node name="ButtonFinish" type="Button" parent="." unique_id=629664857]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -38.0
+offset_right = -20.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("9_jnfry")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FINISH"

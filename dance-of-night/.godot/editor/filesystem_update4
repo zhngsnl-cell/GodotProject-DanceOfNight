@@ -10,3 +10,5 @@ res://Script/Global/Detector/Detector.gd
 res://Script/Level/Main.gd
 res://Scene/UI/UIMenu.tscn
 res://Scene/Level/Detector.tscn
+res://Scene/Level/LineFallen.tscn
+res://Script/Level/LineFallen.gd

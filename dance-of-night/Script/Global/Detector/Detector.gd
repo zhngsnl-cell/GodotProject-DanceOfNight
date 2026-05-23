@@ -59,6 +59,7 @@ var pitch_rank:Array[int] = [
 var time_container:Array[float]
 var pitch_container:Array[int]
 var length_container:Array[float]
+var point_array:Array[float]
 
 var delay:float = 2.0
 
@@ -70,12 +71,22 @@ var delay:float = 2.0
 @export var outline:Sprite2D
 @export var wave_effect:Sprite2D
 @export var progress_label:Label
+@export var button_finish:Button
 
 @export var music_score:TimeLine
+
+signal send_final_point(final_point:float)
 
 func push_to_front(the_pitch:int,the_pitch_rank:Array[int])->void:
 	the_pitch_rank.erase(the_pitch)
 	the_pitch_rank.push_front(the_pitch)
+
+func calculate_points()->float:
+	var sum:float = 0.0
+	for i:float in point_array:
+		sum += i
+	var final_point:float = sum/rhythm_line_amount
+	return final_point
 
 func calculate_pitch()->void:
 	for i:int in range(8):
@@ -151,7 +162,7 @@ func calculate_progress(delta:float)->float:
 	if in_beat():
 		completed_time += delta
 	if rhythm_line_index > 0:
-		progress = completed_time / length_container.get(rhythm_line_index - 1)
+		progress = completed_time / length_container[rhythm_line_index - 1]
 	if progress >= 100.0:
 		progress = 100.0
 	return progress
@@ -199,14 +210,16 @@ func play_animation_wave()->void:
 func read_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_line_index < rhythm_line_amount:
-		if current_time >= time_container.get(rhythm_line_index) and rhythm_entering == false:
-			music_score_pitch = pitch_container.get(rhythm_line_index)
+		if current_time >= time_container[rhythm_line_index] and rhythm_entering == false:
+			music_score_pitch = pitch_container[rhythm_line_index]
 			rhythm_entering = true
 			timer.wait_time = length_container[rhythm_line_index]
 			rhythm_line_index += 1
 			timer.start()
 			
 			reset_progress()
+	else:
+		button_finish.visible = true
 
 func set_line(pitch:int,length:float)->void:
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
@@ -225,27 +238,30 @@ func load_music_score()->void:
 
 func load_music_score_debug()->void:
 	for i:int in range(rhythm_line_amount - 1):
-		if (time_container.get(i) + length_container.get(i)) >= time_container.get(i + 1):
+		if (time_container[i] + length_container[i]) >= time_container[i + 1]:
 			get_tree().quit(1)
 
 func _ready() -> void:
+	button_finish.button_down.connect(_on_button_finish_button_up)
 	timer.timeout.connect(_on_time_out)
+	
 	#calculate_pitch()
 	load_music_score()
 	load_music_score_debug()
 	music_player.play()
 	
-	for length:float in length_container:
-		print(length)
+	button_finish.visible = false
 
 func _process(delta: float) -> void:
+	
 	change_pitch_state()
+	
 	play_sound()
 	play_animation()
 	
 	read_music_score()
 	play_animation_wave()
-	
+
 	update_progress(delta)
 	
 	#print(rhythm_line_index)
@@ -253,9 +269,14 @@ func _process(delta: float) -> void:
 	if line_texture_index < rhythm_line_amount:
 		var current_time:float = music_player.get_playback_position()
 		if current_time >= time_container.get(line_texture_index) - delay:
-			set_line(pitch_container.get(line_texture_index),length_container.get(line_texture_index) * 100.0)
+			set_line(pitch_container[line_texture_index],
+			length_container[line_texture_index] * 100.0)
 			line_texture_index += 1
 
 func _on_time_out()->void:
 	#结束进入
 	rhythm_entering = false
+	point_array.append(progress)
+
+func _on_button_finish_button_up()->void:
+	send_final_point.emit(calculate_points())
