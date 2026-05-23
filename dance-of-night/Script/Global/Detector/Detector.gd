@@ -28,9 +28,14 @@ var playing_pitch:int
 var current_pitch:int = 0
 var last_pitch:int = 0
 var music_score_pitch:int
+
 var rhythm_line_index:int = 0
 var rhythm_line_amount:int = 0
 var line_texture_index:int = 0
+
+var completed_time:float = 0.0
+var progress:float = 0.0
+
 var pitch_state:Array[bool] = [
 	false,
 	false,
@@ -64,6 +69,8 @@ var delay:float = 2.0
 @export var line_whole:Sprite2D
 @export var outline:Sprite2D
 @export var wave_effect:Sprite2D
+@export var progress_label:Label
+
 @export var music_score:TimeLine
 
 func push_to_front(the_pitch:int,the_pitch_rank:Array[int])->void:
@@ -140,6 +147,23 @@ func in_beat()->bool:
 	else:
 		return false
 
+func calculate_progress(delta:float)->float:
+	if in_beat():
+		completed_time += delta
+	if rhythm_line_index > 0:
+		progress = completed_time / length_container.get(rhythm_line_index - 1)
+	if progress >= 100.0:
+		progress = 100.0
+	return progress
+
+func update_progress(delta:float)->void:
+	progress_label.text = str(int(floorf(calculate_progress(delta) * 100.0))) + "%"
+
+func reset_progress()->void:
+	#重置单个音符的进度
+	completed_time = 0.0
+	progress = 0.0
+
 func play_sound()->void:
 	if pressing():
 		if pitch_state[current_pitch] == true:
@@ -181,6 +205,8 @@ func read_music_score()->void:
 			timer.wait_time = length_container[rhythm_line_index]
 			rhythm_line_index += 1
 			timer.start()
+			
+			reset_progress()
 
 func set_line(pitch:int,length:float)->void:
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
@@ -208,14 +234,21 @@ func _ready() -> void:
 	load_music_score()
 	load_music_score_debug()
 	music_player.play()
+	
+	for length:float in length_container:
+		print(length)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	change_pitch_state()
 	play_sound()
 	play_animation()
 	
 	read_music_score()
 	play_animation_wave()
+	
+	update_progress(delta)
+	
+	#print(rhythm_line_index)
 	
 	if line_texture_index < rhythm_line_amount:
 		var current_time:float = music_player.get_playback_position()
@@ -224,4 +257,5 @@ func _process(_delta: float) -> void:
 			line_texture_index += 1
 
 func _on_time_out()->void:
+	#结束进入
 	rhythm_entering = false

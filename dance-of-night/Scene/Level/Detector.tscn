@@ -20,7 +20,7 @@ shader_parameter/wave2_amplitude = 0.04
 shader_parameter/wave2_frequency = 8.7
 shader_parameter/wave2_speed = -1.8
 
-[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect")]
+[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect", "progress_label")]
 script = ExtResource("1_16iqs")
 rhythm_container = NodePath("RhythmContainer")
 timer = NodePath("Timer")
@@ -29,6 +29,7 @@ sound_player = NodePath("SoundPlayer")
 line_whole = NodePath("LineWhole")
 outline = NodePath("Outline")
 wave_effect = NodePath("WaveEffect")
+progress_label = NodePath("ProgressLabel")
 music_score = ExtResource("2_oworl")
 metadata/_custom_type_script = "uid://bdwf4djn1yve5"
 
@@ -57,3 +58,9 @@ texture = ExtResource("6_4yd3u")
 
 [node name="Timer" type="Timer" parent="." unique_id=1265792322]
 one_shot = true
+
+[node name="ProgressLabel" type="Label" parent="." unique_id=321767758]
+offset_right = 40.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
