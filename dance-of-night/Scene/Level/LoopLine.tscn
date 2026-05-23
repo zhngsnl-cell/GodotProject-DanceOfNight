@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmuhjdhkui5e0"]
 
-[ext_resource type="Script" uid="uid://dg14wbotedobt" path="res://Script/Global/LoopLine.gd" id="1_3vtn8"]
+[ext_resource type="Script" uid="uid://dg14wbotedobt" path="res://Script/Global/LoopLine/LoopLine.gd" id="1_3vtn8"]
 [ext_resource type="Texture2D" uid="uid://dlr6mn6n3o333" path="res://Asset/Image/Background/BackgroundComponent1.png" id="2_tcfyf"]
 
 [node name="LoopLine" type="Node2D" unique_id=70596041]

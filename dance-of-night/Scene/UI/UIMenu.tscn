@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_i147s"]
 [ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="2_8rk2v"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="3_yvrmp"]
+[ext_resource type="Texture2D" uid="uid://dppoke3ag1c17" path="res://Asset/Image/Background/PanelTexture.png" id="4_8rk2v"]
 
 [node name="UIMenu" type="CanvasLayer" unique_id=595462003]
 script = ExtResource("1_i147s")
@@ -16,7 +17,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("3_yvrmp")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=774290028]
+[node name="Menu" type="MarginContainer" parent="Control" unique_id=774290028]
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -25,27 +26,108 @@ theme_override_constants/margin_top = 125
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 75
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1751194309]
+[node name="PanelContainer" type="PanelContainer" parent="Control/Menu" unique_id=1751194309]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/PanelContainer" unique_id=185395051]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/PanelContainer" unique_id=185395051]
 layout_mode = 2
 alignment = 1
 
-[node name="ButtonStart" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1717640567]
+[node name="ButtonStart" type="Button" parent="Control/Menu/PanelContainer/VBoxContainer" unique_id=1717640567]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "START"
 
-[node name="ButtonOption" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=541525297]
+[node name="ButtonOption" type="Button" parent="Control/Menu/PanelContainer/VBoxContainer" unique_id=541525297]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "OPTIONS"
 
-[node name="ButtonQuit" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=554718090]
+[node name="ButtonQuit" type="Button" parent="Control/Menu/PanelContainer/VBoxContainer" unique_id=554718090]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
-[connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
-[connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]
+[node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 40
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Options" unique_id=738040727]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Options/PanelContainer" unique_id=424358323]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Options/PanelContainer/VBoxContainer" unique_id=1741551465]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer" unique_id=1057448509]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1993434919]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorPickerLine" type="ColorPickerButton" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1717827900]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ColorPickerOutline" type="ColorPickerButton" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1381535020]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ColorPickerRhythm" type="ColorPickerButton" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=665048147]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="ColorPickerWave" type="ColorPickerButton" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=39844154]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=459051106]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.0
+texture = ExtResource("4_8rk2v")
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Options/PanelContainer/VBoxContainer" unique_id=444459266]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Control/Options/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1732399300]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonBack" type="Button" parent="Control/Options/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1134979178]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
+
+[node name="Control2" type="Control" parent="Control/Options/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1401346943]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Control/Options/PanelContainer/VBoxContainer" unique_id=2106438210]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
+[connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonOption" to="." method="_on_button_option_button_up"]
+[connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]
+[connection signal="color_changed" from="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ColorPickerLine" to="." method="_on_color_picker_line_color_changed"]
+[connection signal="color_changed" from="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ColorPickerOutline" to="." method="_on_color_picker_outline_color_changed"]
+[connection signal="color_changed" from="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ColorPickerRhythm" to="." method="_on_color_picker_rhythm_color_changed"]
+[connection signal="color_changed" from="Control/Options/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ColorPickerWave" to="." method="_on_color_picker_wave_color_changed"]
+[connection signal="button_up" from="Control/Options/PanelContainer/VBoxContainer/HBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]

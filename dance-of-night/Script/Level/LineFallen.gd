@@ -3,6 +3,8 @@ extends Sprite2D
 var speed:float = 100.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+#需要设置两个参数
+
 # 获取 Shader 材质
 	var shader_mat:ShaderMaterial = material as ShaderMaterial
 	if shader_mat:

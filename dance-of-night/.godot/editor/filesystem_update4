@@ -15,3 +15,8 @@ res://Script/Level/LineFallen.gd
 res://Asset/Theme/PanelStyle.tres
 res://Asset/Theme/Theme.tres
 res://Asset/Theme/PanelStyleTexture.tres
+res://Script/Global/SaveLoad.gd
+res://Script/Global/SaveAndLoad/ColorData.gd
+res://Script/Global/SaveAndLoad/SaveLoad.gd
+res://Script/Global/SaveAndLoad/ColorDataArray.gd
+res://Script/UI/UIEntrance.gd

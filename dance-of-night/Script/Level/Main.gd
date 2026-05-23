@@ -12,7 +12,6 @@ func _on_send_final_point(final_score:float)->void:
 	settlement.visible = true
 	label_score.text = str(int(floorf(final_score * 100.0))) + "%"
 
-
 func _on_button_retry_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
 
