@@ -22,6 +22,8 @@ const pitch_position:Array[Vector2] = [
 	Vector2(345.0,200.0),
 ]
 
+var game_is_end:bool = false
+
 var rhythm_entering:bool = false
 
 var playing_pitch:int
@@ -219,7 +221,7 @@ func read_music_score()->void:
 			
 			reset_progress()
 	else:
-		button_finish.visible = true
+		game_is_end = true
 
 func set_line(pitch:int,length:float)->void:
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
@@ -277,6 +279,9 @@ func _on_time_out()->void:
 	#结束进入
 	rhythm_entering = false
 	point_array.append(progress)
+	if game_is_end:
+		button_finish.visible = true
 
 func _on_button_finish_button_up()->void:
+	button_finish.visible = false
 	send_final_point.emit(calculate_points())

@@ -1,9 +1,10 @@
-Control
 Button
+HBoxContainer
 Label
 VBoxContainer
 PanelContainer
 MarginContainer
+Control
 TextureRect
 CanvasLayer
 Sprite2D
@@ -11,4 +12,3 @@ Node2D
 SubViewport
 SubViewportContainer
 Timer
-Camera2D

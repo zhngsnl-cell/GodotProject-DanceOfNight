@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://b1ed7x2gkresu" path="res://Asset/Theme/ButtonStyleHover.tres" id="1_vhas4"]
 [ext_resource type="StyleBox" uid="uid://cnu7bpk0501ya" path="res://Asset/Theme/ButtonStyleDefault.tres" id="2_11xvy"]
 [ext_resource type="StyleBox" uid="uid://yqvxmfajsdfh" path="res://Asset/Theme/ButtonStylePress.tres" id="3_tdydf"]
-[ext_resource type="StyleBox" uid="uid://djhyo4gqlshxd" path="res://Asset/Theme/PanelStyle.tres" id="4_11xvy"]
+[ext_resource type="StyleBox" uid="uid://dae45snvej0y4" path="res://Asset/Theme/PanelStyleTexture.tres" id="4_11xvy"]
 
 [resource]
 Button/styles/hover = ExtResource("1_vhas4")

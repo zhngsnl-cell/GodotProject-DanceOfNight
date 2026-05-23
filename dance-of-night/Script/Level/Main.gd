@@ -1,10 +1,21 @@
 extends Node2D
 
 @onready var detector: Detector = $Detector
+@onready var settlement: Control = $Settlement
+@onready var label_score: Label = $Settlement/MarginContainer/PanelContainer/VBoxContainer/LabelScore
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	detector.send_final_point.connect(_on_send_final_point)
 
 func _on_send_final_point(final_score:float)->void:
-	print(final_score)
+	settlement.visible = true
+	label_score.text = str(int(floorf(final_score * 100.0))) + "%"
+
+
+func _on_button_retry_button_up() -> void:
+	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
+
+
+func _on_button_menu_button_up() -> void:
+	get_tree().change_scene_to_file("res://Scene/UI/UIMenu.tscn")

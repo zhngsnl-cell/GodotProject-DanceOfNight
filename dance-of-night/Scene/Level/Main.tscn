@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://co0vrcigibvw7" path="res://Script/Level/Main.gd" id="1_eavsl"]
 [ext_resource type="PackedScene" uid="uid://bltdowi76j8ix" path="res://Scene/Level/Detector.tscn" id="3_khcfw"]
+[ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="4_f40xe"]
 [ext_resource type="PackedScene" uid="uid://vxkafiotin6u" path="res://Scene/UI/UIPause.tscn" id="4_k8pkv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k8pkv"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1029811965]
 script = ExtResource("1_eavsl")
@@ -12,7 +17,56 @@ script = ExtResource("1_eavsl")
 [node name="UIPause" parent="." unique_id=1827443169 instance=ExtResource("4_k8pkv")]
 
 [node name="Settlement" type="Control" parent="." unique_id=684868299]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("4_f40xe")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settlement" unique_id=1943781814]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 75
+
+[node name="PanelContainer" type="PanelContainer" parent="Settlement/MarginContainer" unique_id=1581260637]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settlement/MarginContainer/PanelContainer" unique_id=147687467]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="Settlement/MarginContainer/PanelContainer/VBoxContainer" unique_id=2083801756]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "FINAL SCORE"
+horizontal_alignment = 1
+
+[node name="LabelScore" type="Label" parent="Settlement/MarginContainer/PanelContainer/VBoxContainer" unique_id=1952291022]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_k8pkv")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settlement/MarginContainer/PanelContainer/VBoxContainer" unique_id=1163094029]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ButtonRetry" type="Button" parent="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=2038538220]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RETRY"
+
+[node name="ButtonMenu" type="Button" parent="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=449946473]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MENU"
+
+[connection signal="button_up" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonRetry" to="." method="_on_button_retry_button_up"]
+[connection signal="button_up" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonMenu" to="." method="_on_button_menu_button_up"]
