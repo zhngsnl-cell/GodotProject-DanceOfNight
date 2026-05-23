@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://co0vrcigibvw7" path="res://Script/Level/Main.gd" id="1_eavsl"]
 [ext_resource type="PackedScene" uid="uid://bltdowi76j8ix" path="res://Scene/Level/Detector.tscn" id="3_khcfw"]
+[ext_resource type="PackedScene" uid="uid://vxkafiotin6u" path="res://Scene/UI/UIPause.tscn" id="4_k8pkv"]
 
 [node name="Main" type="Node2D" unique_id=1029811965]
 script = ExtResource("1_eavsl")
 
 [node name="Detector" parent="." unique_id=1903170277 instance=ExtResource("3_khcfw")]
+
+[node name="UIPause" parent="." unique_id=1827443169 instance=ExtResource("4_k8pkv")]

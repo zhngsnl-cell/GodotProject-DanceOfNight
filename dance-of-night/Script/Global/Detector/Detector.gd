@@ -217,9 +217,6 @@ func _process(_delta: float) -> void:
 	read_music_score()
 	play_animation_wave()
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
-	
 	if line_texture_index < rhythm_line_amount:
 		var current_time:float = music_player.get_playback_position()
 		if current_time >= time_container.get(line_texture_index) - delay:

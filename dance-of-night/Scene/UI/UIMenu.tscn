@@ -1,28 +1,28 @@
 [gd_scene format=3 uid="uid://ypnv8lpdrhxt"]
 
-[ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_1143m"]
-[ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="1_dwno0"]
-[ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="2_dn0tq"]
+[ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_i147s"]
+[ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="2_8rk2v"]
+[ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="3_yvrmp"]
 
-[node name="UIEntrance" type="CanvasLayer" unique_id=595462003]
-script = ExtResource("1_1143m")
+[node name="UIMenu" type="CanvasLayer" unique_id=595462003]
+script = ExtResource("1_i147s")
 
-[node name="Background" parent="." unique_id=2110206342 instance=ExtResource("1_dwno0")]
+[node name="Background" parent="." unique_id=2110206342 instance=ExtResource("2_8rk2v")]
 
 [node name="Control" type="Control" parent="." unique_id=1107027465]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = ExtResource("2_dn0tq")
+theme = ExtResource("3_yvrmp")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=774290028]
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
-theme_override_constants/margin_left = 175
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 125
-theme_override_constants/margin_right = 175
+theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 75
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer" unique_id=1751194309]
@@ -34,14 +34,17 @@ alignment = 1
 
 [node name="ButtonStart" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1717640567]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "START"
 
 [node name="ButtonOption" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=541525297]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "OPTIONS"
 
 [node name="ButtonQuit" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=554718090]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
 [connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
