@@ -72,6 +72,7 @@ var delay:float = 2.0
 @export var line_whole:Sprite2D
 @export var outline:Sprite2D
 @export var wave_effect:Sprite2D
+@export var wave_effect_shader_material:ShaderMaterial
 @export var progress_label:Label
 @export var button_finish:Button
 

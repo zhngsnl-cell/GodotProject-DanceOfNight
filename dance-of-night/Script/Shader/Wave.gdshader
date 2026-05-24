@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 // 渐变颜色
 uniform vec4 top_color = vec4(0.0, 0.6, 0.9, 1.0);
-uniform vec4 bottom_color = vec4(0.0, 0.15, 0.4, 0.0);
+uniform vec4 bottom_color = vec4(0.0, 0.0, 0.0, 0.0);
 
 // 波动参数
 uniform float wave_amplitude : hint_range(0.0, 0.5) = 0.12;

@@ -21,8 +21,9 @@ func save_color()->void:
 	color_data_array.color_data_array.append(save_single_color(color_outline))
 	color_data_array.color_data_array.append(save_single_color(color_rhythm))
 	color_data_array.color_data_array.append(save_single_color(color_wave))
-	ResourceSaver.save(color_data_array,SAVE_PATH)
-	print(color_data_array.color_data_array[0])
+	var err:Error = ResourceSaver.save(color_data_array,SAVE_PATH)
+	if err != OK:
+		printerr("fail to save!")
 	print("color saved!")
 
 func load_single_color(color_to_load:ColorData)->Color:

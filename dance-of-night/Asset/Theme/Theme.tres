@@ -4,9 +4,31 @@
 [ext_resource type="StyleBox" uid="uid://cnu7bpk0501ya" path="res://Asset/Theme/ButtonStyleDefault.tres" id="2_11xvy"]
 [ext_resource type="StyleBox" uid="uid://yqvxmfajsdfh" path="res://Asset/Theme/ButtonStylePress.tres" id="3_tdydf"]
 [ext_resource type="StyleBox" uid="uid://dae45snvej0y4" path="res://Asset/Theme/PanelStyleTexture.tres" id="4_11xvy"]
+[ext_resource type="Texture2D" uid="uid://deu4xjf63v3mn" path="res://Asset/Image/ThemeTexture/SliderHolder.png" id="4_5675c"]
+[ext_resource type="StyleBox" uid="uid://pub5gtyd14kh" path="res://Asset/Theme/Slider2.tres" id="5_ui54w"]
+[ext_resource type="StyleBox" uid="uid://r8g83j21bp6" path="res://Asset/Theme/Slider3.tres" id="6_iu0bf"]
+[ext_resource type="StyleBox" uid="uid://411gh4yl68rw" path="res://Asset/Theme/Slider.tres" id="7_q0ixr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0rc4"]
+atlas = ExtResource("4_5675c")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ki7"]
+atlas = ExtResource("4_5675c")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvawy"]
+atlas = ExtResource("4_5675c")
+region = Rect2(0, 0, 4, 4)
 
 [resource]
 Button/styles/hover = ExtResource("1_vhas4")
 Button/styles/normal = ExtResource("2_11xvy")
 Button/styles/pressed = ExtResource("3_tdydf")
+HSlider/icons/grabber = SubResource("AtlasTexture_f0rc4")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_w1ki7")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_dvawy")
+HSlider/styles/grabber_area = ExtResource("5_ui54w")
+HSlider/styles/grabber_area_highlight = ExtResource("6_iu0bf")
+HSlider/styles/slider = ExtResource("7_q0ixr")
 PanelContainer/styles/panel = ExtResource("4_11xvy")

@@ -3,23 +3,12 @@
 [ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
 [ext_resource type="AudioStream" uid="uid://b2vw4nqk3agpk" path="res://Asset/Sound/Music/Piano Instrumental 1.mp3" id="2_j38rl"]
 [ext_resource type="Resource" uid="uid://ig7adxxgiq0u" path="res://Asset/Resource/TimeLineExample.tres" id="2_oworl"]
+[ext_resource type="Material" uid="uid://du2bcq3ma38x1" path="res://Asset/Material/WaveEffect.tres" id="2_pshfh"]
 [ext_resource type="AudioStream" uid="uid://6cjx0kw1a4rg" path="res://Asset/Sound/Sample/FluteOne.mp3" id="4_j0kt8"]
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
 [ext_resource type="Texture2D" uid="uid://bbifngwikxk7i" path="res://Asset/Image/RhythmTexture/LineOutline.png" id="6_4yd3u"]
-[ext_resource type="Shader" uid="uid://7je44ues116b" path="res://Script/Shader/Wave.gdshader" id="7_db77h"]
 [ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="9_jnfry"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_db77h"]
-shader = ExtResource("7_db77h")
-shader_parameter/top_color = Vector4(0, 0.6, 0.9, 1)
-shader_parameter/bottom_color = Vector4(0, 0.15, 0.4, 0)
-shader_parameter/wave_amplitude = 0.12
-shader_parameter/wave_frequency = 4.0
-shader_parameter/wave_speed = 1.2
-shader_parameter/wave2_amplitude = 0.04
-shader_parameter/wave2_frequency = 8.7
-shader_parameter/wave2_speed = -1.8
 
 [node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "outline", "wave_effect", "progress_label", "button_finish")]
 script = ExtResource("1_16iqs")
@@ -30,6 +19,7 @@ sound_player = NodePath("SoundPlayer")
 line_whole = NodePath("LineWhole")
 outline = NodePath("Outline")
 wave_effect = NodePath("WaveEffect")
+wave_effect_shader_material = ExtResource("2_pshfh")
 progress_label = NodePath("ProgressLabel")
 button_finish = NodePath("ButtonFinish")
 music_score = ExtResource("2_oworl")
@@ -50,7 +40,7 @@ texture = ExtResource("5_njpq8")
 [node name="RhythmContainer" type="Node2D" parent="." unique_id=566370764]
 
 [node name="WaveEffect" type="Sprite2D" parent="." unique_id=1849616945]
-material = SubResource("ShaderMaterial_db77h")
+material = ExtResource("2_pshfh")
 position = Vector2(135, 216)
 texture = ExtResource("7_ye5oa")
 

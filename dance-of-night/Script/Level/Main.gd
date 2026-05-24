@@ -4,8 +4,14 @@ extends Node2D
 @onready var settlement: Control = $Settlement
 @onready var label_score: Label = $Settlement/MarginContainer/PanelContainer/VBoxContainer/LabelScore
 
+func set_color()->void:
+	detector.line_whole.self_modulate = SaveLoad.color_line
+	detector.outline.self_modulate = SaveLoad.color_outline
+	detector.wave_effect_shader_material.set_shader_parameter("top_color",SaveLoad.color_wave)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_color()
 	detector.send_final_point.connect(_on_send_final_point)
 
 func _on_send_final_point(final_score:float)->void:

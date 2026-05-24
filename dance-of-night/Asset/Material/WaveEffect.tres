@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://du2bcq3ma38x1"]
+
+[ext_resource type="Shader" uid="uid://7je44ues116b" path="res://Script/Shader/Wave.gdshader" id="1_tyf4g"]
+
+[resource]
+shader = ExtResource("1_tyf4g")
+shader_parameter/top_color = Vector4(0, 0.6, 0.9, 1)
+shader_parameter/bottom_color = Vector4(1, 1, 1, 0)
+shader_parameter/wave_amplitude = 0.12
+shader_parameter/wave_frequency = 4.0
+shader_parameter/wave_speed = 1.2
+shader_parameter/wave2_amplitude = 0.04
+shader_parameter/wave2_frequency = 8.7
+shader_parameter/wave2_speed = -1.8
