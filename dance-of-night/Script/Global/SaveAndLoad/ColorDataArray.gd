@@ -1,3 +1,3 @@
 class_name ColorDataArray extends Resource
 
-var color_data_array:Array[ColorData] = []
+@export var color_data_array:Array[ColorData] = []
