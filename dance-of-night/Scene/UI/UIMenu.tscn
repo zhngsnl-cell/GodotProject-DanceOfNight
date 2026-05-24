@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_i147s"]
 [ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="2_8rk2v"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="3_yvrmp"]
+[ext_resource type="Theme" uid="uid://bhd82pd4a0uhg" path="res://Asset/Theme/SliderThemeR.tres" id="4_soewb"]
 [ext_resource type="Texture2D" uid="uid://cs4am3lg0lj8i" path="res://Asset/Image/Background/WhiteBlock32.png" id="4_yvrmp"]
+[ext_resource type="Theme" uid="uid://dybn65fv1kod5" path="res://Asset/Theme/SliderThemeG.tres" id="5_0nfns"]
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_67yi2"]
+[ext_resource type="Theme" uid="uid://c0vl0nxpmls6y" path="res://Asset/Theme/SliderThemeB.tres" id="6_p6vux"]
 [ext_resource type="Texture2D" uid="uid://c3pesgnp4e5d1" path="res://Asset/Image/RhythmTexture/LineFallen1.png" id="6_rqeg1"]
+[ext_resource type="Theme" uid="uid://qatqe8qmp0nx" path="res://Asset/Theme/SliderThemeA.tres" id="7_lkn1i"]
 [ext_resource type="Texture2D" uid="uid://c6ljhbm0smaae" path="res://Asset/Image/RhythmTexture/Wave.png" id="7_rqeg1"]
 [ext_resource type="Texture2D" uid="uid://bbifngwikxk7i" path="res://Asset/Image/RhythmTexture/LineOutline.png" id="9_lkn1i"]
 
@@ -53,7 +57,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
-visible = false
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -103,6 +106,7 @@ anchors_preset = -1
 offset_left = 36.0
 offset_right = 136.0
 offset_bottom = 4.0
+theme = ExtResource("4_soewb")
 max_value = 1.0
 step = 0.01
 metadata/_edit_use_anchors_ = true
@@ -116,6 +120,7 @@ offset_left = 36.0
 offset_top = 10.0
 offset_right = 136.0
 offset_bottom = 14.0
+theme = ExtResource("5_0nfns")
 max_value = 1.0
 step = 0.01
 ticks_on_borders = true
@@ -130,6 +135,7 @@ offset_left = 36.0
 offset_top = 20.0
 offset_right = 136.0
 offset_bottom = 24.0
+theme = ExtResource("6_p6vux")
 max_value = 1.0
 step = 0.01
 ticks_on_borders = true
@@ -144,6 +150,7 @@ offset_left = 36.0
 offset_top = 30.0
 offset_right = 136.0
 offset_bottom = 34.0
+theme = ExtResource("7_lkn1i")
 max_value = 1.0
 step = 0.01
 metadata/_edit_use_anchors_ = true

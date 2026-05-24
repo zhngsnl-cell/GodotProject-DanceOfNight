@@ -1,0 +1,26 @@
+[gd_resource type="Theme" format=3 uid="uid://dybn65fv1kod5"]
+
+[ext_resource type="Texture2D" uid="uid://deu4xjf63v3mn" path="res://Asset/Image/ThemeTexture/SliderHolder.png" id="1_jwsd2"]
+[ext_resource type="StyleBox" uid="uid://pub5gtyd14kh" path="res://Asset/Theme/Slider2.tres" id="2_twvu8"]
+[ext_resource type="StyleBox" uid="uid://r8g83j21bp6" path="res://Asset/Theme/Slider3.tres" id="3_ci7cx"]
+[ext_resource type="StyleBox" uid="uid://411gh4yl68rw" path="res://Asset/Theme/Slider.tres" id="4_06422"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy6qf"]
+atlas = ExtResource("1_jwsd2")
+region = Rect2(4, 4, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiorv"]
+atlas = ExtResource("1_jwsd2")
+region = Rect2(4, 4, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46m38"]
+atlas = ExtResource("1_jwsd2")
+region = Rect2(0, 4, 4, 4)
+
+[resource]
+HSlider/icons/grabber = SubResource("AtlasTexture_hy6qf")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_hiorv")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_46m38")
+HSlider/styles/grabber_area = ExtResource("2_twvu8")
+HSlider/styles/grabber_area_highlight = ExtResource("3_ci7cx")
+HSlider/styles/slider = ExtResource("4_06422")

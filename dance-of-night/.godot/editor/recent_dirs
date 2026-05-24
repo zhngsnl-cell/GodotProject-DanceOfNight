@@ -1,6 +1,7 @@
-res://Asset/Material/
-res://Scene/UI/
 res://Asset/Theme/
+res://Asset/Image/Editor/
+res://Scene/UI/
+res://Asset/Material/
 res://Script/Global/
 res://Script/Shader/
 res://Script/UI/
