@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuyo8f4ltfgxl"
-path="res://.godot/imported/DanceOfNights.png-96fe5ed2d381bfaae9ff2b737630eb36.ctex"
+uid="uid://bho6a743dauvt"
+path="res://.godot/imported/DanceOfNights2.png-837092fc6427182815afc63a29c48acc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Image/Character/DanceOfNights.png"
-dest_files=["res://.godot/imported/DanceOfNights.png-96fe5ed2d381bfaae9ff2b737630eb36.ctex"]
+source_file="res://Asset/Image/Character/DanceOfNights2.png"
+dest_files=["res://.godot/imported/DanceOfNights2.png-837092fc6427182815afc63a29c48acc.ctex"]
 
 [params]
 

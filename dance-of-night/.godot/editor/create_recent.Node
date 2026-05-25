@@ -1,5 +1,6 @@
-Button
+Label
 TextureRect
+Button
 Control
 HSlider
 VBoxContainer
@@ -8,7 +9,6 @@ MarginContainer
 ColorPickerButton
 HBoxContainer
 PanelContainer
-Label
 CanvasLayer
 Sprite2D
 Node2D

@@ -1,13 +1,11 @@
-res://Scene/Level/Main.tscn
+res://Scene/Character/Character.tscn
 res://Script/Shader/LineFallenDisappear.gdshader
 res://Asset/Resource/TimeLineExample.tres
 res://Script/Shader/Wave.gdshader
 res://Asset/Theme/Theme.tres
-res://Script/Shader/Pixelize.gdshader
-res://Scene/Level/LineFallen.tscn
-res://Scene/UI/UIMenu.tscn
-res://Asset/Theme/Slider2.tres
 res://Asset/Theme/SliderThemeR.tres
 res://Asset/Theme/SliderThemeG.tres
 res://Asset/Theme/SliderThemeB.tres
 res://Asset/Theme/SliderThemeA.tres
+res://Script/Shader/Pixelize.gdshader
+res://Scene/UI/UIMenu.tscn
