@@ -166,8 +166,8 @@ func calculate_progress(delta:float)->float:
 		completed_time += delta
 	if rhythm_line_index > 0:
 		progress = completed_time / length_container[rhythm_line_index - 1]
-	if progress >= 100.0:
-		progress = 100.0
+	if progress >= 1.0:
+		progress = 1.0
 	return progress
 
 func update_progress(delta:float)->void:
@@ -214,6 +214,7 @@ func read_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_line_index < rhythm_line_amount:
 		if current_time >= time_container[rhythm_line_index] and rhythm_entering == false:
+			print("read score time" + str(music_player.get_playback_position()))
 			music_score_pitch = pitch_container[rhythm_line_index]
 			rhythm_entering = true
 			timer.wait_time = length_container[rhythm_line_index]
@@ -225,6 +226,7 @@ func read_music_score()->void:
 		game_is_end = true
 
 func set_line(pitch:int,length:float)->void:
+	print("set line time" + str(music_player.get_playback_position()))
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
 	var line:Sprite2D = line_scene.instantiate() as Sprite2D
 	rhythm_container.add_child(line)
@@ -242,6 +244,10 @@ func load_music_score()->void:
 func load_music_score_debug()->void:
 	for i:int in range(rhythm_line_amount - 1):
 		if (time_container[i] + length_container[i]) >= time_container[i + 1]:
+			print("music score crashed!")
+			get_tree().quit(1)
+		elif time_container[0] <= 2.0:
+			print("music score crashed!")
 			get_tree().quit(1)
 
 func _ready() -> void:
@@ -277,6 +283,7 @@ func _process(delta: float) -> void:
 			line_texture_index += 1
 
 func _on_time_out()->void:
+	print("time out time:" + str(music_player.get_playback_position()))
 	#结束进入
 	rhythm_entering = false
 	point_array.append(progress)

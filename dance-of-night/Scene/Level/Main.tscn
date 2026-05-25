@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cua8abpeus8bm"]
 
 [ext_resource type="Script" uid="uid://co0vrcigibvw7" path="res://Script/Level/Main.gd" id="1_eavsl"]
+[ext_resource type="Texture2D" uid="uid://y2g6pu1quluw" path="res://Asset/Image/Background/Backgrounds/B1.png" id="2_03f8m"]
 [ext_resource type="PackedScene" uid="uid://bltdowi76j8ix" path="res://Scene/Level/Detector.tscn" id="3_khcfw"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="4_f40xe"]
 [ext_resource type="PackedScene" uid="uid://vxkafiotin6u" path="res://Scene/UI/UIPause.tscn" id="4_k8pkv"]
@@ -12,6 +13,13 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1029811965]
 script = ExtResource("1_eavsl")
+
+[node name="Background" type="TextureRect" parent="." unique_id=487409617]
+modulate = Color(0.5, 0.5, 0.5, 0.3764706)
+offset_right = 960.0
+offset_bottom = 540.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_03f8m")
 
 [node name="Detector" parent="." unique_id=1903170277 instance=ExtResource("3_khcfw")]
 

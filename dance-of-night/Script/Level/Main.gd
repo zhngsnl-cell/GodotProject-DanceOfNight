@@ -24,6 +24,8 @@ func _process(_delta: float) -> void:
 		character.stop()
 
 func _on_send_final_point(final_score:float)->void:
+	if final_score >= 1.0:
+		final_score = 1.0
 	settlement.visible = true
 	label_score.text = str(int(floorf(final_score * 100.0))) + "%"
 

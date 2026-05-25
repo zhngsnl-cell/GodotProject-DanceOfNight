@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jb5x7"]
 shader = ExtResource("1_idwg7")
-shader_parameter/judgment_global_y = 0.0
+shader_parameter/judgment_global_y = 200.0
 
 [node name="LineFallen" type="Sprite2D" unique_id=1811735102]
 material = SubResource("ShaderMaterial_jb5x7")

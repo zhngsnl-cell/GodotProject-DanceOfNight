@@ -36,7 +36,6 @@ window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/mode=3
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://da0bfi8jgo5ws"
 
 [dotnet]
