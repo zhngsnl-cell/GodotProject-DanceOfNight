@@ -8,4 +8,8 @@ res://Asset/Theme/SliderThemeG.tres
 res://Asset/Theme/SliderThemeB.tres
 res://Asset/Theme/SliderThemeA.tres
 res://Script/Shader/Pixelize.gdshader
-res://Scene/UI/UIMenu.tscn
+res://Scene/Character/Note.tscn
+res://Script/Character/Note.gd
+res://Script/Character/Character.gd
+res://Scene/Level/Main.tscn
+res://Script/Level/Main.gd

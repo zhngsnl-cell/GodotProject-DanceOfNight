@@ -3,6 +3,7 @@ extends Node2D
 @onready var detector: Detector = $Detector
 @onready var settlement: Control = $Settlement
 @onready var label_score: Label = $Settlement/MarginContainer/PanelContainer/VBoxContainer/LabelScore
+@onready var character: NightAnim = $Character
 
 func set_color()->void:
 	detector.line_whole.self_modulate = SaveLoad.color_line
@@ -13,6 +14,14 @@ func set_color()->void:
 func _ready() -> void:
 	set_color()
 	detector.send_final_point.connect(_on_send_final_point)
+
+func _process(_delta: float) -> void:
+	if detector.pressing():
+		character.pressing = true
+		character.play("Dance")
+	else:
+		character.pressing = false
+		character.stop()
 
 func _on_send_final_point(final_score:float)->void:
 	settlement.visible = true
