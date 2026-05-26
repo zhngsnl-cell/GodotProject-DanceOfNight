@@ -9,7 +9,9 @@ res://Asset/Theme/SliderThemeB.tres
 res://Asset/Theme/SliderThemeA.tres
 res://Script/Shader/Pixelize.gdshader
 res://Script/Global/Detector/Detector.gd
-res://Asset/Text/ThePitchToScale.txt
-res://Script/Global/Detector/Rhythm.gd
+res://Script/Global/SaveAndLoad/SaveLoad.gd
+res://Script/UI/UIEntrance.gd
+res://Script/Level/Main.gd
 res://Scene/UI/UIMenu.tscn
 res://Script/Level/LineFallen.gd
+res://Scene/Level/Main.tscn

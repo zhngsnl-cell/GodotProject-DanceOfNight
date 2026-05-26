@@ -2,8 +2,10 @@ extends CanvasLayer
 
 enum ColorType{
 	LINE,
+	LINE_PLAYING,
 	OUTLINE,
 	RHYTHM,
+	RHYTHM_HIGHER,
 	WAVE,
 }
 
@@ -17,80 +19,57 @@ var current_color_type:ColorType = ColorType.LINE
 @onready var line_whole: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineWhole
 @onready var line_fallen: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineFallen
 @onready var wave: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Wave
-@onready var outline: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Outline
+@onready var line_playing: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlaying
+
 
 func update_shown_color()->void:
-	texture_rect_show.self_modulate = return_current_color()
-	line_whole.self_modulate = SaveLoad.color_line
-	line_fallen.self_modulate = SaveLoad.color_rhythm
-	wave.self_modulate = SaveLoad.color_wave
-	outline.self_modulate = SaveLoad.color_outline
+	texture_rect_show.self_modulate = return_current_color().color
+	line_whole.self_modulate = SaveLoad.ref_color_line.color
+	line_fallen.self_modulate = SaveLoad.ref_color_rhythm.color
+	wave.self_modulate = SaveLoad.ref_color_wave.color
+	line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
 
-func return_current_color()->Color:
+func return_current_color()->SaveLoad.ColorRef:
 	match current_color_type:
 		ColorType.LINE:
-			return SaveLoad.color_line
+			return SaveLoad.color_ref_array[0]
+		ColorType.LINE_PLAYING:
+			return SaveLoad.color_ref_array[1]
 		ColorType.OUTLINE:
-			return SaveLoad.color_outline
+			return SaveLoad.color_ref_array[2]
 		ColorType.RHYTHM:
-			return SaveLoad.color_rhythm
+			return SaveLoad.color_ref_array[3]
+		ColorType.RHYTHM_HIGHER:
+			return SaveLoad.color_ref_array[4]
 		ColorType.WAVE:
-			return SaveLoad.color_wave
+			return SaveLoad.color_ref_array[5]
 		_:
-			return Color()
+			return SaveLoad.ColorRef.new(Color())
 
 func change_current_color_r(value:float)->void:
-	match current_color_type:
-		ColorType.LINE:
-			SaveLoad.color_line.r = value
-		ColorType.OUTLINE:
-			SaveLoad.color_outline.r = value
-		ColorType.RHYTHM:
-			SaveLoad.color_rhythm.r = value
-		ColorType.WAVE:
-			SaveLoad.color_wave.r = value
+	return_current_color().color.r = value
 
 func change_current_color_g(value:float)->void:
-	match current_color_type:
-		ColorType.LINE:
-			SaveLoad.color_line.g = value
-		ColorType.OUTLINE:
-			SaveLoad.color_outline.g = value
-		ColorType.RHYTHM:
-			SaveLoad.color_rhythm.g = value
-		ColorType.WAVE:
-			SaveLoad.color_wave.g = value
+	return_current_color().color.g = value
 
 func change_current_color_b(value:float)->void:
-	match current_color_type:
-		ColorType.LINE:
-			SaveLoad.color_line.b = value
-		ColorType.OUTLINE:
-			SaveLoad.color_outline.b = value
-		ColorType.RHYTHM:
-			SaveLoad.color_rhythm.b = value
-		ColorType.WAVE:
-			SaveLoad.color_wave.b = value
+	return_current_color().color.b = value
 
 func change_current_color_a(value:float)->void:
-	match current_color_type:
-		ColorType.LINE:
-			SaveLoad.color_line.a = value
-		ColorType.OUTLINE:
-			SaveLoad.color_outline.a = value
-		ColorType.RHYTHM:
-			SaveLoad.color_rhythm.a = value
-		ColorType.WAVE:
-			SaveLoad.color_wave.a = value
+	return_current_color().color.a = value
 
 func return_curren_texture() -> TextureRect:
 	match current_color_type:
 		ColorType.LINE:
 			return line_whole
+		ColorType.LINE_PLAYING:
+			return line_playing
 		ColorType.OUTLINE:
-			return outline
+			return null
 		ColorType.RHYTHM:
 			return line_fallen
+		ColorType.RHYTHM_HIGHER:
+			return null
 		ColorType.WAVE:
 			return wave
 		_:
@@ -154,5 +133,5 @@ func _on_wave_mouse_entered() -> void:
 	update_shown_color()
 
 func _on_outline_mouse_entered() -> void:
-	current_color_type = ColorType.OUTLINE
+	current_color_type = ColorType.LINE_PLAYING
 	update_shown_color()

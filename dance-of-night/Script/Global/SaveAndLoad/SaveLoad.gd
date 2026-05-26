@@ -1,11 +1,27 @@
 extends Node
 
+class ColorRef:
+	var color: Color
+	func _init(p_color: Color) -> void:
+		color = p_color
+
 const SAVE_PATH:String = "user://settings.tres"
 
-var color_line:Color
-var color_outline:Color
-var color_rhythm:Color
-var color_wave:Color
+var ref_color_line:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_line_playing:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_outline:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_rhythm:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_rhythm_higher:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_wave:ColorRef = ColorRef.new(Color.WHITE)
+
+var color_ref_array:Array[ColorRef] = [
+	ref_color_line,
+	ref_color_line_playing,
+	ref_color_outline,
+	ref_color_rhythm,
+	ref_color_rhythm_higher,
+	ref_color_wave,
+]
 
 func save_single_color(color:Color)->ColorData:
 	var color_data:ColorData = ColorData.new()
@@ -17,10 +33,8 @@ func save_single_color(color:Color)->ColorData:
 
 func save_color()->void:
 	var color_data_array:ColorDataArray = ColorDataArray.new()
-	color_data_array.color_data_array.append(save_single_color(color_line))
-	color_data_array.color_data_array.append(save_single_color(color_outline))
-	color_data_array.color_data_array.append(save_single_color(color_rhythm))
-	color_data_array.color_data_array.append(save_single_color(color_wave))
+	for i:int in range(color_ref_array.size()):
+		color_data_array.color_data_array.append(save_single_color(color_ref_array[i].color))
 	var err:Error = ResourceSaver.save(color_data_array,SAVE_PATH)
 	if err != OK:
 		printerr("fail to save!")
@@ -45,8 +59,6 @@ func load_color()->void:
 	if color_data_array.color_data_array.is_empty():
 		print("array is empty")
 		return
-	color_line = load_single_color(color_data_array.color_data_array[0])
-	color_outline = load_single_color(color_data_array.color_data_array[1])
-	color_rhythm = load_single_color(color_data_array.color_data_array[2])
-	color_wave = load_single_color(color_data_array.color_data_array[3])
+	for i:int in range(color_ref_array.size()):
+		color_ref_array[i].color = load_single_color(color_data_array.color_data_array[i])
 	print("color loaded!")

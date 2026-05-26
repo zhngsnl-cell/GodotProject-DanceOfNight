@@ -6,9 +6,9 @@ extends Node2D
 @onready var character: NightAnim = $Character
 
 func set_color()->void:
-	detector.line_whole.self_modulate = SaveLoad.color_line
-	detector.outline.self_modulate = SaveLoad.color_outline
-	detector.wave_effect_shader_material.set_shader_parameter("top_color",SaveLoad.color_wave)
+	detector.line_whole.self_modulate = SaveLoad.ref_color_line.color
+	detector.line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
+	detector.wave_effect_shader_material.set_shader_parameter("top_color",SaveLoad.ref_color_wave.color)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

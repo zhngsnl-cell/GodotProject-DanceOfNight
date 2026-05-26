@@ -81,6 +81,7 @@ var delay:float = 2.0
 @export var music_player:AudioStreamPlayer
 @export var sound_player:AudioStreamPlayer
 @export var line_whole:Sprite2D
+@export var line_playing:Sprite2D
 @export var outline:Sprite2D
 @export var wave_effect:Sprite2D
 @export var wave_effect_shader_material:ShaderMaterial
@@ -174,7 +175,6 @@ func pressing()->bool:
 			return true
 	return false
 
-#检测音高是否正确
 func in_beat()->bool:
 	if pressing():
 		if playing_pitch == music_score_pitch and rhythm_entering:
@@ -229,10 +229,10 @@ func play_sound()->void:
 
 func play_animation()->void:
 	if pressing():
-		outline.visible = true
-		outline.global_position = pitch_position[processed_pitch(playing_pitch)]
+		line_playing.visible = true
+		line_playing.global_position = pitch_position[processed_pitch(playing_pitch)]
 	else:
-		outline.visible = false
+		line_playing.visible = false
 
 func play_animation_wave()->void:
 	if in_beat():
@@ -248,7 +248,7 @@ func update_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_line_index < rhythm_line_amount:
 		if current_time >= time_container[rhythm_line_index] and rhythm_entering == false:
-			print("read score time" + str(music_player.get_playback_position()))
+			#print("update score time" + str(music_player.get_playback_position()))
 			music_score_pitch = pitch_container[rhythm_line_index]
 			rhythm_entering = true
 			timer.wait_time = length_container[rhythm_line_index]
@@ -260,7 +260,7 @@ func update_music_score()->void:
 		game_is_end = true
 
 func set_line(pitch:int,length:float)->void:
-	print("set line time" + str(music_player.get_playback_position()))
+	#print("set line time" + str(music_player.get_playback_position()))
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
 	var line:RhythmLine = line_scene.instantiate() as RhythmLine
 	rhythm_container.add_child(line)
@@ -293,8 +293,10 @@ func load_music_score_debug()->void:
 			get_tree().quit(1)
 
 func _ready() -> void:
-	button_finish.button_down.connect(_on_button_finish_button_up)
-	timer.timeout.connect(_on_time_out)
+	var err1:int = button_finish.button_down.connect(_on_button_finish_button_up)
+	print(err1)
+	var err2:int = timer.timeout.connect(_on_time_out)
+	print(err2)
 	
 	#calculate_pitch()
 	load_music_score()
@@ -311,13 +313,13 @@ func _process(delta: float) -> void:
 	play_sound()
 	play_animation()
 	
+	generate_rhythm_line()
 	update_music_score()
 	play_animation_wave()
 
 	update_progress(delta)
 	
 	#print(rhythm_line_index)
-	generate_rhythm_line()
 
 func _on_time_out()->void:
 	#print("time out time:" + str(music_player.get_playback_position()))

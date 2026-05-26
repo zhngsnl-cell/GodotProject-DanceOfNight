@@ -12,7 +12,7 @@ func return_processed_pitch(pitch:int)->int:
 
 func _ready() -> void:
 #需要设置两个参数
-	self_modulate = SaveLoad.color_rhythm
+	self_modulate = SaveLoad.ref_color_rhythm.color
 # 获取 Shader 材质
 	var shader_mat:ShaderMaterial = material as ShaderMaterial
 	if shader_mat:

@@ -76,7 +76,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
-visible = false
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -234,7 +233,7 @@ offset_bottom = 75.5
 texture = ExtResource("7_rqeg1")
 stretch_mode = 2
 
-[node name="Outline" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=180816041]
+[node name="LinePlaying" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=180816041]
 layout_mode = 0
 offset_left = 182.5
 offset_top = 40.5
@@ -254,4 +253,4 @@ stretch_mode = 2
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineWhole" to="." method="_on_line_whole_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineFallen" to="." method="_on_line_fallen_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Wave" to="." method="_on_wave_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_outline_mouse_entered"]
