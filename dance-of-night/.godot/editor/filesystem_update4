@@ -1,4 +1,4 @@
-res://Scene/Level/Main.tscn
+res://Scene/Level/Detector.tscn
 res://Script/Shader/LineFallenDisappear.gdshader
 res://Asset/Resource/TimeLineExample.tres
 res://Script/Shader/Wave.gdshader
@@ -8,7 +8,8 @@ res://Asset/Theme/SliderThemeG.tres
 res://Asset/Theme/SliderThemeB.tres
 res://Asset/Theme/SliderThemeA.tres
 res://Script/Shader/Pixelize.gdshader
-res://Scene/Level/Detector.tscn
 res://Script/Global/Detector/Detector.gd
-res://Scene/Level/LineFallen.tscn
-res://Script/Level/Main.gd
+res://Asset/Text/ThePitchToScale.txt
+res://Script/Global/Detector/Rhythm.gd
+res://Scene/UI/UIMenu.tscn
+res://Script/Level/LineFallen.gd

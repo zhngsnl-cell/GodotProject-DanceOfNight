@@ -9,7 +9,17 @@ const pitch_scale:Array[float] = [
 	1.587,
 	1.781,
 	2.0,
-	2.244
+	2.244,
+]
+const pitch_scale_higher:Array[float] = [
+	2.519,
+	2.828,
+	3.174,
+	3.563,
+	4.0,
+	4.489,
+	5.039,
+	5.656,
 ]
 const pitch_position:Array[Vector2] = [
 	Vector2(135.0,200.0),
@@ -26,6 +36,7 @@ var game_is_end:bool = false
 
 var rhythm_entering:bool = false
 
+var higher_mode:bool = false
 var playing_pitch:int
 var current_pitch:int = 0
 var last_pitch:int = 0
@@ -80,6 +91,12 @@ var delay:float = 2.0
 
 signal send_final_point(final_point:float)
 
+func processed_pitch(pitch:int)->int:
+	if pitch > 7:
+		return pitch - 8
+	else:
+		return pitch
+
 func push_to_front(the_pitch:int,the_pitch_rank:Array[int])->void:
 	the_pitch_rank.erase(the_pitch)
 	the_pitch_rank.push_front(the_pitch)
@@ -92,7 +109,7 @@ func calculate_points()->float:
 	return final_point
 
 func calculate_pitch()->void:
-	for i:int in range(8):
+	for i:int in range(16):
 		print(pow(2.0,float(i)/6.0))
 
 func change_pitch_state()->void:
@@ -145,6 +162,12 @@ func change_pitch_state()->void:
 	elif Input.is_action_just_released("key_semi"):
 		pitch_state[7] = false
 
+func change_higher_mode()->void:
+	if Input.is_action_pressed("key_space"):
+		higher_mode = true
+	else:
+		higher_mode = false
+
 func pressing()->bool:
 	for i:bool in pitch_state:
 		if i == true:
@@ -181,13 +204,22 @@ func reset_progress()->void:
 func play_sound()->void:
 	if pressing():
 		if pitch_state[current_pitch] == true:
-			sound_player.pitch_scale = pitch_scale[current_pitch]
-			playing_pitch = current_pitch
+			#检测高音
+			if higher_mode:
+				sound_player.pitch_scale = pitch_scale_higher[current_pitch]
+				playing_pitch = current_pitch + 8
+			else:
+				sound_player.pitch_scale = pitch_scale[current_pitch]
+				playing_pitch = current_pitch
 		else:
 			for i:int in pitch_rank:
 				if pitch_state[i] == true:
-					sound_player.pitch_scale = pitch_scale[i]
-					playing_pitch = i
+					if higher_mode:
+						sound_player.pitch_scale = pitch_scale_higher[i]
+						playing_pitch = i + 8
+					else:
+						sound_player.pitch_scale = pitch_scale[i]
+						playing_pitch = i
 					break
 			#创建动态数组，每次按下一个键就把那个键提到数组最前方，如果松开了键，就按数组从前向后遍历决定谁演奏
 		if sound_player.playing == false:
@@ -198,19 +230,21 @@ func play_sound()->void:
 func play_animation()->void:
 	if pressing():
 		outline.visible = true
-		outline.global_position = pitch_position[playing_pitch]
+		outline.global_position = pitch_position[processed_pitch(playing_pitch)]
 	else:
 		outline.visible = false
 
 func play_animation_wave()->void:
 	if in_beat():
 		wave_effect.visible = true
-		wave_effect.global_position.x = pitch_position[playing_pitch].x
+		wave_effect.global_position.x = pitch_position[processed_pitch(playing_pitch)].x
 	else:
 		wave_effect.visible = false
 
-#更新当前音高
-func read_music_score()->void:
+func play_music()->void:
+	music_player.play()
+
+func update_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_line_index < rhythm_line_amount:
 		if current_time >= time_container[rhythm_line_index] and rhythm_entering == false:
@@ -228,11 +262,19 @@ func read_music_score()->void:
 func set_line(pitch:int,length:float)->void:
 	print("set line time" + str(music_player.get_playback_position()))
 	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
-	var line:Sprite2D = line_scene.instantiate() as Sprite2D
+	var line:RhythmLine = line_scene.instantiate() as RhythmLine
 	rhythm_container.add_child(line)
 	line.scale.y = length
-	line.global_position.x = pitch_position[pitch].x
+	line.global_position.x = pitch_position[line.return_processed_pitch(pitch)].x
 	line.global_position.y = -length/2.0
+
+func generate_rhythm_line()->void:
+	if line_texture_index < rhythm_line_amount:
+		var current_time:float = music_player.get_playback_position()
+		if current_time >= time_container.get(line_texture_index) - delay:
+			set_line(pitch_container[line_texture_index],
+			length_container[line_texture_index] * 100.0)
+			line_texture_index += 1
 
 func load_music_score()->void:
 	rhythm_line_amount = music_score.timeline.size()
@@ -257,33 +299,28 @@ func _ready() -> void:
 	#calculate_pitch()
 	load_music_score()
 	load_music_score_debug()
-	music_player.play()
+	play_music()
 	
 	button_finish.visible = false
 
 func _process(delta: float) -> void:
 	
 	change_pitch_state()
+	change_higher_mode()
 	
 	play_sound()
 	play_animation()
 	
-	read_music_score()
+	update_music_score()
 	play_animation_wave()
 
 	update_progress(delta)
 	
 	#print(rhythm_line_index)
-	
-	if line_texture_index < rhythm_line_amount:
-		var current_time:float = music_player.get_playback_position()
-		if current_time >= time_container.get(line_texture_index) - delay:
-			set_line(pitch_container[line_texture_index],
-			length_container[line_texture_index] * 100.0)
-			line_texture_index += 1
+	generate_rhythm_line()
 
 func _on_time_out()->void:
-	print("time out time:" + str(music_player.get_playback_position()))
+	#print("time out time:" + str(music_player.get_playback_position()))
 	#结束进入
 	rhythm_entering = false
 	point_array.append(progress)
