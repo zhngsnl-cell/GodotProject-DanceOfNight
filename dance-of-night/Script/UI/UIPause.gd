@@ -11,12 +11,14 @@ func create_tween_delay(time:float)->void:
 	await tween_delay.finished
 
 func pause()->void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	pausing = true
 	control.visible = true
 	label.visible = false
 	get_tree().paused = true
 
 func resume()->void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	control.visible = false
 	label.visible = true
 	label.text = "3"

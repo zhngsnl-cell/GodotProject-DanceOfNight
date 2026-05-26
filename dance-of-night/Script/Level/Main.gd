@@ -8,6 +8,7 @@ extends Node2D
 func set_color()->void:
 	detector.line_whole.self_modulate = SaveLoad.ref_color_line.color
 	detector.line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
+	detector.outline.self_modulate = SaveLoad.ref_color_outline.color
 	detector.wave_effect_shader_material.set_shader_parameter("top_color",SaveLoad.ref_color_wave.color)
 
 # Called when the node enters the scene tree for the first time.

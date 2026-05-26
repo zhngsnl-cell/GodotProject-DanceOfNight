@@ -276,6 +276,10 @@ func generate_rhythm_line()->void:
 			length_container[line_texture_index] * 100.0)
 			line_texture_index += 1
 
+func set_outline()->void:
+	if rhythm_line_index < rhythm_line_amount:
+		outline.global_position = pitch_position[processed_pitch(pitch_container[rhythm_line_index])]
+
 func load_music_score()->void:
 	rhythm_line_amount = music_score.timeline.size()
 	for i:Rhythm in music_score.timeline:
@@ -285,7 +289,7 @@ func load_music_score()->void:
 
 func load_music_score_debug()->void:
 	for i:int in range(rhythm_line_amount - 1):
-		if (time_container[i] + length_container[i]) >= time_container[i + 1]:
+		if (time_container[i] + length_container[i]) > time_container[i + 1]:
 			print("music score crashed!")
 			get_tree().quit(1)
 		elif time_container[0] <= 2.0:
@@ -303,6 +307,8 @@ func _ready() -> void:
 	load_music_score_debug()
 	play_music()
 	
+	set_outline()
+	
 	button_finish.visible = false
 
 func _process(delta: float) -> void:
@@ -316,7 +322,7 @@ func _process(delta: float) -> void:
 	generate_rhythm_line()
 	update_music_score()
 	play_animation_wave()
-
+	
 	update_progress(delta)
 	
 	#print(rhythm_line_index)
@@ -324,10 +330,12 @@ func _process(delta: float) -> void:
 func _on_time_out()->void:
 	#print("time out time:" + str(music_player.get_playback_position()))
 	#结束进入
+	set_outline()
 	rhythm_entering = false
 	point_array.append(progress)
 	if game_is_end:
 		button_finish.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_button_finish_button_up()->void:
 	button_finish.visible = false

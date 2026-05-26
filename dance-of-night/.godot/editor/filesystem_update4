@@ -16,3 +16,4 @@ res://Scene/UI/UIMenu.tscn
 res://Script/Level/LineFallen.gd
 res://Scene/Level/Main.tscn
 res://Asset/Theme/Slider2.tres
+res://Script/UI/UIPause.gd

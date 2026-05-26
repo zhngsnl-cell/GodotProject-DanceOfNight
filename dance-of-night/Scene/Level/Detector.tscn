@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
 [ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
 [ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="8_jnfry"]
+[ext_resource type="Texture2D" uid="uid://crtst73n4p8ei" path="res://Asset/Image/RhythmTexture/Outline.png" id="8_pshfh"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="9_jnfry"]
 
-[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "line_playing", "wave_effect", "progress_label", "button_finish")]
+[node name="Detector" type="Node" unique_id=1903170277 node_paths=PackedStringArray("rhythm_container", "timer", "music_player", "sound_player", "line_whole", "line_playing", "outline", "wave_effect", "progress_label", "button_finish")]
 script = ExtResource("1_16iqs")
 rhythm_container = NodePath("RhythmContainer")
 timer = NodePath("Timer")
@@ -18,6 +19,7 @@ music_player = NodePath("MusicPlayer")
 sound_player = NodePath("SoundPlayer")
 line_whole = NodePath("LineWhole")
 line_playing = NodePath("LinePlaying")
+outline = NodePath("Outline")
 wave_effect = NodePath("WaveEffect")
 wave_effect_shader_material = ExtResource("2_pshfh")
 progress_label = NodePath("ProgressLabel")
@@ -44,6 +46,10 @@ visible = false
 material = ExtResource("2_pshfh")
 position = Vector2(135, 216)
 texture = ExtResource("7_ye5oa")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=214956689]
+position = Vector2(135, 200)
+texture = ExtResource("8_pshfh")
 
 [node name="LinePlaying" type="Sprite2D" parent="." unique_id=49713976]
 position = Vector2(135, 200)

@@ -124,6 +124,7 @@ func _on_button_quit_button_up() -> void:
 	get_tree().quit()
 
 func _on_button_start_button_up() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	call_deferred("go_to_main_scene")
 
 func _on_button_option_button_up() -> void:
