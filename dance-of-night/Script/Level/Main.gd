@@ -36,12 +36,12 @@ func _on_send_final_point(final_score:float)->void:
 func _on_button_retry_button_up() -> void:
 	sound_select.play()
 	await sound_select.finished
-	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
+	get_tree().reload_current_scene()
 
 func _on_button_menu_button_up() -> void:
 	sound_select.play()
 	await sound_select.finished
-	get_tree().change_scene_to_file("res://Scene/UI/UIMenu.tscn")
+	get_tree().reload_current_scene()
 
 func _on_button_retry_mouse_entered() -> void:
 	sound_hover.play()

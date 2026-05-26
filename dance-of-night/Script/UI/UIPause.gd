@@ -42,7 +42,8 @@ func resume()->void:
 	#await delay_tween.finished
 
 func go_to_main()->void:
-	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 func go_to_menu()->void:
 	get_tree().change_scene_to_file("res://Scene/UI/UIMenu.tscn")
