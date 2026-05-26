@@ -9,6 +9,15 @@ enum ColorType{
 	WAVE,
 }
 
+const ColorTypeArray:Array[ColorType] = [
+	ColorType.LINE,
+	ColorType.RHYTHM,
+	ColorType.RHYTHM_HIGHER,
+	ColorType.WAVE,
+	ColorType.OUTLINE,
+	ColorType.LINE_PLAYING,
+]
+
 var current_color_type:ColorType = ColorType.LINE
 
 @onready var menu: MarginContainer = $Control/Menu
@@ -18,16 +27,41 @@ var current_color_type:ColorType = ColorType.LINE
 
 @onready var line_whole: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineWhole
 @onready var line_fallen: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineFallen
+@onready var line_fallen_higher: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineFallenHigher
 @onready var wave: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Wave
+@onready var outline: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Outline
 @onready var line_playing: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlaying
 
+@onready var h_slider_r: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderR
+@onready var h_slider_g: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderG
+@onready var h_slider_b: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderB
+@onready var h_slider_a: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderA
+
+var dic_type_to_node:Dictionary[ColorType,TextureRect] = {}
+
+func initialize_shown_color()->void:
+	for i:ColorType in ColorTypeArray:
+		current_color_type = i
+		update_shown_color()
+
+func initialize_dic()->void:
+	#先布置节点后执行ready函数，所以放到_ready函数内
+	dic_type_to_node = {
+		ColorType.LINE:line_whole,
+		ColorType.RHYTHM:line_fallen,
+		ColorType.RHYTHM_HIGHER:line_fallen_higher,
+		ColorType.WAVE:wave,
+		ColorType.OUTLINE:outline,
+		ColorType.LINE_PLAYING:line_playing,
+	}
 
 func update_shown_color()->void:
 	texture_rect_show.self_modulate = return_current_color().color
-	line_whole.self_modulate = SaveLoad.ref_color_line.color
-	line_fallen.self_modulate = SaveLoad.ref_color_rhythm.color
-	wave.self_modulate = SaveLoad.ref_color_wave.color
-	line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
+	dic_type_to_node[current_color_type].self_modulate = return_current_color().color
+	h_slider_r.set_value_no_signal(return_current_color().color.r)
+	h_slider_g.set_value_no_signal(return_current_color().color.g)
+	h_slider_b.set_value_no_signal(return_current_color().color.b)
+	h_slider_a.set_value_no_signal(return_current_color().color.a)
 
 func return_current_color()->SaveLoad.ColorRef:
 	match current_color_type:
@@ -65,11 +99,11 @@ func return_curren_texture() -> TextureRect:
 		ColorType.LINE_PLAYING:
 			return line_playing
 		ColorType.OUTLINE:
-			return null
+			return outline
 		ColorType.RHYTHM:
 			return line_fallen
 		ColorType.RHYTHM_HIGHER:
-			return null
+			return line_fallen_higher
 		ColorType.WAVE:
 			return wave
 		_:
@@ -80,8 +114,10 @@ func go_to_main_scene()->void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	initialize_dic()
 	options.visible = false
 	SaveLoad.load_color()
+	initialize_shown_color()
 
 func _on_button_quit_button_up() -> void:
 	SaveLoad.save_color()
@@ -132,6 +168,14 @@ func _on_wave_mouse_entered() -> void:
 	current_color_type = ColorType.WAVE
 	update_shown_color()
 
-func _on_outline_mouse_entered() -> void:
+func _on_line_playing_mouse_entered() -> void:
 	current_color_type = ColorType.LINE_PLAYING
+	update_shown_color()
+
+func _on_outline_mouse_entered() -> void:
+	current_color_type = ColorType.OUTLINE
+	update_shown_color()
+
+func _on_line_fallen_higher_mouse_entered() -> void:
+	current_color_type = ColorType.RHYTHM_HIGHER
 	update_shown_color()

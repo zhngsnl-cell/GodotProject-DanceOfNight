@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c3pesgnp4e5d1" path="res://Asset/Image/RhythmTexture/LineFallen1.png" id="6_rqeg1"]
 [ext_resource type="Theme" uid="uid://qatqe8qmp0nx" path="res://Asset/Theme/SliderThemeA.tres" id="7_lkn1i"]
 [ext_resource type="Texture2D" uid="uid://c6ljhbm0smaae" path="res://Asset/Image/RhythmTexture/Wave.png" id="7_rqeg1"]
-[ext_resource type="Texture2D" uid="uid://bbifngwikxk7i" path="res://Asset/Image/RhythmTexture/LineOutline.png" id="9_lkn1i"]
+[ext_resource type="Texture2D" uid="uid://crtst73n4p8ei" path="res://Asset/Image/RhythmTexture/Outline.png" id="13_5dmff"]
 [ext_resource type="Texture2D" uid="uid://xy2kuxcdd5rq" path="res://Asset/Image/Background/Title256.png" id="13_lkn1i"]
+[ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="14_5dmff"]
 
 [node name="UIMenu" type="CanvasLayer" unique_id=595462003]
 script = ExtResource("1_i147s")
@@ -196,10 +197,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -123.5
-offset_top = -34.5
-offset_right = 123.5
-offset_bottom = 34.5
+offset_left = -123.0
+offset_top = -2.0
+offset_right = 124.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -216,30 +217,47 @@ stretch_mode = 2
 
 [node name="LineFallen" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=1570490193]
 layout_mode = 0
-offset_left = 183.5
-offset_top = -7.5
-offset_right = 215.5
-offset_bottom = -6.46
-scale = Vector2(1, 50)
+offset_left = 184.0
+offset_top = 14.0
+offset_right = 214.0
+offset_bottom = 15.0
+scale = Vector2(1, 30)
 texture = ExtResource("6_rqeg1")
 stretch_mode = 2
 
+[node name="LineFallenHigher" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=2043676181]
+layout_mode = 0
+offset_left = 106.0
+offset_top = -31.0
+offset_right = 136.0
+offset_bottom = 9.0
+texture = ExtResource("6_rqeg1")
+
 [node name="Wave" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=199632975]
 layout_mode = 0
-offset_left = 183.5
-offset_top = 45.5
-offset_right = 215.5
-offset_bottom = 75.5
+offset_left = 184.0
+offset_top = 45.0
+offset_right = 214.0
+offset_bottom = 75.0
 texture = ExtResource("7_rqeg1")
+stretch_mode = 2
+
+[node name="Outline" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=640014308]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 31.0
+offset_right = 104.0
+offset_bottom = 37.0
+texture = ExtResource("13_5dmff")
 stretch_mode = 2
 
 [node name="LinePlaying" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=180816041]
 layout_mode = 0
-offset_left = 182.5
-offset_top = 40.5
-offset_right = 216.5
-offset_bottom = 48.5
-texture = ExtResource("9_lkn1i")
+offset_left = 140.0
+offset_top = 32.0
+offset_right = 172.0
+offset_bottom = 36.0
+texture = ExtResource("14_5dmff")
 stretch_mode = 2
 
 [connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
@@ -252,5 +270,7 @@ stretch_mode = 2
 [connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderA" to="." method="_on_h_slider_a_value_changed"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineWhole" to="." method="_on_line_whole_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineFallen" to="." method="_on_line_fallen_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineFallenHigher" to="." method="_on_line_fallen_higher_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Wave" to="." method="_on_wave_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_outline_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_line_playing_mouse_entered"]
