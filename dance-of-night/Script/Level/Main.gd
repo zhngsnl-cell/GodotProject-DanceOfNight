@@ -5,6 +5,9 @@ extends Node2D
 @onready var label_score: Label = $Settlement/MarginContainer/PanelContainer/VBoxContainer/LabelScore
 @onready var character: NightAnim = $Character
 
+@onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
+@onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
+
 func set_color()->void:
 	detector.line_whole.self_modulate = SaveLoad.ref_color_line.color
 	detector.line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
@@ -31,8 +34,17 @@ func _on_send_final_point(final_score:float)->void:
 	label_score.text = str(int(floorf(final_score * 100.0))) + "%"
 
 func _on_button_retry_button_up() -> void:
+	sound_select.play()
+	await sound_select.finished
 	get_tree().change_scene_to_file("res://Scene/Level/Main.tscn")
 
-
 func _on_button_menu_button_up() -> void:
+	sound_select.play()
+	await sound_select.finished
 	get_tree().change_scene_to_file("res://Scene/UI/UIMenu.tscn")
+
+func _on_button_retry_mouse_entered() -> void:
+	sound_hover.play()
+
+func _on_button_menu_mouse_entered() -> void:
+	sound_hover.play()

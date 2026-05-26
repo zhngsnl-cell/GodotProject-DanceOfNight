@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://crtst73n4p8ei" path="res://Asset/Image/RhythmTexture/Outline.png" id="13_5dmff"]
 [ext_resource type="Texture2D" uid="uid://xy2kuxcdd5rq" path="res://Asset/Image/Background/Title256.png" id="13_lkn1i"]
 [ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="14_5dmff"]
+[ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="15_qh537"]
+[ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="16_7v1re"]
+[ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="17_7v1re"]
 
 [node name="UIMenu" type="CanvasLayer" unique_id=595462003]
 script = ExtResource("1_i147s")
@@ -77,6 +80,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
+visible = false
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -260,10 +264,28 @@ offset_bottom = 36.0
 texture = ExtResource("14_5dmff")
 stretch_mode = 2
 
+[node name="Sounds" type="Node" parent="." unique_id=1312740590]
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="Sounds" unique_id=79921960]
+stream = ExtResource("15_qh537")
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="Sounds" unique_id=2072048405]
+stream = ExtResource("16_7v1re")
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds" unique_id=1079164966]
+stream = ExtResource("17_7v1re")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
 [connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_button_up"]
+[connection signal="mouse_entered" from="Control/Menu/PanelContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_mouse_entered"]
 [connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonOption" to="." method="_on_button_option_button_up"]
+[connection signal="mouse_entered" from="Control/Menu/PanelContainer/VBoxContainer/ButtonOption" to="." method="_on_button_option_mouse_entered"]
 [connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]
+[connection signal="mouse_entered" from="Control/Menu/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
 [connection signal="button_up" from="Control/Options/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_mouse_entered"]
 [connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderR" to="." method="_on_h_slider_r_value_changed"]
 [connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderG" to="." method="_on_h_slider_g_value_changed"]
 [connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderB" to="." method="_on_h_slider_b_value_changed"]

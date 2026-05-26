@@ -1,3 +1,5 @@
+AudioStreamPlayer
+Node
 Sprite2D
 TextureRect
 Label
@@ -10,5 +12,3 @@ MarginContainer
 ColorPickerButton
 HBoxContainer
 PanelContainer
-CanvasLayer
-Node2D

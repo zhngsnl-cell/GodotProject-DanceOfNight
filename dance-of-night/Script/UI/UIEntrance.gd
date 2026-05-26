@@ -37,6 +37,10 @@ var current_color_type:ColorType = ColorType.LINE
 @onready var h_slider_b: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderB
 @onready var h_slider_a: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderA
 
+@onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
+@onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
+@onready var music: AudioStreamPlayer = $Sounds/Music
+
 var dic_type_to_node:Dictionary[ColorType,TextureRect] = {}
 
 func initialize_shown_color()->void:
@@ -121,9 +125,19 @@ func _ready() -> void:
 
 func _on_button_quit_button_up() -> void:
 	SaveLoad.save_color()
+	sound_select.play()
+	await sound_select.finished
 	get_tree().quit()
 
 func _on_button_start_button_up() -> void:
+	sound_select.play()
+	await sound_select.finished
+	var tween:Tween = create_tween()
+	tween.tween_property(music,"volume_db",-80.0,1.0)
+	await tween.finished
+	#var tween_delay:Tween = create_tween()
+	#tween.tween_interval(1.0)
+	#await tween_delay.finished
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	call_deferred("go_to_main_scene")
 
@@ -131,11 +145,15 @@ func _on_button_option_button_up() -> void:
 	update_shown_color()
 	menu.visible = false
 	options.visible = true
+	
+	sound_select.play()
 
 func _on_button_back_button_up() -> void:
 	SaveLoad.save_color()
 	options.visible = false
 	menu.visible = true
+	
+	sound_select.play()
 
 func _on_h_slider_r_value_changed(value: float) -> void:
 	change_current_color_r(value)
@@ -180,3 +198,16 @@ func _on_outline_mouse_entered() -> void:
 func _on_line_fallen_higher_mouse_entered() -> void:
 	current_color_type = ColorType.RHYTHM_HIGHER
 	update_shown_color()
+
+
+func _on_button_start_mouse_entered() -> void:
+	sound_hover.play()
+
+func _on_button_option_mouse_entered() -> void:
+	sound_hover.play()
+
+func _on_button_quit_mouse_entered() -> void:
+	sound_hover.play()
+
+func _on_button_back_mouse_entered() -> void:
+	sound_hover.play()

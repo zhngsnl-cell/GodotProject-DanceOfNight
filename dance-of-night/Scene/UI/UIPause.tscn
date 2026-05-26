@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cty0a0pww0ro" path="res://Script/UI/UIPause.gd" id="1_05umt"]
 [ext_resource type="Texture2D" uid="uid://bsx66f0omdy67" path="res://Asset/Image/Background/BlackRect.png" id="2_do57g"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="2_sg613"]
+[ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="4_jvid3"]
+[ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="5_4fn68"]
 
 [node name="UIPause" type="CanvasLayer" unique_id=1827443169]
 process_mode = 3
@@ -48,11 +50,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "RETRY"
 
-[node name="ButtonOptions" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=2049192773]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "OPTIONS"
-
 [node name="ButtonMenu" type="Button" parent="Control/MarginContainer/PanelContainer/VBoxContainer" unique_id=1447525267]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -67,5 +64,17 @@ offset_bottom = 135.0
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 
+[node name="Sound" type="Node" parent="." unique_id=2006228872]
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="Sound" unique_id=926399822]
+stream = ExtResource("4_jvid3")
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="Sound" unique_id=703212837]
+stream = ExtResource("5_4fn68")
+
 [connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_button_up"]
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonResume" to="." method="_on_button_resume_mouse_entered"]
+[connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_button_up"]
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_mouse_entered"]
 [connection signal="button_up" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonMenu" to="." method="_on_button_menu_button_up"]
+[connection signal="mouse_entered" from="Control/MarginContainer/PanelContainer/VBoxContainer/ButtonMenu" to="." method="_on_button_menu_mouse_entered"]

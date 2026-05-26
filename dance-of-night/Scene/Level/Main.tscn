@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="4_f40xe"]
 [ext_resource type="PackedScene" uid="uid://vxkafiotin6u" path="res://Scene/UI/UIPause.tscn" id="4_k8pkv"]
 [ext_resource type="PackedScene" uid="uid://bvdnegwcebkly" path="res://Scene/Character/Character.tscn" id="5_f40xe"]
+[ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="7_x615r"]
+[ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="8_ovwoa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k8pkv"]
 font_size = 32
@@ -80,5 +82,15 @@ position = Vector2(64, 128)
 
 [node name="UIPause" parent="." unique_id=1827443169 instance=ExtResource("4_k8pkv")]
 
+[node name="Sounds" type="Node" parent="." unique_id=1151288513]
+
+[node name="SoundHover" type="AudioStreamPlayer" parent="Sounds" unique_id=1171150840]
+stream = ExtResource("7_x615r")
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="Sounds" unique_id=717551250]
+stream = ExtResource("8_ovwoa")
+
 [connection signal="button_up" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonRetry" to="." method="_on_button_retry_button_up"]
+[connection signal="mouse_entered" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonRetry" to="." method="_on_button_retry_mouse_entered"]
 [connection signal="button_up" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonMenu" to="." method="_on_button_menu_button_up"]
+[connection signal="mouse_entered" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonMenu" to="." method="_on_button_menu_mouse_entered"]
