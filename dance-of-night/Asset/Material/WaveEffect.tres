@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_tyf4g")
-shader_parameter/pixel_scale = Vector2(64, 64)
+shader_parameter/pixel_scale = Vector2(15, 15)
 shader_parameter/top_color = Vector4(0, 0.6, 0.9, 1)
 shader_parameter/bottom_color = Vector4(1, 1, 1, 0)
 shader_parameter/wave_amplitude = 0.12

@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform float pixel_scale = 30.0;
+uniform vec2 pixel_scale = vec2(15.0);
 
 // 渐变颜色
 uniform vec4 top_color = vec4(0.0, 0.6, 0.9, 1.0);
@@ -18,6 +18,7 @@ uniform float wave2_speed = -1.8;
 
 void fragment() {
 	//直接替换原材质用这个
+	//vec2 uv = UV;
 	vec2 uv = floor(UV * pixel_scale)/pixel_scale;
 	
     // 波动强度从 0 (顶部) 线性增长到 1 (底部)
@@ -39,10 +40,10 @@ void fragment() {
     distorted_y = clamp(distorted_y, 0.0, 1.0);
     
 	//修改材质用这个
-	uv *= pixel_scale;
-	uv = floor(uv);
-	uv /=pixel_scale;
-	vec4 raw_texture = texture(TEXTURE,uv);
+	//uv *= pixel_scale;
+	//uv = floor(uv);
+	//uv /=pixel_scale;
+	//vec4 raw_texture = texture(TEXTURE,uv);
 	
 	COLOR = mix(top_color, bottom_color, distorted_y);
 	//COLOR = raw_texture;

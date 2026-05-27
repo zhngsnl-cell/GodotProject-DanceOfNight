@@ -42,7 +42,6 @@ texture = ExtResource("5_njpq8")
 [node name="RhythmContainer" type="Node2D" parent="." unique_id=566370764]
 
 [node name="WaveEffect" type="Sprite2D" parent="." unique_id=1849616945]
-visible = false
 material = ExtResource("2_pshfh")
 position = Vector2(135, 216)
 texture = ExtResource("7_ye5oa")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d03g0h7nrlpbc"]
+
+[ext_resource type="Script" uid="uid://burdgyvqiflqp" path="res://Script/Global/ScoreGenerator.gd" id="1_7hff6"]
+
+[node name="ScoreGenerator" type="Node" unique_id=2049504243]
+script = ExtResource("1_7hff6")
