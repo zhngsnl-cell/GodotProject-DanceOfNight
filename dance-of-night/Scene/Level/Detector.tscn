@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
 [ext_resource type="Resource" uid="uid://ig7adxxgiq0u" path="res://Asset/Resource/TimeLineExample.tres" id="2_oworl"]
 [ext_resource type="Material" uid="uid://du2bcq3ma38x1" path="res://Asset/Material/WaveEffect.tres" id="2_pshfh"]
-[ext_resource type="AudioStream" uid="uid://6cjx0kw1a4rg" path="res://Asset/Sound/Sample/FluteOne.mp3" id="4_j0kt8"]
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="4_pshfh"]
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
+[ext_resource type="AudioStream" uid="uid://dga285bfu1iyk" path="res://Asset/Sound/Sample/PanFluteF.mp3" id="5_pshfh"]
 [ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
 [ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="8_jnfry"]
 [ext_resource type="Texture2D" uid="uid://crtst73n4p8ei" path="res://Asset/Image/RhythmTexture/Outline.png" id="8_pshfh"]
@@ -32,7 +32,7 @@ stream = ExtResource("4_pshfh")
 volume_db = -80.0
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=798902434]
-stream = ExtResource("4_j0kt8")
+stream = ExtResource("5_pshfh")
 parameters/looping = true
 
 [node name="LineWhole" type="Sprite2D" parent="." unique_id=1723072701]
@@ -42,6 +42,7 @@ texture = ExtResource("5_njpq8")
 [node name="RhythmContainer" type="Node2D" parent="." unique_id=566370764]
 
 [node name="WaveEffect" type="Sprite2D" parent="." unique_id=1849616945]
+visible = false
 material = ExtResource("2_pshfh")
 position = Vector2(135, 216)
 texture = ExtResource("7_ye5oa")

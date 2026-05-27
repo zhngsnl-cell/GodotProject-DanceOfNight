@@ -2,13 +2,15 @@ extends Node
 
 const SCORE_1:JSON = preload("res://Asset/Text/Score1.json")
 
+const SAVE_PATH:String = "res://Asset/Resource/Score1.tres"
+
 func generate_resource(resource_path:String)->TimeLine:
 	var timeline_resource:TimeLine = TimeLine.new()
 	var file:FileAccess = FileAccess.open(resource_path,FileAccess.READ)
 	var file_text:Dictionary = JSON.parse_string(file.get_as_text())
 	if file_text is Dictionary:
 		for i:int in range(file_text.size()):
-			var array:Array = file_text[i]
+			var array:Array = file_text[str(i)]
 			if array is Array:
 				for inde:int in range(array.size()):
 					var single_array:Array = array[inde]
@@ -20,4 +22,6 @@ func generate_resource(resource_path:String)->TimeLine:
 	return timeline_resource
 
 func _ready() -> void:
-	pass
+	var error:Error = ResourceSaver.save(generate_resource("res://Asset/Text/Score1.json"),SAVE_PATH)
+	if error != OK:
+		print("failed to generate score")

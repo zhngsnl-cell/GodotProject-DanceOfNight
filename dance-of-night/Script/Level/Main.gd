@@ -41,7 +41,7 @@ func _on_button_retry_button_up() -> void:
 func _on_button_menu_button_up() -> void:
 	sound_select.play()
 	await sound_select.finished
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Scene/UI/UIMenu.tscn")
 
 func _on_button_retry_mouse_entered() -> void:
 	sound_hover.play()

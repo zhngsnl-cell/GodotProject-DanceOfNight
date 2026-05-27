@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://bf758kgilpbss"]
+
+[ext_resource type="Script" uid="uid://dnnlwlbwjvtj4" path="res://Script/Global/Detector/TimeLine.gd" id="1_qw65s"]
+[ext_resource type="Script" uid="uid://h0fig6fxh82l" path="res://Script/Global/Detector/Rhythm.gd" id="2_b0030"]
+
+[sub_resource type="Resource" id="Resource_ll2g0"]
+script = ExtResource("2_b0030")
+pitch = 3
+time = 3.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_gljcu"]
+script = ExtResource("2_b0030")
+pitch = 5
+time = 3.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_gc3l2"]
+script = ExtResource("2_b0030")
+pitch = 4
+time = 4.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_eny7r"]
+script = ExtResource("2_b0030")
+pitch = 3
+time = 4.5
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_3kqho"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 4.75
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_es2h0"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 5.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_o55np"]
+script = ExtResource("2_b0030")
+pitch = 7
+time = 5.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_i5d3k"]
+script = ExtResource("2_b0030")
+pitch = 4
+time = 6.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_tqa40"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 6.5
+length = 0.5
+
+[resource]
+script = ExtResource("1_qw65s")
+timeline = Array[ExtResource("2_b0030")]([SubResource("Resource_ll2g0"), SubResource("Resource_gljcu"), SubResource("Resource_gc3l2"), SubResource("Resource_eny7r"), SubResource("Resource_3kqho"), SubResource("Resource_es2h0"), SubResource("Resource_o55np"), SubResource("Resource_i5d3k"), SubResource("Resource_tqa40")])

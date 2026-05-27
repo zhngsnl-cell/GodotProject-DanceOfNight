@@ -302,6 +302,7 @@ func load_music_score_debug()->void:
 			get_tree().quit(1)
 
 func _ready() -> void:
+	#链接信号
 	var err1:int = button_finish.button_down.connect(_on_button_finish_button_up)
 	print(err1)
 	var err2:int = timer.timeout.connect(_on_time_out)
