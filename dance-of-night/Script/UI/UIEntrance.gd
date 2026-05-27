@@ -3,6 +3,7 @@ extends CanvasLayer
 enum ColorType{
 	LINE,
 	LINE_PLAYING,
+	LINE_PLAYING_HIGHER,
 	OUTLINE,
 	RHYTHM,
 	RHYTHM_HIGHER,
@@ -16,6 +17,7 @@ const ColorTypeArray:Array[ColorType] = [
 	ColorType.WAVE,
 	ColorType.OUTLINE,
 	ColorType.LINE_PLAYING,
+	ColorType.LINE_PLAYING_HIGHER
 ]
 
 var current_color_type:ColorType = ColorType.LINE
@@ -31,6 +33,7 @@ var current_color_type:ColorType = ColorType.LINE
 @onready var wave: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Wave
 @onready var outline: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Outline
 @onready var line_playing: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlaying
+@onready var line_playing_higher: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlayingHigher
 
 @onready var h_slider_r: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderR
 @onready var h_slider_g: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderG
@@ -57,6 +60,7 @@ func initialize_dic()->void:
 		ColorType.WAVE:wave,
 		ColorType.OUTLINE:outline,
 		ColorType.LINE_PLAYING:line_playing,
+		ColorType.LINE_PLAYING_HIGHER:line_playing_higher,
 	}
 
 func update_shown_color()->void:
@@ -73,14 +77,16 @@ func return_current_color()->SaveLoad.ColorRef:
 			return SaveLoad.color_ref_array[0]
 		ColorType.LINE_PLAYING:
 			return SaveLoad.color_ref_array[1]
-		ColorType.OUTLINE:
+		ColorType.LINE_PLAYING_HIGHER:
 			return SaveLoad.color_ref_array[2]
-		ColorType.RHYTHM:
+		ColorType.OUTLINE:
 			return SaveLoad.color_ref_array[3]
-		ColorType.RHYTHM_HIGHER:
+		ColorType.RHYTHM:
 			return SaveLoad.color_ref_array[4]
-		ColorType.WAVE:
+		ColorType.RHYTHM_HIGHER:
 			return SaveLoad.color_ref_array[5]
+		ColorType.WAVE:
+			return SaveLoad.color_ref_array[6]
 		_:
 			return SaveLoad.ColorRef.new(Color())
 
@@ -102,6 +108,8 @@ func return_curren_texture() -> TextureRect:
 			return line_whole
 		ColorType.LINE_PLAYING:
 			return line_playing
+		ColorType.LINE_PLAYING_HIGHER:
+			return line_playing_higher
 		ColorType.OUTLINE:
 			return outline
 		ColorType.RHYTHM:
@@ -175,6 +183,7 @@ func _on_h_slider_a_value_changed(value: float) -> void:
 	return_curren_texture().self_modulate.a = value
 	update_shown_color()
 
+#检测鼠标进入色块
 func _on_line_whole_mouse_entered() -> void:
 	current_color_type = ColorType.LINE
 	update_shown_color()
@@ -191,6 +200,10 @@ func _on_line_playing_mouse_entered() -> void:
 	current_color_type = ColorType.LINE_PLAYING
 	update_shown_color()
 
+func _on_line_playing_higher_mouse_entered() -> void:
+	current_color_type = ColorType.LINE_PLAYING_HIGHER
+	update_shown_color()
+
 func _on_outline_mouse_entered() -> void:
 	current_color_type = ColorType.OUTLINE
 	update_shown_color()
@@ -199,7 +212,7 @@ func _on_line_fallen_higher_mouse_entered() -> void:
 	current_color_type = ColorType.RHYTHM_HIGHER
 	update_shown_color()
 
-
+#悬浮音效
 func _on_button_start_mouse_entered() -> void:
 	sound_hover.play()
 

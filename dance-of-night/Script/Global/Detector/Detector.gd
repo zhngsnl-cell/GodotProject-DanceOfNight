@@ -33,10 +33,9 @@ const pitch_position:Array[Vector2] = [
 ]
 
 var game_is_end:bool = false
-
 var rhythm_entering:bool = false
-
 var higher_mode:bool = false
+
 var playing_pitch:int
 var current_pitch:int = 0
 var last_pitch:int = 0
@@ -244,6 +243,12 @@ func play_animation_wave()->void:
 func play_music()->void:
 	music_player.play()
 
+func change_color()->void:
+	if higher_mode:
+		line_playing.self_modulate = SaveLoad.ref_color_line_playing_higher.color
+	else:
+		line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
+
 func update_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_line_index < rhythm_line_amount:
@@ -315,6 +320,7 @@ func _process(delta: float) -> void:
 	
 	change_pitch_state()
 	change_higher_mode()
+	change_color()
 	
 	play_sound()
 	play_animation()

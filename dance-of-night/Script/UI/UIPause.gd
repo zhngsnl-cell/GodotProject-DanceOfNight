@@ -58,7 +58,6 @@ func _process(delta: float) -> void:
 		if not pausing:
 			pause()
 
-
 func _on_button_resume_button_up() -> void:
 	sound_select.play()
 	await resume()

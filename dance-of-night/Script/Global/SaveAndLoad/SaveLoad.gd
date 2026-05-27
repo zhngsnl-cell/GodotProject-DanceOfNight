@@ -9,6 +9,7 @@ const SAVE_PATH:String = "user://settings.tres"
 
 var ref_color_line:ColorRef = ColorRef.new(Color.WHITE)
 var ref_color_line_playing:ColorRef = ColorRef.new(Color.WHITE)
+var ref_color_line_playing_higher:ColorRef = ColorRef.new(Color.WHITE)
 var ref_color_outline:ColorRef = ColorRef.new(Color.WHITE)
 var ref_color_rhythm:ColorRef = ColorRef.new(Color.WHITE)
 var ref_color_rhythm_higher:ColorRef = ColorRef.new(Color.WHITE)
@@ -17,6 +18,7 @@ var ref_color_wave:ColorRef = ColorRef.new(Color.WHITE)
 var color_ref_array:Array[ColorRef] = [
 	ref_color_line,
 	ref_color_line_playing,
+	ref_color_line_playing_higher,
 	ref_color_outline,
 	ref_color_rhythm,
 	ref_color_rhythm_higher,
@@ -60,5 +62,8 @@ func load_color()->void:
 		print("array is empty")
 		return
 	for i:int in range(color_ref_array.size()):
-		color_ref_array[i].color = load_single_color(color_data_array.color_data_array[i])
+		if color_data_array.color_data_array.is_empty():
+			return
+		else:
+			color_ref_array[i].color = load_single_color(color_data_array.color_data_array[i])
 	print("color loaded!")

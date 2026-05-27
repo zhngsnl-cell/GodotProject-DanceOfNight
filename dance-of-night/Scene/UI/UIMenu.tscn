@@ -80,7 +80,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
 [node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
-visible = false
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -264,6 +263,15 @@ offset_bottom = 36.0
 texture = ExtResource("14_5dmff")
 stretch_mode = 2
 
+[node name="LinePlayingHigher" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=1281712297]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 32.0
+offset_right = 138.0
+offset_bottom = 36.0
+texture = ExtResource("14_5dmff")
+stretch_mode = 2
+
 [node name="Sounds" type="Node" parent="." unique_id=1312740590]
 
 [node name="SoundHover" type="AudioStreamPlayer" parent="Sounds" unique_id=79921960]
@@ -296,3 +304,4 @@ parameters/looping = true
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Wave" to="." method="_on_wave_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
 [connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_line_playing_mouse_entered"]
+[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlayingHigher" to="." method="_on_line_playing_higher_mouse_entered"]
