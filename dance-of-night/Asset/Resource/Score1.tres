@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://bf758kgilpbss"]
+[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://eqo6hhioqg3e"]
 
 [ext_resource type="Script" uid="uid://dnnlwlbwjvtj4" path="res://Script/Global/Detector/TimeLine.gd" id="1_qw65s"]
 [ext_resource type="Script" uid="uid://h0fig6fxh82l" path="res://Script/Global/Detector/Rhythm.gd" id="2_b0030"]
@@ -57,6 +57,60 @@ pitch = 2
 time = 6.5
 length = 0.5
 
+[sub_resource type="Resource" id="Resource_851m4"]
+script = ExtResource("2_b0030")
+pitch = 3
+time = 7.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_0hwuf"]
+script = ExtResource("2_b0030")
+pitch = 5
+time = 7.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_cs0tl"]
+script = ExtResource("2_b0030")
+pitch = 4
+time = 8.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_mmjyf"]
+script = ExtResource("2_b0030")
+pitch = 3
+time = 8.5
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_jxqhh"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 8.75
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_4sftv"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 9.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_m2urf"]
+script = ExtResource("2_b0030")
+pitch = 7
+time = 9.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_p3qws"]
+script = ExtResource("2_b0030")
+pitch = 4
+time = 10.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_cj5ir"]
+script = ExtResource("2_b0030")
+pitch = 2
+time = 10.5
+length = 0.5
+
 [resource]
 script = ExtResource("1_qw65s")
-timeline = Array[ExtResource("2_b0030")]([SubResource("Resource_ll2g0"), SubResource("Resource_gljcu"), SubResource("Resource_gc3l2"), SubResource("Resource_eny7r"), SubResource("Resource_3kqho"), SubResource("Resource_es2h0"), SubResource("Resource_o55np"), SubResource("Resource_i5d3k"), SubResource("Resource_tqa40")])
+timeline = Array[ExtResource("2_b0030")]([SubResource("Resource_ll2g0"), SubResource("Resource_gljcu"), SubResource("Resource_gc3l2"), SubResource("Resource_eny7r"), SubResource("Resource_3kqho"), SubResource("Resource_es2h0"), SubResource("Resource_o55np"), SubResource("Resource_i5d3k"), SubResource("Resource_tqa40"), SubResource("Resource_851m4"), SubResource("Resource_0hwuf"), SubResource("Resource_cs0tl"), SubResource("Resource_mmjyf"), SubResource("Resource_jxqhh"), SubResource("Resource_4sftv"), SubResource("Resource_m2urf"), SubResource("Resource_p3qws"), SubResource("Resource_cj5ir")])

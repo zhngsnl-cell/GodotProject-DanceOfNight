@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bltdowi76j8ix"]
 
 [ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
-[ext_resource type="Resource" uid="uid://ig7adxxgiq0u" path="res://Asset/Resource/TimeLineExample.tres" id="2_oworl"]
 [ext_resource type="Material" uid="uid://du2bcq3ma38x1" path="res://Asset/Material/WaveEffect.tres" id="2_pshfh"]
+[ext_resource type="Resource" uid="uid://eqo6hhioqg3e" path="res://Asset/Resource/Score1.tres" id="3_pshfh"]
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="4_pshfh"]
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
-[ext_resource type="AudioStream" uid="uid://dga285bfu1iyk" path="res://Asset/Sound/Sample/PanFluteF.mp3" id="5_pshfh"]
+[ext_resource type="AudioStream" uid="uid://dvbnrl18gijtu" path="res://Asset/Sound/Sample/PanFluteA.mp3" id="5_pshfh"]
 [ext_resource type="Texture2D" uid="uid://xatkxlbet715" path="res://Asset/Image/RhythmTexture/RhythmTexture.png" id="7_ye5oa"]
 [ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="8_jnfry"]
 [ext_resource type="Texture2D" uid="uid://crtst73n4p8ei" path="res://Asset/Image/RhythmTexture/Outline.png" id="8_pshfh"]
@@ -24,7 +24,7 @@ wave_effect = NodePath("WaveEffect")
 wave_effect_shader_material = ExtResource("2_pshfh")
 progress_label = NodePath("ProgressLabel")
 button_finish = NodePath("ButtonFinish")
-music_score = ExtResource("2_oworl")
+music_score = ExtResource("3_pshfh")
 metadata/_custom_type_script = "uid://bdwf4djn1yve5"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=426975006]

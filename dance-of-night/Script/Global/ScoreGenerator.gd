@@ -25,3 +25,4 @@ func _ready() -> void:
 	var error:Error = ResourceSaver.save(generate_resource("res://Asset/Text/Score1.json"),SAVE_PATH)
 	if error != OK:
 		print("failed to generate score")
+	get_tree().quit()
