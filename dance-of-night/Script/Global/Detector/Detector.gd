@@ -33,7 +33,7 @@ const pitch_position:Array[Vector2] = [
 ]
 
 var game_is_end:bool = false
-var rhythm_entering:bool = false
+var fallen_line_entering:bool = false
 var higher_mode:bool = false
 
 var playing_pitch:int
@@ -41,9 +41,12 @@ var current_pitch:int = 0
 var last_pitch:int = 0
 var music_score_pitch:int
 
-var rhythm_line_index:int = 0
-var rhythm_line_amount:int = 0
-var line_texture_index:int = 0
+var rhythm_index:int = 0
+var rhythm_amount:int = 0
+var fallen_line_index:int = 0
+
+var playing_speed:float = 1.0
+var fallen_speed:float = 1.0
 
 var completed_time:float = 0.0
 var progress:float = 0.0
@@ -68,14 +71,19 @@ var pitch_rank:Array[int] = [
 	6,
 	7,
 ]
+
 var time_container:Array[float]
 var pitch_container:Array[int]
 var length_container:Array[float]
+
 var point_array:Array[float]
 
-var delay:float = 2.0
+var fallen_line_pool:ObjectPoolFallenLine
 
-@export var rhythm_container:Node2D
+var pre_delay:float
+var delay:float
+
+@export var fallen_line_container:Node2D
 @export var timer:Timer
 @export var music_player:AudioStreamPlayer
 @export var sound_player:AudioStreamPlayer
@@ -105,7 +113,7 @@ func calculate_points()->float:
 	var sum:float = 0.0
 	for i:float in point_array:
 		sum += i
-	var final_point:float = sum/rhythm_line_amount
+	var final_point:float = sum/rhythm_amount
 	return final_point
 
 func calculate_pitch()->void:
@@ -176,7 +184,7 @@ func pressing()->bool:
 
 func in_beat()->bool:
 	if pressing():
-		if playing_pitch == music_score_pitch and rhythm_entering:
+		if playing_pitch == music_score_pitch and fallen_line_entering:
 			return true
 		else:
 			return false
@@ -186,8 +194,8 @@ func in_beat()->bool:
 func calculate_progress(delta:float)->float:
 	if in_beat():
 		completed_time += delta
-	if rhythm_line_index > 0:
-		progress = completed_time / length_container[rhythm_line_index - 1]
+	if rhythm_index > 0:
+		progress = completed_time / length_container[rhythm_index - 1]
 	if progress >= 1.0:
 		progress = 1.0
 	return progress
@@ -251,49 +259,55 @@ func change_color()->void:
 
 func update_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
-	if rhythm_line_index < rhythm_line_amount:
-		if current_time >= time_container[rhythm_line_index] and rhythm_entering == false:
+	if rhythm_index < rhythm_amount:
+		if current_time > time_container[rhythm_index] and fallen_line_entering == false:
+			delay = current_time - time_container[rhythm_index]
+			print(delay)
 			#print("update score time" + str(music_player.get_playback_position()))
-			music_score_pitch = pitch_container[rhythm_line_index]
-			rhythm_entering = true
-			timer.wait_time = length_container[rhythm_line_index]
-			rhythm_line_index += 1
+			music_score_pitch = pitch_container[rhythm_index]
+			fallen_line_entering = true
+			timer.wait_time = length_container[rhythm_index] - delay
+			rhythm_index += 1
 			timer.start()
 			
 			reset_progress()
 	else:
 		game_is_end = true
 
-func set_line(pitch:int,length:float)->void:
-	#print("set line time" + str(music_player.get_playback_position()))
-	var line_scene:PackedScene = preload("res://Scene/Level/LineFallen.tscn")
-	var line:RhythmLine = line_scene.instantiate() as RhythmLine
-	rhythm_container.add_child(line)
-	line.scale.y = length
-	line.global_position.x = pitch_position[line.return_processed_pitch(pitch)].x
-	line.global_position.y = -length/2.0
-
-func generate_rhythm_line()->void:
-	if line_texture_index < rhythm_line_amount:
+func generate_fallen_line()->void:
+	if fallen_line_index < rhythm_amount:
 		var current_time:float = music_player.get_playback_position()
-		if current_time >= time_container.get(line_texture_index) - delay:
-			set_line(pitch_container[line_texture_index],
-			length_container[line_texture_index] * 100.0)
-			line_texture_index += 1
+		if current_time > time_container[fallen_line_index] - pre_delay:
+			#print(current_time)
+			#print(time_container[fallen_line_index])
+			fallen_line_pool.get_instance(fallen_line_index).setup_position()
+			fallen_line_index += 1
+
+func generate_fallen_line_pool()->void:
+	fallen_line_pool = ObjectPoolFallenLine.new(
+		fallen_line_container,
+		rhythm_amount,
+		fallen_speed,
+		pitch_container,
+		length_container
+		)
 
 func set_outline()->void:
-	if rhythm_line_index < rhythm_line_amount:
-		outline.global_position = pitch_position[processed_pitch(pitch_container[rhythm_line_index])]
+	if rhythm_index < rhythm_amount:
+		outline.global_position = pitch_position[processed_pitch(pitch_container[rhythm_index])]
 
 func load_music_score()->void:
-	rhythm_line_amount = music_score.timeline.size()
+	rhythm_amount = music_score.timeline.size()
 	for i:Rhythm in music_score.timeline:
 		time_container.append(i.time)
 		pitch_container.append(i.pitch)
 		length_container.append(i.length)
 
 func load_music_score_debug()->void:
-	for i:int in range(rhythm_line_amount - 1):
+	if time_container[0] < pre_delay:
+		print("music score crashed!")
+		#get_tree().quit(1)
+	for i:int in range(fallen_line_index - 1):
 		if (time_container[i] + length_container[i]) > time_container[i + 1]:
 			print("music score crashed!")
 			get_tree().quit(1)
@@ -308,9 +322,11 @@ func _ready() -> void:
 	var err2:int = timer.timeout.connect(_on_time_out)
 	print(err2)
 	
+	pre_delay = 2.0/fallen_speed
 	#calculate_pitch()
 	load_music_score()
 	load_music_score_debug()
+	generate_fallen_line_pool()
 	play_music()
 	
 	set_outline()
@@ -326,19 +342,18 @@ func _process(delta: float) -> void:
 	play_sound()
 	play_animation()
 	
-	generate_rhythm_line()
+	generate_fallen_line()
 	update_music_score()
 	play_animation_wave()
 	
 	update_progress(delta)
 	
-	#print(rhythm_line_index)
 
 func _on_time_out()->void:
-	#print("time out time:" + str(music_player.get_playback_position()))
+	print("time out time:" + str(music_player.get_playback_position()))
 	#结束进入
 	set_outline()
-	rhythm_entering = false
+	fallen_line_entering = false
 	point_array.append(progress)
 	if game_is_end:
 		button_finish.visible = true

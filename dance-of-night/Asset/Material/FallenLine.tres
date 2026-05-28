@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cqpa3br0bdigf"]
+
+[ext_resource type="Shader" uid="uid://b0opfykqepon8" path="res://Script/Shader/LineFallenDisappear.gdshader" id="1_jexb8"]
+
+[resource]
+shader = ExtResource("1_jexb8")
+shader_parameter/judgment_global_y = 0.0

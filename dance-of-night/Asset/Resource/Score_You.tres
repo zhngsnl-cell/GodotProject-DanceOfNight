@@ -1,0 +1,198 @@
+[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://5vx81jr4ie4h"]
+
+[ext_resource type="Script" uid="uid://dnnlwlbwjvtj4" path="res://Script/Global/Detector/TimeLine.gd" id="1_wk5k1"]
+[ext_resource type="Script" uid="uid://h0fig6fxh82l" path="res://Script/Global/Detector/Rhythm.gd" id="2_66fxp"]
+
+[sub_resource type="Resource" id="Resource_547wr"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 3.0
+length = 1.0
+
+[sub_resource type="Resource" id="Resource_tncnc"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 4.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_5b8d1"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 4.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_jmt6k"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 4.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_5511a"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 5.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_1db1g"]
+script = ExtResource("2_66fxp")
+time = 5.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_3v5jj"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 6.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_u0h0d"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 6.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_0pkoa"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 6.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_rdc7c"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 7.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_dpg8f"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 7.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_hbuyf"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 8.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_h687t"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 8.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_o2i4n"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 8.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_3v356"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 9.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_in5e7"]
+script = ExtResource("2_66fxp")
+pitch = 7
+time = 9.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_klnww"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 10.0
+length = 1.0
+
+[sub_resource type="Resource" id="Resource_2dg64"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 11.0
+length = 1.0
+
+[sub_resource type="Resource" id="Resource_cybj3"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 12.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_xeb52"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 12.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_t843r"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 12.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_eeahj"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 13.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_vtita"]
+script = ExtResource("2_66fxp")
+time = 13.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_s5dow"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 14.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_xdb6n"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 14.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_owrgk"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 14.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_mfcwe"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 15.0
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_wcrb6"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 15.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_boo6o"]
+script = ExtResource("2_66fxp")
+pitch = 5
+time = 16.0
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_dodtf"]
+script = ExtResource("2_66fxp")
+pitch = 4
+time = 16.25
+length = 0.25
+
+[sub_resource type="Resource" id="Resource_tiswu"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 16.5
+length = 0.5
+
+[sub_resource type="Resource" id="Resource_gjivd"]
+script = ExtResource("2_66fxp")
+pitch = 3
+time = 17.0
+length = 2.0
+
+[resource]
+script = ExtResource("1_wk5k1")
+timeline = Array[ExtResource("2_66fxp")]([SubResource("Resource_547wr"), SubResource("Resource_tncnc"), SubResource("Resource_5b8d1"), SubResource("Resource_jmt6k"), SubResource("Resource_5511a"), SubResource("Resource_1db1g"), SubResource("Resource_3v5jj"), SubResource("Resource_u0h0d"), SubResource("Resource_0pkoa"), SubResource("Resource_rdc7c"), SubResource("Resource_dpg8f"), SubResource("Resource_hbuyf"), SubResource("Resource_h687t"), SubResource("Resource_o2i4n"), SubResource("Resource_3v356"), SubResource("Resource_in5e7"), SubResource("Resource_klnww"), SubResource("Resource_2dg64"), SubResource("Resource_cybj3"), SubResource("Resource_xeb52"), SubResource("Resource_t843r"), SubResource("Resource_eeahj"), SubResource("Resource_vtita"), SubResource("Resource_s5dow"), SubResource("Resource_xdb6n"), SubResource("Resource_owrgk"), SubResource("Resource_mfcwe"), SubResource("Resource_wcrb6"), SubResource("Resource_boo6o"), SubResource("Resource_dodtf"), SubResource("Resource_tiswu"), SubResource("Resource_gjivd")])
