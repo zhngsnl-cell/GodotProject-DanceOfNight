@@ -30,18 +30,19 @@ func return_processed_pitch(pitch:int)->int:
 		self_modulate = SaveLoad.ref_color_rhythm.color
 		return pitch
 
-func _init(_pitch:int,_fallen_speed:float,_length:float) -> void:
+func _init(_pitch:int,_fallen_speed_multiplier:float,_length:float,_disappear_point:float) -> void:
+	fallen_speed *= _fallen_speed_multiplier
 	texture = the_texture
-	scale.y = _length * _fallen_speed * 100.0
+	scale.y = _length * fallen_speed
 	processed_pitch = return_processed_pitch(_pitch)
 	appear_position.x = pitch_position[processed_pitch]
-	appear_position.y = -(_length * _fallen_speed * 100.0)/2.0
+	appear_position.y = -(_length * fallen_speed)/2.0
+	#print(appear_position.y)
 	global_position = appear_position
-	fallen_speed *= _fallen_speed
 	
 	material = shader_mat
 	if shader_mat:
-		shader_mat.set_shader_parameter("judgment_global_y", 200.0)
+		shader_mat.set_shader_parameter("judgment_global_y", _disappear_point)
 	
 
 func _process(delta: float) -> void:

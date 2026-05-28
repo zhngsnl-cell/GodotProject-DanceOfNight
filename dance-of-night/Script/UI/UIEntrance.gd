@@ -23,22 +23,27 @@ const ColorTypeArray:Array[ColorType] = [
 var current_color_type:ColorType = ColorType.LINE
 
 @onready var menu: MarginContainer = $Control/Menu
-@onready var options: MarginContainer = $Control/Options
+@onready var option: MarginContainer = $Control/Option
+@onready var option_color: MarginContainer = $Control/OptionColor
+@onready var option_volume: MarginContainer = $Control/OptionVolume
+@onready var option_speed: MarginContainer = $Control/OptionSpeed
 
-@onready var texture_rect_show: TextureRect = $Control/Options/PanelContainer/Control/Container/TextureRectShow
+@onready var texture_rect_show: TextureRect = $Control/OptionColor/PanelContainer/Control/Container/TextureRectShow
 
-@onready var line_whole: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineWhole
-@onready var line_fallen: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineFallen
-@onready var line_fallen_higher: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LineFallenHigher
-@onready var wave: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Wave
-@onready var outline: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/Outline
-@onready var line_playing: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlaying
-@onready var line_playing_higher: TextureRect = $Control/Options/PanelContainer/Control/TextureRect/LinePlayingHigher
+@onready var line_whole: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/LineWhole
+@onready var line_fallen: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/LineFallen
+@onready var line_fallen_higher: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/LineFallenHigher
+@onready var wave: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/Wave
+@onready var outline: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/Outline
+@onready var line_playing: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/LinePlaying
+@onready var line_playing_higher: TextureRect = $Control/OptionColor/PanelContainer/Control/TextureRect/LinePlayingHigher
 
-@onready var h_slider_r: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderR
-@onready var h_slider_g: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderG
-@onready var h_slider_b: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderB
-@onready var h_slider_a: HSlider = $Control/Options/PanelContainer/Control/SliderContainer/HSliderA
+@onready var h_slider_r: HSlider = $Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderR
+@onready var h_slider_g: HSlider = $Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderG
+@onready var h_slider_b: HSlider = $Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderB
+@onready var h_slider_a: HSlider = $Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderA
+
+
 
 @onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
 @onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
@@ -127,7 +132,7 @@ func go_to_main_scene()->void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	initialize_dic()
-	options.visible = false
+	option_color.visible = false
 	SaveLoad.load_color()
 	initialize_shown_color()
 
@@ -149,16 +154,19 @@ func _on_button_start_button_up() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	call_deferred("go_to_main_scene")
 
-func _on_button_option_button_up() -> void:
+
+
+
+
 	update_shown_color()
 	menu.visible = false
-	options.visible = true
+	option_color.visible = true
 	
 	sound_select.play()
 
-func _on_button_back_button_up() -> void:
+
 	SaveLoad.save_color()
-	options.visible = false
+	option_color.visible = false
 	menu.visible = true
 	
 	sound_select.play()
@@ -224,3 +232,52 @@ func _on_button_quit_mouse_entered() -> void:
 
 func _on_button_back_mouse_entered() -> void:
 	sound_hover.play()
+
+
+func _on_button_option_button_up() -> void:
+	menu.visible = false
+	option.visible = true
+	
+	sound_select.play()
+
+func _on_button_volume_button_up() -> void:
+	option.visible = false
+	option_volume.visible = true
+	
+	sound_select.play()
+
+func _on_button_color_button_up() -> void:
+	option.visible = false
+	option_color.visible = true
+	
+	sound_select.play()
+
+func _on_button_speed_button_up() -> void:
+	option.visible = false
+	option_speed.visible = true
+	
+	sound_select.play()
+
+func _on_button_back_button_up() -> void:
+	option.visible = false
+	menu.visible = true
+	
+	sound_select.play()
+
+func _on_button_back_color_button_up() -> void:
+	option_color.visible = false
+	option.visible = true
+	
+	sound_select.play()
+
+func _on_button_back_volume_button_up() -> void:
+	option_volume.visible = false
+	option.visible = true
+	
+	sound_select.play()
+
+func _on_button_back_speed_button_up() -> void:
+	option_speed.visible = false
+	option.visible = true
+	
+	sound_select.play()

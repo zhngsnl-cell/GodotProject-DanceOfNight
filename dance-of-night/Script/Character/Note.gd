@@ -25,7 +25,3 @@ func _ready() -> void:
 		position -= Vector2(positive,1.0)
 		positive *= -1.0
 	queue_free()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

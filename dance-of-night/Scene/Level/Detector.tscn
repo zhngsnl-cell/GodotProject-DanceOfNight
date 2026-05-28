@@ -36,7 +36,7 @@ stream = ExtResource("5_pshfh")
 parameters/looping = true
 
 [node name="LineWhole" type="Sprite2D" parent="." unique_id=1723072701]
-position = Vector2(240, 200)
+position = Vector2(240, 225)
 texture = ExtResource("5_njpq8")
 
 [node name="FallenLineContainer" type="Node2D" parent="." unique_id=566370764]
@@ -44,23 +44,25 @@ texture = ExtResource("5_njpq8")
 [node name="WaveEffect" type="Sprite2D" parent="." unique_id=1849616945]
 visible = false
 material = ExtResource("2_pshfh")
-position = Vector2(135, 216)
+position = Vector2(135, 240)
 texture = ExtResource("7_ye5oa")
 
 [node name="Outline" type="Sprite2D" parent="." unique_id=214956689]
-position = Vector2(135, 200)
+position = Vector2(135, 225)
 texture = ExtResource("8_pshfh")
 
 [node name="LinePlaying" type="Sprite2D" parent="." unique_id=49713976]
-position = Vector2(135, 200)
+position = Vector2(135, 225)
 texture = ExtResource("8_jnfry")
 
 [node name="Timer" type="Timer" parent="." unique_id=1265792322]
 one_shot = true
 
 [node name="ProgressLabel" type="Label" parent="." unique_id=321767758]
-offset_right = 40.0
-offset_bottom = 13.0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 65.0
+offset_bottom = 60.0
 theme_override_font_sizes/font_size = 48
 text = "0%"
 horizontal_alignment = 1

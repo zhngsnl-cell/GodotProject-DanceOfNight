@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://5vx81jr4ie4h"]
+[gd_resource type="Resource" script_class="TimeLine" format=3 uid="uid://nf6hobou2yo3"]
 
 [ext_resource type="Script" uid="uid://dnnlwlbwjvtj4" path="res://Script/Global/Detector/TimeLine.gd" id="1_wk5k1"]
 [ext_resource type="Script" uid="uid://h0fig6fxh82l" path="res://Script/Global/Detector/Rhythm.gd" id="2_66fxp"]
@@ -25,7 +25,7 @@ length = 0.25
 script = ExtResource("2_66fxp")
 pitch = 3
 time = 4.5
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_5511a"]
 script = ExtResource("2_66fxp")
@@ -54,13 +54,13 @@ length = 0.25
 script = ExtResource("2_66fxp")
 pitch = 3
 time = 6.5
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_rdc7c"]
 script = ExtResource("2_66fxp")
 pitch = 4
 time = 7.0
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_dpg8f"]
 script = ExtResource("2_66fxp")
@@ -84,7 +84,7 @@ length = 0.25
 script = ExtResource("2_66fxp")
 pitch = 3
 time = 8.5
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_3v356"]
 script = ExtResource("2_66fxp")
@@ -102,7 +102,7 @@ length = 0.5
 script = ExtResource("2_66fxp")
 pitch = 4
 time = 10.0
-length = 1.0
+length = 0.5
 
 [sub_resource type="Resource" id="Resource_2dg64"]
 script = ExtResource("2_66fxp")
@@ -126,7 +126,7 @@ length = 0.25
 script = ExtResource("2_66fxp")
 pitch = 3
 time = 12.5
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_eeahj"]
 script = ExtResource("2_66fxp")
@@ -161,7 +161,7 @@ length = 0.5
 script = ExtResource("2_66fxp")
 pitch = 4
 time = 15.0
-length = 0.5
+length = 0.25
 
 [sub_resource type="Resource" id="Resource_wcrb6"]
 script = ExtResource("2_66fxp")
@@ -191,7 +191,7 @@ length = 0.5
 script = ExtResource("2_66fxp")
 pitch = 3
 time = 17.0
-length = 2.0
+length = 0.5
 
 [resource]
 script = ExtResource("1_wk5k1")

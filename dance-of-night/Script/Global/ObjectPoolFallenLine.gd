@@ -10,28 +10,30 @@ var _parent: Node
 func _init(
 	parent: Node, 
 	size: int,
-	fallen_speed:float,
+	fallen_speed_multiplier:float,
+	disappear_point:float,
 	pitch_array:Array[int],
 	length_array:Array[float],
 )->void:
 	_parent = parent
-	_initialize_pool(size,fallen_speed,pitch_array,length_array)
+	_initialize_pool(size,fallen_speed_multiplier,disappear_point,pitch_array,length_array)
 
 func _initialize_pool(
 	count: int,
-	fallen_speed:float,
+	fallen_speed_multiplier:float,
+	disappear_point:float,
 	pitch_array:Array[int],
 	length_array:Array[float],
 	)->void:
 	for i:int in range(count):
-		var fallen_line:FallenLine = _create_instance(pitch_array[i],fallen_speed,length_array[i])
+		var fallen_line:FallenLine = _create_instance(pitch_array[i],fallen_speed_multiplier,length_array[i],disappear_point)
 		#print(fallen_line.scale.y)
 		#print(fallen_line.appear_position.x)
 		#print(fallen_line.appear_position.y)
 		_return_to_pool(fallen_line)
 
-func _create_instance(_pitch:int,_fallen_speed:float,_length:float) -> FallenLine:
-	var new_line:FallenLine = FallenLine.new(_pitch,_fallen_speed,_length)
+func _create_instance(_pitch:int,_fallen_speed_multiplier:float,_length:float,_disappear_point:float) -> FallenLine:
+	var new_line:FallenLine = FallenLine.new(_pitch,_fallen_speed_multiplier,_length,_disappear_point)
 	_parent.add_child(new_line)
 	return new_line
 

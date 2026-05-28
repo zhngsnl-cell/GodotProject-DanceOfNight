@@ -17,11 +17,54 @@
 [ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="15_qh537"]
 [ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="16_7v1re"]
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="17_7v1re"]
+[ext_resource type="Texture2D" uid="uid://byakj5vwwbn8o" path="res://Asset/Image/Character/TileMapNight.png" id="18_vygnc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fadbm"]
+atlas = ExtResource("18_vygnc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yryd6"]
+atlas = ExtResource("18_vygnc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6qia"]
+atlas = ExtResource("18_vygnc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5nsp"]
+atlas = ExtResource("18_vygnc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v1re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fadbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yryd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6qia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5nsp")
+}],
+"loop": true,
+"name": &"Dance",
+"speed": 8.0
+}]
 
 [node name="UIMenu" type="CanvasLayer" unique_id=595462003]
 script = ExtResource("1_i147s")
 
 [node name="Background" parent="." unique_id=2110206342 instance=ExtResource("2_8rk2v")]
+
+[node name="DancingNight" type="AnimatedSprite2D" parent="." unique_id=1671765843]
+position = Vector2(85, 146)
+sprite_frames = SubResource("SpriteFrames_7v1re")
+animation = &"Dance"
+autoplay = "Dance"
 
 [node name="Control" type="Control" parent="." unique_id=1107027465]
 layout_mode = 3
@@ -79,7 +122,66 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "QUIT"
 
-[node name="Options" type="MarginContainer" parent="Control" unique_id=1498638501]
+[node name="Option" type="MarginContainer" parent="Control" unique_id=810808045]
+visible = false
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 60
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Option" unique_id=1952617237]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Option/PanelContainer" unique_id=502513446]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Option/PanelContainer/HBoxContainer" unique_id=2035874115]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Option/PanelContainer/HBoxContainer" unique_id=2124412897]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonVolume" type="Button" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=339781367]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "VOLUME"
+
+[node name="ButtonColor" type="Button" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=552559632]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "COLOR"
+
+[node name="ButtonSpeed" type="Button" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=1340642892]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SPEED"
+
+[node name="Control" type="Control" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=1560538409]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonBack" type="Button" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=1395474174]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/Option/PanelContainer/HBoxContainer" unique_id=630277799]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="OptionColor" type="MarginContainer" parent="Control" unique_id=1498638501]
+visible = false
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -88,41 +190,41 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 40
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/Options" unique_id=738040727]
+[node name="PanelContainer" type="PanelContainer" parent="Control/OptionColor" unique_id=738040727]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="Control/Options/PanelContainer" unique_id=923618984]
+[node name="Control" type="Control" parent="Control/OptionColor/PanelContainer" unique_id=923618984]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Options/PanelContainer/Control" unique_id=444459266]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/OptionColor/PanelContainer/Control" unique_id=444459266]
 layout_mode = 0
 offset_top = 168.0
 offset_right = 270.0
 offset_bottom = 185.0
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Control/Options/PanelContainer/Control/HBoxContainer2" unique_id=1732399300]
+[node name="Control" type="Control" parent="Control/OptionColor/PanelContainer/Control/HBoxContainer2" unique_id=1732399300]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ButtonBack" type="Button" parent="Control/Options/PanelContainer/Control/HBoxContainer2" unique_id=1134979178]
+[node name="ButtonBack" type="Button" parent="Control/OptionColor/PanelContainer/Control/HBoxContainer2" unique_id=1134979178]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "BACK"
 
-[node name="Control2" type="Control" parent="Control/Options/PanelContainer/Control/HBoxContainer2" unique_id=1401346943]
+[node name="Control2" type="Control" parent="Control/OptionColor/PanelContainer/Control/HBoxContainer2" unique_id=1401346943]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SliderContainer" type="Control" parent="Control/Options/PanelContainer/Control" unique_id=685131549]
+[node name="SliderContainer" type="Control" parent="Control/OptionColor/PanelContainer/Control" unique_id=685131549]
 anchors_preset = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 148.0
 offset_bottom = 44.0
 
-[node name="HSliderR" type="HSlider" parent="Control/Options/PanelContainer/Control/SliderContainer" unique_id=644360869]
+[node name="HSliderR" type="HSlider" parent="Control/OptionColor/PanelContainer/Control/SliderContainer" unique_id=644360869]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -134,7 +236,7 @@ max_value = 1.0
 step = 0.01
 metadata/_edit_use_anchors_ = true
 
-[node name="HSliderG" type="HSlider" parent="Control/Options/PanelContainer/Control/SliderContainer" unique_id=856337020]
+[node name="HSliderG" type="HSlider" parent="Control/OptionColor/PanelContainer/Control/SliderContainer" unique_id=856337020]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.05882353
@@ -149,7 +251,7 @@ step = 0.01
 ticks_on_borders = true
 metadata/_edit_use_anchors_ = true
 
-[node name="HSliderB" type="HSlider" parent="Control/Options/PanelContainer/Control/SliderContainer" unique_id=2046139513]
+[node name="HSliderB" type="HSlider" parent="Control/OptionColor/PanelContainer/Control/SliderContainer" unique_id=2046139513]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.11764706
@@ -164,7 +266,7 @@ step = 0.01
 ticks_on_borders = true
 metadata/_edit_use_anchors_ = true
 
-[node name="HSliderA" type="HSlider" parent="Control/Options/PanelContainer/Control/SliderContainer" unique_id=429434206]
+[node name="HSliderA" type="HSlider" parent="Control/OptionColor/PanelContainer/Control/SliderContainer" unique_id=429434206]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.1764706
@@ -178,7 +280,7 @@ max_value = 1.0
 step = 0.01
 metadata/_edit_use_anchors_ = true
 
-[node name="Container" type="Control" parent="Control/Options/PanelContainer/Control" unique_id=2088509983]
+[node name="Container" type="Control" parent="Control/OptionColor/PanelContainer/Control" unique_id=2088509983]
 anchors_preset = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -186,14 +288,14 @@ offset_right = 42.0
 offset_bottom = 42.0
 size_flags_horizontal = 3
 
-[node name="TextureRectShow" type="TextureRect" parent="Control/Options/PanelContainer/Control/Container" unique_id=1912814759]
+[node name="TextureRectShow" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/Container" unique_id=1912814759]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("4_yvrmp")
 stretch_mode = 3
 
-[node name="TextureRect" type="Control" parent="Control/Options/PanelContainer/Control" unique_id=1338800000]
+[node name="TextureRect" type="Control" parent="Control/OptionColor/PanelContainer/Control" unique_id=1338800000]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -209,7 +311,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 7.0
 
-[node name="LineWhole" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=1166356189]
+[node name="LineWhole" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=1166356189]
 layout_mode = 0
 offset_left = 2.5
 offset_top = 40.5
@@ -218,7 +320,7 @@ offset_bottom = 46.5
 texture = ExtResource("5_67yi2")
 stretch_mode = 2
 
-[node name="LineFallen" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=1570490193]
+[node name="LineFallen" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=1570490193]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 14.0
@@ -228,7 +330,7 @@ scale = Vector2(1, 30)
 texture = ExtResource("6_rqeg1")
 stretch_mode = 2
 
-[node name="LineFallenHigher" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=2043676181]
+[node name="LineFallenHigher" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=2043676181]
 layout_mode = 0
 offset_left = 106.0
 offset_top = -31.0
@@ -236,7 +338,7 @@ offset_right = 136.0
 offset_bottom = 9.0
 texture = ExtResource("6_rqeg1")
 
-[node name="Wave" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=199632975]
+[node name="Wave" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=199632975]
 layout_mode = 0
 offset_left = 184.0
 offset_top = 45.0
@@ -245,7 +347,7 @@ offset_bottom = 75.0
 texture = ExtResource("7_rqeg1")
 stretch_mode = 2
 
-[node name="Outline" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=640014308]
+[node name="Outline" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=640014308]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 31.0
@@ -254,7 +356,7 @@ offset_bottom = 37.0
 texture = ExtResource("13_5dmff")
 stretch_mode = 2
 
-[node name="LinePlaying" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=180816041]
+[node name="LinePlaying" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=180816041]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 32.0
@@ -263,7 +365,7 @@ offset_bottom = 36.0
 texture = ExtResource("14_5dmff")
 stretch_mode = 2
 
-[node name="LinePlayingHigher" type="TextureRect" parent="Control/Options/PanelContainer/Control/TextureRect" unique_id=1281712297]
+[node name="LinePlayingHigher" type="TextureRect" parent="Control/OptionColor/PanelContainer/Control/TextureRect" unique_id=1281712297]
 layout_mode = 0
 offset_left = 106.0
 offset_top = 32.0
@@ -271,6 +373,156 @@ offset_right = 138.0
 offset_bottom = 36.0
 texture = ExtResource("14_5dmff")
 stretch_mode = 2
+
+[node name="OptionVolume" type="MarginContainer" parent="Control" unique_id=1280076201]
+visible = false
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/OptionVolume" unique_id=733186428]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/OptionVolume/PanelContainer" unique_id=131078502]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/OptionVolume/PanelContainer" unique_id=921925944]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="Control/OptionVolume/PanelContainer/VBoxContainer" unique_id=1177539604]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox" unique_id=864058505]
+layout_mode = 2
+
+[node name="LabelGlobal" type="Label" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/VBoxContainer" unique_id=907132128]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "GLOBAL"
+horizontal_alignment = 1
+
+[node name="LabelFlute" type="Label" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/VBoxContainer" unique_id=1535439473]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FLUTE"
+horizontal_alignment = 1
+
+[node name="Volume" type="Control" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox" unique_id=1502700028]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeGlobal" type="HSlider" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/Volume" unique_id=1894769539]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 130.0
+offset_bottom = 9.0
+size_flags_vertical = 2
+
+[node name="VolumeFlute" type="HSlider" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/Volume" unique_id=752948481]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 130.0
+offset_bottom = 26.0
+size_flags_vertical = 2
+
+[node name="HBox2" type="HBoxContainer" parent="Control/OptionVolume/PanelContainer/VBoxContainer" unique_id=1964362417]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2" unique_id=1159453801]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonBack" type="Button" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2" unique_id=918136109]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
+
+[node name="Control2" type="Control" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2" unique_id=1637933545]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionSpeed" type="MarginContainer" parent="Control" unique_id=419397431]
+visible = false
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 125
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/OptionSpeed" unique_id=1647102396]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/OptionSpeed/PanelContainer" unique_id=296257564]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/OptionSpeed/PanelContainer/VBoxContainer" unique_id=2129246265]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1456057854]
+layout_mode = 2
+
+[node name="LabelPlaySpeed" type="Label" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2029040616]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PLAY SPEED x1.0"
+horizontal_alignment = 1
+
+[node name="LabelFallSpeed" type="Label" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1207111273]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FALL SPEED x1.0"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer" unique_id=105013126]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlaySpeed" type="HSlider" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/Control" unique_id=17917101]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 112.0
+offset_bottom = 9.0
+
+[node name="FallSpeed" type="HSlider" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/Control" unique_id=1608405089]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = 112.0
+offset_bottom = 26.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/OptionSpeed/PanelContainer/VBoxContainer" unique_id=1894795465]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Control" type="Control" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1724496016]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonBack" type="Button" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=704958544]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
+
+[node name="Control2" type="Control" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=947096533]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Sounds" type="Node" parent="." unique_id=1312740590]
 
@@ -292,16 +544,22 @@ parameters/looping = true
 [connection signal="mouse_entered" from="Control/Menu/PanelContainer/VBoxContainer/ButtonOption" to="." method="_on_button_option_mouse_entered"]
 [connection signal="button_up" from="Control/Menu/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_button_up"]
 [connection signal="mouse_entered" from="Control/Menu/PanelContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
-[connection signal="button_up" from="Control/Options/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_mouse_entered"]
-[connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderR" to="." method="_on_h_slider_r_value_changed"]
-[connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderG" to="." method="_on_h_slider_g_value_changed"]
-[connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderB" to="." method="_on_h_slider_b_value_changed"]
-[connection signal="value_changed" from="Control/Options/PanelContainer/Control/SliderContainer/HSliderA" to="." method="_on_h_slider_a_value_changed"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineWhole" to="." method="_on_line_whole_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineFallen" to="." method="_on_line_fallen_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LineFallenHigher" to="." method="_on_line_fallen_higher_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Wave" to="." method="_on_wave_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_line_playing_mouse_entered"]
-[connection signal="mouse_entered" from="Control/Options/PanelContainer/Control/TextureRect/LinePlayingHigher" to="." method="_on_line_playing_higher_mouse_entered"]
+[connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonVolume" to="." method="_on_button_volume_button_up"]
+[connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonColor" to="." method="_on_button_color_button_up"]
+[connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonSpeed" to="." method="_on_button_speed_button_up"]
+[connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]
+[connection signal="button_up" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_color_button_up"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderR" to="." method="_on_h_slider_r_value_changed"]
+[connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderG" to="." method="_on_h_slider_g_value_changed"]
+[connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderB" to="." method="_on_h_slider_b_value_changed"]
+[connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderA" to="." method="_on_h_slider_a_value_changed"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LineWhole" to="." method="_on_line_whole_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LineFallen" to="." method="_on_line_fallen_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LineFallenHigher" to="." method="_on_line_fallen_higher_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/Wave" to="." method="_on_wave_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_line_playing_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LinePlayingHigher" to="." method="_on_line_playing_higher_mouse_entered"]
+[connection signal="button_up" from="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2/ButtonBack" to="." method="_on_button_back_volume_button_up"]
+[connection signal="button_up" from="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2/ButtonBack" to="." method="_on_button_back_speed_button_up"]

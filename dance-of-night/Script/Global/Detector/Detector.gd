@@ -1,6 +1,6 @@
 class_name Detector extends Node
 
-const line_position:Vector2 = Vector2(240.0,200.0)
+const line_position:float = 225.0
 const pitch_scale:Array[float] = [
 	1.0,
 	1.122,
@@ -22,14 +22,14 @@ const pitch_scale_higher:Array[float] = [
 	5.656,
 ]
 const pitch_position:Array[Vector2] = [
-	Vector2(135.0,200.0),
-	Vector2(165.0,200.0),
-	Vector2(195.0,200.0),
-	Vector2(225.0,200.0),
-	Vector2(255.0,200.0),
-	Vector2(285.0,200.0),
-	Vector2(315.0,200.0),
-	Vector2(345.0,200.0),
+	Vector2(135.0,line_position),
+	Vector2(165.0,line_position),
+	Vector2(195.0,line_position),
+	Vector2(225.0,line_position),
+	Vector2(255.0,line_position),
+	Vector2(285.0,line_position),
+	Vector2(315.0,line_position),
+	Vector2(345.0,line_position),
 ]
 
 var game_is_end:bool = false
@@ -44,9 +44,6 @@ var music_score_pitch:int
 var rhythm_index:int = 0
 var rhythm_amount:int = 0
 var fallen_line_index:int = 0
-
-var playing_speed:float = 1.0
-var fallen_speed:float = 1.0
 
 var completed_time:float = 0.0
 var progress:float = 0.0
@@ -80,8 +77,21 @@ var point_array:Array[float]
 
 var fallen_line_pool:ObjectPoolFallenLine
 
-var pre_delay:float
+var fallen_delay:float
 var delay:float
+var play_music_delay:float
+
+var playing_speed:float = 0.75
+var fallen_speed_multiplier:float = 2.0:
+	get:
+		return fallen_speed_multiplier
+	set(new_speed):
+		if new_speed < 0.5:
+			fallen_speed_multiplier = 0.5
+		elif new_speed > 3.0:
+			fallen_speed_multiplier = 3.0
+		else:
+			fallen_speed_multiplier = new_speed
 
 @export var fallen_line_container:Node2D
 @export var timer:Timer
@@ -256,13 +266,13 @@ func change_color()->void:
 		line_playing.self_modulate = SaveLoad.ref_color_line_playing_higher.color
 	else:
 		line_playing.self_modulate = SaveLoad.ref_color_line_playing.color
-
+###更新音高###
 func update_music_score()->void:
 	var current_time:float = music_player.get_playback_position()
 	if rhythm_index < rhythm_amount:
 		if current_time > time_container[rhythm_index] and fallen_line_entering == false:
 			delay = current_time - time_container[rhythm_index]
-			print(delay)
+			#print(delay)
 			#print("update score time" + str(music_player.get_playback_position()))
 			music_score_pitch = pitch_container[rhythm_index]
 			fallen_line_entering = true
@@ -273,11 +283,11 @@ func update_music_score()->void:
 			reset_progress()
 	else:
 		game_is_end = true
-
+###生成线###
 func generate_fallen_line()->void:
 	if fallen_line_index < rhythm_amount:
 		var current_time:float = music_player.get_playback_position()
-		if current_time > time_container[fallen_line_index] - pre_delay:
+		if current_time > time_container[fallen_line_index] - fallen_delay:
 			#print(current_time)
 			#print(time_container[fallen_line_index])
 			fallen_line_pool.get_instance(fallen_line_index).setup_position()
@@ -287,7 +297,8 @@ func generate_fallen_line_pool()->void:
 	fallen_line_pool = ObjectPoolFallenLine.new(
 		fallen_line_container,
 		rhythm_amount,
-		fallen_speed,
+		fallen_speed_multiplier,
+		line_position,
 		pitch_container,
 		length_container
 		)
@@ -299,12 +310,12 @@ func set_outline()->void:
 func load_music_score()->void:
 	rhythm_amount = music_score.timeline.size()
 	for i:Rhythm in music_score.timeline:
-		time_container.append(i.time)
+		time_container.append((i.time)/playing_speed)
 		pitch_container.append(i.pitch)
-		length_container.append(i.length)
+		length_container.append((i.length)/playing_speed)
 
 func load_music_score_debug()->void:
-	if time_container[0] < pre_delay:
+	if time_container[0] < fallen_delay:
 		print("music score crashed!")
 		#get_tree().quit(1)
 	for i:int in range(fallen_line_index - 1):
@@ -322,7 +333,7 @@ func _ready() -> void:
 	var err2:int = timer.timeout.connect(_on_time_out)
 	print(err2)
 	
-	pre_delay = 2.0/fallen_speed
+	fallen_delay = (line_position/100.0)/fallen_speed_multiplier
 	#calculate_pitch()
 	load_music_score()
 	load_music_score_debug()
@@ -348,13 +359,15 @@ func _process(delta: float) -> void:
 	
 	update_progress(delta)
 	
+	#print(fallen_line_pool.get_instance(0).global_position)
 
 func _on_time_out()->void:
-	print("time out time:" + str(music_player.get_playback_position()))
+	#print("time out time:" + str(music_player.get_playback_position()))
 	#结束进入
 	set_outline()
 	fallen_line_entering = false
 	point_array.append(progress)
+	fallen_line_pool._return_to_pool(fallen_line_pool.get_instance(fallen_line_index))
 	if game_is_end:
 		button_finish.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
