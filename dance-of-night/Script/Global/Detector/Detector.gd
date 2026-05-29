@@ -81,8 +81,8 @@ var fallen_delay:float
 var delay:float
 var play_music_delay:float
 
-var playing_speed:float = 0.75
-var fallen_speed_multiplier:float = 2.0:
+var playing_speed:float = 1.0
+var fallen_speed_multiplier:float = 1.0:
 	get:
 		return fallen_speed_multiplier
 	set(new_speed):
@@ -326,6 +326,14 @@ func load_music_score_debug()->void:
 			print("music score crashed!")
 			get_tree().quit(1)
 
+func initialize()->void:
+	var the_music_score:TimeLine = load(Global.level_list[Global.level_index - 1])
+	music_score = the_music_score
+	playing_speed = Global.play_speed
+	fallen_speed_multiplier = Global.fallen_speed_multiplier
+	fallen_delay = (line_position/100.0)/fallen_speed_multiplier
+	button_finish.visible = false
+
 func _ready() -> void:
 	#链接信号
 	var err1:int = button_finish.button_down.connect(_on_button_finish_button_up)
@@ -333,7 +341,7 @@ func _ready() -> void:
 	var err2:int = timer.timeout.connect(_on_time_out)
 	print(err2)
 	
-	fallen_delay = (line_position/100.0)/fallen_speed_multiplier
+	initialize()
 	#calculate_pitch()
 	load_music_score()
 	load_music_score_debug()
@@ -341,8 +349,6 @@ func _ready() -> void:
 	play_music()
 	
 	set_outline()
-	
-	button_finish.visible = false
 
 func _process(delta: float) -> void:
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dq57ccqvk31gg" path="res://Asset/Image/Background/Background.png" id="2_88n10"]
 [ext_resource type="PackedScene" uid="uid://dmuhjdhkui5e0" path="res://Scene/Level/LoopLine.tscn" id="3_88n10"]
+[ext_resource type="Texture2D" uid="uid://dcdllbwuvp6ya" path="res://Asset/Image/Background/Flute.png" id="3_aerlm"]
 [ext_resource type="PackedScene" uid="uid://dxwpbqkrciq2b" path="res://Scene/Level/LoopLineReverse.tscn" id="4_aerlm"]
 
 [node name="Background" type="Node2D" unique_id=2110206342]
@@ -14,27 +15,36 @@ texture = ExtResource("2_88n10")
 
 [node name="LoopLine" parent="LoopLine" unique_id=70596041 instance=ExtResource("3_88n10")]
 spawn_position = Vector2(0, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLine2" parent="LoopLine" unique_id=1065747896 instance=ExtResource("3_88n10")]
 spawn_position = Vector2(120, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLine3" parent="LoopLine" unique_id=1180473185 instance=ExtResource("3_88n10")]
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLine4" parent="LoopLine" unique_id=982699205 instance=ExtResource("3_88n10")]
 spawn_position = Vector2(360, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLine5" parent="LoopLine" unique_id=1836528196 instance=ExtResource("3_88n10")]
 spawn_position = Vector2(480, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLineReverse" type="Node2D" parent="." unique_id=388656974]
 
 [node name="LoopLineReverse" parent="LoopLineReverse" unique_id=2090003720 instance=ExtResource("4_aerlm")]
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLineReverse2" parent="LoopLineReverse" unique_id=733030726 instance=ExtResource("4_aerlm")]
 spawn_position = Vector2(180, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLineReverse3" parent="LoopLineReverse" unique_id=962056032 instance=ExtResource("4_aerlm")]
 spawn_position = Vector2(300, 135)
+texture = ExtResource("3_aerlm")
 
 [node name="LoopLineReverse4" parent="LoopLineReverse" unique_id=1267791397 instance=ExtResource("4_aerlm")]
 spawn_position = Vector2(420, 135)
+texture = ExtResource("3_aerlm")

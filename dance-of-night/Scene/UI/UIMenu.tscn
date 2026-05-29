@@ -16,7 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://dtcepp3ecuxyo" path="res://Asset/Image/RhythmTexture/LineInterior.png" id="14_5dmff"]
 [ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="15_qh537"]
 [ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="16_7v1re"]
+[ext_resource type="Texture2D" uid="uid://bkpdb6564wrfq" path="res://Asset/Image/UI/FileRear.png" id="16_c6qia"]
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="17_7v1re"]
+[ext_resource type="Texture2D" uid="uid://y2g6pu1quluw" path="res://Asset/Image/Background/Backgrounds/B1.png" id="17_p5nsp"]
+[ext_resource type="Texture2D" uid="uid://c6ycyf3gwtoq6" path="res://Asset/Image/UI/FileFront.png" id="18_e11oj"]
 [ext_resource type="Texture2D" uid="uid://byakj5vwwbn8o" path="res://Asset/Image/Character/TileMapNight.png" id="18_vygnc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fadbm"]
@@ -423,6 +426,8 @@ offset_top = 5.0
 offset_right = 130.0
 offset_bottom = 9.0
 size_flags_vertical = 2
+max_value = 80.0
+value = 80.0
 
 [node name="VolumeFlute" type="HSlider" parent="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/Volume" unique_id=752948481]
 layout_mode = 0
@@ -430,6 +435,8 @@ offset_top = 22.0
 offset_right = 130.0
 offset_bottom = 26.0
 size_flags_vertical = 2
+max_value = 80.0
+value = 80.0
 
 [node name="HBox2" type="HBoxContainer" parent="Control/OptionVolume/PanelContainer/VBoxContainer" unique_id=1964362417]
 layout_mode = 2
@@ -497,6 +504,10 @@ offset_left = 12.0
 offset_top = 5.0
 offset_right = 112.0
 offset_bottom = 9.0
+min_value = 0.5
+max_value = 3.0
+step = 0.01
+value = 1.0
 
 [node name="FallSpeed" type="HSlider" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/Control" unique_id=1608405089]
 layout_mode = 0
@@ -504,6 +515,10 @@ offset_left = 12.0
 offset_top = 22.0
 offset_right = 112.0
 offset_bottom = 26.0
+min_value = 0.5
+max_value = 3.0
+step = 0.01
+value = 1.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/OptionSpeed/PanelContainer/VBoxContainer" unique_id=1894795465]
 layout_mode = 2
@@ -523,6 +538,351 @@ text = "BACK"
 [node name="Control2" type="Control" parent="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=947096533]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="LevelSelection" type="MarginContainer" parent="Control" unique_id=73377443]
+visible = false
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/LevelSelection" unique_id=1013285071]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Control/LevelSelection/PanelContainer" unique_id=349501184]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/LevelSelection/PanelContainer/Control" unique_id=1916655660]
+layout_mode = 0
+offset_right = 270.0
+offset_bottom = 210.0
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_right = 27
+
+[node name="GridContainer" type="GridContainer" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer" unique_id=805886759]
+layout_mode = 2
+theme_override_constants/h_separation = 72
+theme_override_constants/v_separation = 56
+columns = 3
+
+[node name="Level1" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=298111143]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level1" unique_id=1589738285]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level1" unique_id=979311964]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level1" unique_id=1998016169]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel1" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level1" unique_id=1778722299]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level2" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1036239974]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=270624376]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=1470737566]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=1141703594]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel2" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=4145944]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 50.0
+offset_right = 39.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "You"
+
+[node name="Level3" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1851167843]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=1274778406]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=1396476029]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=480332637]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel3" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=1206764946]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level4" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=657567098]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=475148650]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=1308764043]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=310446802]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel4" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=2108065095]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level5" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1106606255]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1066881597]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1652303285]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1030162200]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel5" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1270992688]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level6" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1615419750]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=971080066]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=313397616]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=126294752]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel6" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=530739913]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level7" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1923190585]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=1465813816]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=901499689]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=434991955]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel7" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=1278802532]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level8" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1982525653]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=501579209]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=1987950592]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=321393790]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel8" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=1719740036]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="Level9" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1085618707]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9" unique_id=1329478809]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("16_c6qia")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9" unique_id=1693582054]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 56.0
+offset_bottom = 57.0
+texture = ExtResource("17_p5nsp")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9" unique_id=267581437]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_e11oj")
+
+[node name="ButtonLevel9" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9" unique_id=281186014]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Tutorial"
+
+[node name="ButtonBack" type="Button" parent="Control/LevelSelection/PanelContainer/Control" unique_id=1633686951]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 0
+offset_left = 111.0
+offset_top = 186.0
+offset_right = 167.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BACK"
 
 [node name="Sounds" type="Node" parent="." unique_id=1312740590]
 
@@ -549,7 +909,7 @@ parameters/looping = true
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonSpeed" to="." method="_on_button_speed_button_up"]
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]
 [connection signal="button_up" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_color_button_up"]
-[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_color_mouse_entered"]
 [connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderR" to="." method="_on_h_slider_r_value_changed"]
 [connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderG" to="." method="_on_h_slider_g_value_changed"]
 [connection signal="value_changed" from="Control/OptionColor/PanelContainer/Control/SliderContainer/HSliderB" to="." method="_on_h_slider_b_value_changed"]
@@ -561,5 +921,22 @@ parameters/looping = true
 [connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/Outline" to="." method="_on_outline_mouse_entered"]
 [connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LinePlaying" to="." method="_on_line_playing_mouse_entered"]
 [connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/TextureRect/LinePlayingHigher" to="." method="_on_line_playing_higher_mouse_entered"]
+[connection signal="value_changed" from="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/Volume/VolumeGlobal" to="." method="_on_volume_global_value_changed"]
+[connection signal="value_changed" from="Control/OptionVolume/PanelContainer/VBoxContainer/HBox/Volume/VolumeFlute" to="." method="_on_volume_flute_value_changed"]
 [connection signal="button_up" from="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2/ButtonBack" to="." method="_on_button_back_volume_button_up"]
+[connection signal="mouse_entered" from="Control/OptionVolume/PanelContainer/VBoxContainer/HBox2/ButtonBack" to="." method="_on_button_back_volume_mouse_entered"]
+[connection signal="value_changed" from="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/Control/PlaySpeed" to="." method="_on_play_speed_value_changed"]
+[connection signal="value_changed" from="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/Control/FallSpeed" to="." method="_on_fall_speed_value_changed"]
 [connection signal="button_up" from="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2/ButtonBack" to="." method="_on_button_back_speed_button_up"]
+[connection signal="mouse_entered" from="Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer2/ButtonBack" to="." method="_on_button_back_speed_mouse_entered"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level1/ButtonLevel1" to="." method="_on_button_level_1_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2/ButtonLevel2" to="." method="_on_button_level_2_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3/ButtonLevel3" to="." method="_on_button_level_3_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4/ButtonLevel4" to="." method="_on_button_level_4_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5/ButtonLevel5" to="." method="_on_button_level_5_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6/ButtonLevel6" to="." method="_on_button_level_6_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7/ButtonLevel7" to="." method="_on_button_level_7_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8/ButtonLevel8" to="." method="_on_button_level_8_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9/ButtonLevel9" to="." method="_on_button_level_9_button_up"]
+[connection signal="button_up" from="Control/LevelSelection/PanelContainer/Control/ButtonBack" to="." method="_on_button_back_level_selection_button_up"]
+[connection signal="mouse_entered" from="Control/LevelSelection/PanelContainer/Control/ButtonBack" to="." method="_on_button_back_level_mouse_entered"]

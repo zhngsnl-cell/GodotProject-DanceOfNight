@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdwf4djn1yve5" path="res://Script/Global/Detector/Detector.gd" id="1_16iqs"]
 [ext_resource type="Material" uid="uid://du2bcq3ma38x1" path="res://Asset/Material/WaveEffect.tres" id="2_pshfh"]
-[ext_resource type="Resource" uid="uid://d2qkf0r1e0h8b" path="res://Asset/Resource/Score1.tres" id="3_pshfh"]
+[ext_resource type="Resource" uid="uid://d2qkf0r1e0h8b" path="res://Asset/Resource/Score_DanceOfNight.tres" id="3_pshfh"]
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="4_pshfh"]
 [ext_resource type="Texture2D" uid="uid://cdptxabh87daf" path="res://Asset/Image/RhythmTexture/LineWhole.png" id="5_njpq8"]
 [ext_resource type="AudioStream" uid="uid://dvbnrl18gijtu" path="res://Asset/Sound/Sample/PanFluteA.mp3" id="5_pshfh"]
