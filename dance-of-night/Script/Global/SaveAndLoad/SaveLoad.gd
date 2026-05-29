@@ -53,17 +53,21 @@ func load_single_color(color_to_load:ColorData)->Color:
 func load_color()->void:
 	if not ResourceLoader.exists(SAVE_PATH):
 		print("resource doesn't exist")
-		return
 	var color_data_array:ColorDataArray = ResourceLoader.load(SAVE_PATH) as ColorDataArray
 	if color_data_array == null:
 		print("data is null")
-		return
-	if color_data_array.color_data_array.is_empty():
-		print("array is empty")
-		return
 	for i:int in range(color_ref_array.size()):
-		if color_data_array.color_data_array.is_empty():
+		if color_data_array == null:
+			ref_color_line.color = Color(1.0, 1.0, 1.0, 1.0)
+			ref_color_line_playing.color = Color(0.565, 0.502, 0.863, 1.0)
+			ref_color_line_playing_higher.color = Color(0.718, 0.29, 0.831, 1.0)
+			ref_color_outline.color = Color(0.565, 0.808, 0.0, 1.0)
+			ref_color_rhythm.color = Color(0.537, 1.0, 1.0, 1.0)
+			ref_color_rhythm_higher.color = Color(0.192, 0.427, 0.882, 1.0)
+			ref_color_wave.color = Color(0.192, 0.365, 1.0, 1.0)
+			save_color()
 			return
 		else:
 			color_ref_array[i].color = load_single_color(color_data_array.color_data_array[i])
+
 	print("color loaded!")

@@ -18,3 +18,4 @@ res://Script/Level/Main.gd
 res://Script/Global/Detector/Detector.gd
 res://Scene/Level/LineFallen.tscn
 res://Asset/Resource/Score_DanceOfNight.tres
+res://Script/Global/SaveAndLoad/SaveLoad.gd
