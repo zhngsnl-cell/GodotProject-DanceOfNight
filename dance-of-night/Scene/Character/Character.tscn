@@ -1,30 +1,28 @@
 [gd_scene format=3 uid="uid://bvdnegwcebkly"]
 
 [ext_resource type="Texture2D" uid="uid://byakj5vwwbn8o" path="res://Asset/Image/Character/TileMapNight.png" id="1_64ur6"]
+[ext_resource type="Texture2D" uid="uid://c1rmfi2hccjwm" path="res://Asset/Image/Character/DancingNight.png" id="1_mywbb"]
 [ext_resource type="Script" uid="uid://c21w7ff2cjvp0" path="res://Script/Character/Character.gd" id="2_64ur6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mywbb"]
-atlas = ExtResource("1_64ur6")
-region = Rect2(0, 0, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ppva"]
-atlas = ExtResource("1_64ur6")
-region = Rect2(48, 0, 48, 48)
+atlas = ExtResource("1_mywbb")
+region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipoiy"]
-atlas = ExtResource("1_64ur6")
-region = Rect2(96, 0, 48, 48)
+atlas = ExtResource("1_mywbb")
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h36tx"]
-atlas = ExtResource("1_64ur6")
-region = Rect2(144, 0, 48, 48)
+atlas = ExtResource("1_mywbb")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc622"]
+atlas = ExtResource("1_mywbb")
+region = Rect2(144, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l48g2"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mywbb")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3ppva")
 }, {
@@ -33,6 +31,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h36tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc622")
 }],
 "loop": true,
 "name": &"Dance",

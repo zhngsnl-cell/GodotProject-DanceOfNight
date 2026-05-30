@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://borighfvkufet" path="res://Script/UI/UIEntrance.gd" id="1_i147s"]
 [ext_resource type="PackedScene" uid="uid://bj5fgyi578beh" path="res://Scene/Level/Background.tscn" id="2_8rk2v"]
+[ext_resource type="Texture2D" uid="uid://c1rmfi2hccjwm" path="res://Asset/Image/Character/DancingNight.png" id="3_uliwt"]
 [ext_resource type="Theme" uid="uid://du2v7x0uh21b0" path="res://Asset/Theme/Theme.tres" id="3_yvrmp"]
 [ext_resource type="Theme" uid="uid://bhd82pd4a0uhg" path="res://Asset/Theme/SliderThemeR.tres" id="4_soewb"]
 [ext_resource type="Texture2D" uid="uid://cs4am3lg0lj8i" path="res://Asset/Image/Background/WhiteBlock32.png" id="4_yvrmp"]
@@ -20,38 +21,43 @@
 [ext_resource type="AudioStream" uid="uid://bgeork6q74uob" path="res://Asset/Sound/Music/ビートまりお - ナイト・オブ・ナイツ.mp3" id="17_7v1re"]
 [ext_resource type="Texture2D" uid="uid://y2g6pu1quluw" path="res://Asset/Image/Background/Backgrounds/B1.png" id="17_p5nsp"]
 [ext_resource type="Texture2D" uid="uid://c6ycyf3gwtoq6" path="res://Asset/Image/UI/FileFront.png" id="18_e11oj"]
-[ext_resource type="Texture2D" uid="uid://byakj5vwwbn8o" path="res://Asset/Image/Character/TileMapNight.png" id="18_vygnc"]
+[ext_resource type="Texture2D" uid="uid://wxik56xf52ie" path="res://Asset/Image/Background/Backgrounds/B6.png" id="19_p5nsp"]
+[ext_resource type="Texture2D" uid="uid://ckiuekdxgvrg5" path="res://Asset/Image/Background/Backgrounds/B3.png" id="19_uliwt"]
+[ext_resource type="Texture2D" uid="uid://c2gpmisqhvc1n" path="res://Asset/Image/Background/Backgrounds/B4.png" id="20_vdmhf"]
+[ext_resource type="Texture2D" uid="uid://cflxwi2kh0r8p" path="res://Asset/Image/Background/Backgrounds/B5.png" id="21_dqeas"]
+[ext_resource type="Texture2D" uid="uid://ddtslrqrd3nh0" path="res://Asset/Image/Background/Backgrounds/B7.png" id="23_4yuu1"]
+[ext_resource type="Texture2D" uid="uid://i7aj63ms4g7b" path="res://Asset/Image/Background/Backgrounds/B8.png" id="24_6k3yq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fadbm"]
-atlas = ExtResource("18_vygnc")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdmhf"]
+atlas = ExtResource("3_uliwt")
+region = Rect2(0, 48, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yryd6"]
-atlas = ExtResource("18_vygnc")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqeas"]
+atlas = ExtResource("3_uliwt")
+region = Rect2(48, 48, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6qia"]
-atlas = ExtResource("18_vygnc")
-region = Rect2(96, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yuu1"]
+atlas = ExtResource("3_uliwt")
+region = Rect2(96, 48, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5nsp"]
-atlas = ExtResource("18_vygnc")
-region = Rect2(144, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k3yq"]
+atlas = ExtResource("3_uliwt")
+region = Rect2(144, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7v1re"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fadbm")
+"texture": SubResource("AtlasTexture_vdmhf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yryd6")
+"texture": SubResource("AtlasTexture_dqeas")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c6qia")
+"texture": SubResource("AtlasTexture_4yuu1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p5nsp")
+"texture": SubResource("AtlasTexture_6k3yq")
 }],
 "loop": true,
 "name": &"Dance",
@@ -651,7 +657,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("19_uliwt")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=480332637]
@@ -685,7 +691,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("20_vdmhf")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=310446802]
@@ -719,7 +725,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("21_dqeas")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1030162200]
@@ -753,7 +759,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("19_p5nsp")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=126294752]
@@ -787,7 +793,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("23_4yuu1")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=434991955]
@@ -821,7 +827,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("24_6k3yq")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=321393790]
