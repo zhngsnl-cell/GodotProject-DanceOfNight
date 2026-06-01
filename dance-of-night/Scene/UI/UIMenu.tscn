@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ycyf3gwtoq6" path="res://Asset/Image/UI/FileFront.png" id="18_e11oj"]
 [ext_resource type="Texture2D" uid="uid://wxik56xf52ie" path="res://Asset/Image/Background/Backgrounds/B6.png" id="19_p5nsp"]
 [ext_resource type="Texture2D" uid="uid://ckiuekdxgvrg5" path="res://Asset/Image/Background/Backgrounds/B3.png" id="19_uliwt"]
+[ext_resource type="Texture2D" uid="uid://beqw7s81iul55" path="res://Asset/Image/Background/Backgrounds/B2.png" id="19_vdmhf"]
 [ext_resource type="Texture2D" uid="uid://c2gpmisqhvc1n" path="res://Asset/Image/Background/Backgrounds/B4.png" id="20_vdmhf"]
 [ext_resource type="Texture2D" uid="uid://cflxwi2kh0r8p" path="res://Asset/Image/Background/Backgrounds/B5.png" id="21_dqeas"]
 [ext_resource type="Texture2D" uid="uid://ddtslrqrd3nh0" path="res://Asset/Image/Background/Backgrounds/B7.png" id="23_4yuu1"]
@@ -609,6 +610,7 @@ theme_override_font_sizes/font_size = 8
 text = "Tutorial"
 
 [node name="Level2" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1036239974]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=270624376]
@@ -623,7 +625,7 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
+texture = ExtResource("19_vdmhf")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=1141703594]
@@ -634,15 +636,16 @@ texture = ExtResource("18_e11oj")
 
 [node name="ButtonLevel2" type="Button" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level2" unique_id=4145944]
 layout_mode = 0
-offset_left = 21.0
+offset_left = 11.0
 offset_top = 50.0
-offset_right = 42.0
+offset_right = 54.0
 offset_bottom = 61.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
-text = "<<You>>"
+text = "<<You+Autumn>>"
 
 [node name="Level3" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1851167843]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level3" unique_id=1274778406]
@@ -677,6 +680,7 @@ theme_override_font_sizes/font_size = 8
 text = "<<BrokenMoon>>"
 
 [node name="Level4" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=657567098]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level4" unique_id=475148650]
@@ -711,6 +715,7 @@ theme_override_font_sizes/font_size = 8
 text = "<<ChineseTea>>"
 
 [node name="Level5" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1106606255]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level5" unique_id=1066881597]
@@ -745,6 +750,7 @@ theme_override_font_sizes/font_size = 8
 text = "<<HistoryOfTheMoon>>"
 
 [node name="Level6" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1615419750]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level6" unique_id=971080066]
@@ -779,6 +785,7 @@ theme_override_font_sizes/font_size = 8
 text = "<<NightOFKnights>>"
 
 [node name="Level7" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1923190585]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level7" unique_id=1465813816]
@@ -813,6 +820,7 @@ theme_override_font_sizes/font_size = 8
 text = "<<LunaticPrincess>>"
 
 [node name="Level8" type="Control" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer" unique_id=1982525653]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level8" unique_id=501579209]
@@ -861,7 +869,6 @@ offset_left = 8.0
 offset_top = 30.0
 offset_right = 56.0
 offset_bottom = 57.0
-texture = ExtResource("17_p5nsp")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/LevelSelection/PanelContainer/Control/MarginContainer/GridContainer/Level9" unique_id=267581437]

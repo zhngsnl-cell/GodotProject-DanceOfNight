@@ -32,6 +32,8 @@ const pitch_position:Array[Vector2] = [
 	Vector2(345.0,line_position),
 ]
 
+var auto_mode:bool = true
+
 var game_is_end:bool = false
 var fallen_line_entering:bool = false
 var higher_mode:bool = false
@@ -244,6 +246,22 @@ func play_sound()->void:
 	else:
 		sound_player.stop()
 
+func auto_play()->void:
+	if auto_mode:
+		if rhythm_index < rhythm_amount:
+			var current_time:float = music_player.get_playback_position()
+			if current_time > time_container[rhythm_index]:
+				playing_pitch = music_score_pitch
+			if fallen_line_entering:
+				if sound_player.playing == false:
+					sound_player.play()
+				if playing_pitch > 7:
+					sound_player.pitch_scale = pitch_scale_higher[processed_pitch(music_score_pitch)]
+				else:
+					sound_player.pitch_scale = pitch_scale[processed_pitch(music_score_pitch)]
+			else:
+				sound_player.stop()
+
 func play_animation()->void:
 	if pressing():
 		line_playing.visible = true
@@ -277,6 +295,7 @@ func update_music_score()->void:
 			music_score_pitch = pitch_container[rhythm_index]
 			fallen_line_entering = true
 			timer.wait_time = length_container[rhythm_index] - delay
+			
 			rhythm_index += 1
 			timer.start()
 			
@@ -363,6 +382,8 @@ func _process(delta: float) -> void:
 	update_music_score()
 	play_animation_wave()
 	
+	#auto_play()
+	
 	update_progress(delta)
 	
 	#print(fallen_line_pool.get_instance(0).global_position)
@@ -373,7 +394,7 @@ func _on_time_out()->void:
 	set_outline()
 	fallen_line_entering = false
 	point_array.append(progress)
-	fallen_line_pool._return_to_pool(fallen_line_pool.get_instance(fallen_line_index))
+	fallen_line_pool._return_to_pool(fallen_line_pool.get_instance(fallen_line_index - 1))
 	if game_is_end:
 		button_finish.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

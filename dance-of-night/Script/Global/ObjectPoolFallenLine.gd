@@ -4,6 +4,7 @@ class_name ObjectPoolFallenLine
 
 extends RefCounted
 
+var _size:int
 var _pool: Array[FallenLine] = []
 var _parent: Node
 
@@ -17,6 +18,7 @@ func _init(
 )->void:
 	_parent = parent
 	_initialize_pool(size,fallen_speed_multiplier,disappear_point,pitch_array,length_array)
+	_size = size
 
 func _initialize_pool(
 	count: int,

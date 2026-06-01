@@ -4,6 +4,7 @@ extends Node2D
 @onready var settlement: Control = $Settlement
 @onready var label_score: Label = $Settlement/MarginContainer/PanelContainer/VBoxContainer/LabelScore
 @onready var character: NightAnim = $Character
+@onready var background: TextureRect = $Background
 
 @onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
 @onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
@@ -17,6 +18,7 @@ func set_color()->void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_color()
+	background.texture = Global.background_list[Global.level_index - 1]
 	detector.send_final_point.connect(_on_send_final_point)
 
 func _process(_delta: float) -> void:

@@ -1,8 +1,8 @@
 extends Node
 
-const SCORE_1:JSON = preload("res://Asset/Text/Score1.json")
+const SCORE:JSON = preload("res://Asset/Text/Score_FreeMode.json")
 
-const SAVE_PATH:String = "res://Asset/Resource/Score_You.tres"
+const SAVE_PATH:String = "res://Asset/Resource/Score_FreeMode.tres"
 
 func generate_resource(resource_path:String)->TimeLine:
 	var timeline_resource:TimeLine = TimeLine.new()
@@ -22,7 +22,7 @@ func generate_resource(resource_path:String)->TimeLine:
 	return timeline_resource
 
 func _ready() -> void:
-	var error:Error = ResourceSaver.save(generate_resource("res://Asset/Text/Score_You.json"),SAVE_PATH)
+	var error:Error = ResourceSaver.save(generate_resource("res://Asset/Text/Score_FreeMode.json"),SAVE_PATH)
 	if error != OK:
 		print("failed to generate score")
 	get_tree().quit()
