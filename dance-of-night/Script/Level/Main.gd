@@ -8,6 +8,7 @@ extends Node2D
 
 @onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
 @onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
+@onready var sound_applaud: AudioStreamPlayer = $Sounds/SoundApplaud
 
 func set_color()->void:
 	detector.line_whole.self_modulate = SaveLoad.ref_color_line.color
@@ -17,7 +18,9 @@ func set_color()->void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	set_color()
+	detector.auto_mode = Global.auto_mode
 	background.texture = Global.background_list[Global.level_index - 1]
 	detector.send_final_point.connect(_on_send_final_point)
 
@@ -34,6 +37,7 @@ func _on_send_final_point(final_score:float)->void:
 		final_score = 1.0
 	settlement.visible = true
 	label_score.text = str(int(floorf(final_score * 100.0))) + "%"
+	sound_applaud.play()
 
 func _on_button_retry_button_up() -> void:
 	sound_select.play()

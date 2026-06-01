@@ -1,7 +1,7 @@
 extends Node
 
 const level_list:Array[String] = [
-	"res://Asset/Resource/Score_Tutotial.tres",
+	"res://Asset/Resource/Score_Tutorial.tres",
 	"res://Asset/Resource/Score_You.tres",
 	"res://Asset/Text/Score_BrokenMoon.json",
 	"res://Asset/Text/Score_ChineseTea.json",
@@ -24,6 +24,7 @@ const background_list:Array[CompressedTexture2D] = [
 	preload("res://Asset/Image/Background/Backgrounds/B1.png")
 ]
 
+var auto_mode:bool = false
 var level_index:int = 1
 var global_volume:float = 0.0
 var flute_volume:float = 0.0

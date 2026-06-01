@@ -47,6 +47,8 @@ var current_color_type:ColorType = ColorType.LINE
 @onready var label_play_speed: Label = $Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/LabelPlaySpeed
 @onready var label_fall_speed: Label = $Control/OptionSpeed/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer/LabelFallSpeed
 
+@onready var button_autoplay: Button = $Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonAutoplay
+
 @onready var sound_hover: AudioStreamPlayer = $Sounds/SoundHover
 @onready var sound_select: AudioStreamPlayer = $Sounds/SoundSelect
 @onready var music: AudioStreamPlayer = $Sounds/Music
@@ -227,6 +229,9 @@ func _on_button_back_speed_mouse_entered() -> void:
 func _on_button_back_level_mouse_entered() -> void:
 	sound_hover.play()
 
+func _on_button_autoplay_mouse_entered() -> void:
+	sound_hover.play()
+
 func _on_button_option_button_up() -> void:
 	menu.visible = false
 	option.visible = true
@@ -323,3 +328,12 @@ func _on_button_level_8_button_up() -> void:
 
 func _on_button_level_9_button_up() -> void:
 	await select_level(9)
+
+func _on_button_autoplay_button_up() -> void:
+	sound_select.play()
+	if Global.auto_mode == false:
+		Global.auto_mode = true
+		button_autoplay.text = "AUTO:TRUE"
+	else:
+		Global.auto_mode = false
+		button_autoplay.text = "AUTO:FALSE"

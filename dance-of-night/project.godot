@@ -13,7 +13,11 @@ config_version=5
 config/name="DanceOfNight"
 run/main_scene="uid://ypnv8lpdrhxt"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/image="uid://c36fw7b8uik6w"
 config/icon="uid://c36fw7b8uik6w"
+boot_splash/minimum_display_time=100
 
 [autoload]
 

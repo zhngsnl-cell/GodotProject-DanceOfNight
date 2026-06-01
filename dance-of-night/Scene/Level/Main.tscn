@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvdnegwcebkly" path="res://Scene/Character/Character.tscn" id="5_f40xe"]
 [ext_resource type="AudioStream" uid="uid://4mkefy4xhlc5" path="res://Asset/Sound/Effect/Hover.mp3" id="7_x615r"]
 [ext_resource type="AudioStream" uid="uid://dg6e4pmoxigv2" path="res://Asset/Sound/Effect/Select.mp3" id="8_ovwoa"]
+[ext_resource type="AudioStream" uid="uid://b651y0k4sghrp" path="res://Asset/Sound/Effect/Applaud.mp3" id="9_ovwoa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k8pkv"]
 font_size = 32
@@ -89,6 +90,9 @@ stream = ExtResource("7_x615r")
 
 [node name="SoundSelect" type="AudioStreamPlayer" parent="Sounds" unique_id=717551250]
 stream = ExtResource("8_ovwoa")
+
+[node name="SoundApplaud" type="AudioStreamPlayer" parent="Sounds" unique_id=822499683]
+stream = ExtResource("9_ovwoa")
 
 [connection signal="button_up" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonRetry" to="." method="_on_button_retry_button_up"]
 [connection signal="mouse_entered" from="Settlement/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/ButtonRetry" to="." method="_on_button_retry_mouse_entered"]

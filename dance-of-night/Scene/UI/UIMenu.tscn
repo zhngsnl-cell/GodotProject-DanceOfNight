@@ -175,6 +175,11 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "SPEED"
 
+[node name="ButtonAutoplay" type="Button" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=270607362]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "AUTO:FALSE"
+
 [node name="Control" type="Control" parent="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2" unique_id=1560538409]
 layout_mode = 2
 size_flags_vertical = 3
@@ -920,6 +925,8 @@ parameters/looping = true
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonVolume" to="." method="_on_button_volume_button_up"]
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonColor" to="." method="_on_button_color_button_up"]
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonSpeed" to="." method="_on_button_speed_button_up"]
+[connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonAutoplay" to="." method="_on_button_autoplay_button_up"]
+[connection signal="mouse_entered" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonAutoplay" to="." method="_on_button_autoplay_mouse_entered"]
 [connection signal="button_up" from="Control/Option/PanelContainer/HBoxContainer/VBoxContainer2/ButtonBack" to="." method="_on_button_back_button_up"]
 [connection signal="button_up" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_color_button_up"]
 [connection signal="mouse_entered" from="Control/OptionColor/PanelContainer/Control/HBoxContainer2/ButtonBack" to="." method="_on_button_back_color_mouse_entered"]

@@ -1,5 +1,6 @@
-Control
 Button
+AudioStreamPlayer
+Control
 MarginContainer
 TextureRect
 GridContainer
@@ -10,5 +11,4 @@ VBoxContainer
 HBoxContainer
 AnimatedSprite2D
 Node
-AudioStreamPlayer
 Sprite2D
